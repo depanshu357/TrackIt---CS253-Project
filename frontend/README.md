@@ -1,7 +1,7 @@
 # instructons for running the app
 open vs code terminal and in the path  your present folder and run -
 
-### 'npm install'
+### `npm install`
 
 In the project directory, you can run:
 
