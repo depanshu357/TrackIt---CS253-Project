@@ -6,8 +6,8 @@ const Login = () => {
     <div>
       <form action={api+"/login"} method="POST" className='login-form'>
 
-        <label htmlFor="login-name" >Name</label>
-        <input type="text" className='login-name' placeholder='Name' name="name"/>
+        {/* <label htmlFor="login-name" >Name</label>
+        <input type="text" className='login-name' placeholder='Name' name="name"/> */}
         <label htmlFor="login-email" >Email</label>
         <input type="email" className="login-email" name="email"/>
         <label htmlFor="login-password">Password</label>
