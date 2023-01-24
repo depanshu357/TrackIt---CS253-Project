@@ -1,13 +1,13 @@
 # instructons for running the app
 open the terminal in backend folder and run
 
-$npm install
-$node server.js
+`npm install`
+`node server.js`
 
 now open terminal in frontend folder and run
 
-$npm install
-$npm start
+`npm install`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
