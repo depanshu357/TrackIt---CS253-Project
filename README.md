@@ -1,11 +1,13 @@
 # instructons for running the app
-open vs code terminal in the path of your present folder and run -
+open the terminal in backend folder and run
 
-### `npm install`
+`npm install`
+`node server.js`
 
-In the project directory, you can run:
+now open terminal in frontend folder and run
 
-### `npm start`
+`npm install`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
