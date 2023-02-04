@@ -26,6 +26,18 @@ function App() {
               element={user ? <Home /> : <Navigate to="/login" />} 
             />
             <Route 
+              path="/currentMonth" 
+              element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/profile" 
+              element={user ? <Profile /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/history" 
+              element={user ? <History /> : <Navigate to="/login" />} 
+            />
+            <Route 
               path="/login" 
               element={!user ? <Login /> : <Navigate to="/" />} 
             />

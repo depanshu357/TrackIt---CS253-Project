@@ -36,7 +36,7 @@ const Navbar = () => {
                   Home
                 </a>
               </li> */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="/currentMonth">
                   CurrentMonth
                 </a>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <a href="/profile" className="nav-link">
                   Profile
                 </a>
-              </li>
+              </li> */}
               {/* <li>
                 <a href="/login" className="nav-link">
                   Sign Out
@@ -58,6 +58,9 @@ const Navbar = () => {
               </li> */}
               {user && (
             <div>
+              <Link to="/currentMonth">currentMonth </Link>
+              <Link to="/history">History </Link>
+              <Link to="/profile">Profile </Link>
               <span>{user.email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
@@ -66,6 +69,7 @@ const Navbar = () => {
             <div>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
+              
             </div>
           )}
 
