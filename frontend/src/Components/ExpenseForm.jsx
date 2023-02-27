@@ -9,6 +9,7 @@ const ExpenseForm = () => {
   const [Item, setItem] = useState('')
   const [MoneySpent, setMoneySpent] = useState('')
   const [Description, setDescription] = useState('')
+  const [Date, setDate] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -20,7 +21,7 @@ const ExpenseForm = () => {
       return
     }
 
-    const expense = {Item, MoneySpent, Description}
+    const expense = {Item, MoneySpent, Description,Date}
 
     const response = await fetch('/api/expense', {
       method: 'POST',
@@ -72,6 +73,14 @@ const ExpenseForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         value={Description}
         className={emptyFields.includes('Description') ? 'error' : ''}
+      />
+
+      <label>Date:</label>
+      <input 
+        type="date"
+        onChange={(e) => setDate(e.target.value)}
+        value={Date}
+        className={emptyFields.includes('Date') ? 'error' : ''}
       />
 
       <button>Add To List</button>

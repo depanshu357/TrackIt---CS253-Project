@@ -4,6 +4,7 @@ import { useSignup } from "../hooks/useSignup"
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [rollNo,setRollNo] = useState('')
   const {signup, error, isLoading} = useSignup()
 
   const handleSubmit = async (e) => {
@@ -11,6 +12,17 @@ const Signup = () => {
 
     await signup(email, password)
   }
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  function generateString(length) {
+    let result = ' ';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
 
   return (
     <form className="signup" onSubmit={handleSubmit}>
@@ -28,9 +40,16 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)} 
         value={password} 
       />
+      <label> IITK Roll Number</label>
+      <input type="text" 
+      onChange={(e) => setRollNo(e.target.value)}
+      value={rollNo}
+      />
 
       <button disabled={isLoading}>Sign up</button>
+      <p>Already a user!! <a href="/login">Login Here</a></p>
       {error && <div className="error">{error}</div>}
+
     </form>
   )
 }

@@ -18,6 +18,10 @@ const expenseSchema = new Schema({
   user_id: {
     type: String,
     required: true
+  },
+  Date:{
+    type: Date,
+    default : Date.now
   }
 }, { timestamps: true })
 

@@ -9,6 +9,7 @@ const passport = require("passport")
 const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
 const userExpense = require("./routes/expense")
+const userDues = require("./routes/dues")
 app.use(cors())
 app.use(express.json())
 app.engine('html', require('ejs').renderFile);
@@ -88,6 +89,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // app.use('/api/expense',)
 app.use('/api/user',userRoutes)
 app.use('/api/expense',userExpense)
+app.use('/api/dues',userDues)
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

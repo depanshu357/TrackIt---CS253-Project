@@ -1,7 +1,7 @@
 const Expense = require('../models/expenseModel')
 const mongoose = require('mongoose')
 
-// get all workouts
+// get all expenses
 const getExpenses = async (req, res) => {
   const user_id = req.user._id
 
@@ -10,27 +10,27 @@ const getExpenses = async (req, res) => {
   res.status(200).json(expenses)
 }
 
-// get a single workout
+// get a single expense
 const getExpense = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such workout'})
+    return res.status(404).json({error: 'No such expenses'})
   }
 
   const expense = await Expense.findById(id)
 
   if (!expense) {
-    return res.status(404).json({error: 'No such workout'})
+    return res.status(404).json({error: 'No such expense'})
   }
   
   res.status(200).json(expense)
 }
 
 
-// create new workout
+// create new expense
 const createExpense = async (req, res) => {
-  const {Item, MoneySpent, Description} = req.body
+  const {Item, MoneySpent, Description,Date} = req.body
 
   let emptyFields = []
 
@@ -42,6 +42,9 @@ const createExpense = async (req, res) => {
   }
   if(!Description) {
     emptyFields.push('Description')
+  }
+  if(!Date){
+    emptyFields.push('Date')
   }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })

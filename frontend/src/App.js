@@ -1,6 +1,6 @@
 // import { Routes } from "react-router-dom";
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import CurrentMonth from "./Components/CurrentMonth";
 import History from "./Components/History";
 import Profile from "./Components/Profile";
@@ -11,6 +11,8 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Dashboard from "./Components/Dashboard";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const { user } = useAuthContext()
@@ -30,6 +32,10 @@ function App() {
               element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
             />
             <Route 
+              path="/dashboard" 
+              element={user ? <Dashboard /> : <Navigate to="/login" />} 
+            />
+            <Route 
               path="/profile" 
               element={user ? <Profile /> : <Navigate to="/login" />} 
             />
@@ -47,6 +53,7 @@ function App() {
             />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

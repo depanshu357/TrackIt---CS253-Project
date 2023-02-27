@@ -30,7 +30,13 @@ const Home = () => {
   }, [dispatch, user])
 
   return (
-    <div className="home">
+    <div className="home" style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '90vh'
+    }}>
+      
       <div className="expenses">
         {expense && expense.map((expensee) => (
           <ExpenseDetails key={expensee._id} expensee={expensee} />

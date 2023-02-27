@@ -1,32 +1,18 @@
-import React,{useEffect} from 'react'
-import { useExpenseContext } from '../hooks/useExpenseContext'
-import { useAuthContext } from '../hooks/useAuthContext'
+import React from 'react';
 
 const CurrentMonth = () => {
-  const {expense, dispatch} = useExpenseContext()
-  const {user} = useAuthContext()
-
-  // useEffect(() => {
-  //   const fetchExpense = async () => {
-  //     const response = await fetch('/api/expense', {
-  //       headers: {'Authorization': `Bearer ${user.token}`},
-  //     })
-  //     const json = await response.json()
-
-  //     if (response.ok) {
-  //       dispatch({type: 'SET_EXPENSES', payload: json})
-  //     }
-  //   }
-
-  //   if (user) {
-  //     fetchExpense()
-  //   }
-  // }, [dispatch, user])
   return (
-    <div>
-      Current Month Page
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '90vh'
+      }}
+    >
+      <h1>Current Month</h1>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentMonth
+export default CurrentMonth;
