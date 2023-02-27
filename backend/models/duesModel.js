@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const expenseSchema = new Schema({
   Item: {
     type: String,
-    required: true
+    required: false
   },
   RollNo: {
     type: Number,
@@ -17,11 +17,11 @@ const expenseSchema = new Schema({
   },
   Description: {
     type: String,
-    required: true
+    required: false
   },
   user_id: {
     type: String,
-    required: true
+    required: false
   },
   Date:{
     type: Date,

@@ -53,14 +53,14 @@ const createExpense = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const expense = await Expense.create({Item, MoneySpent, Description, user_id})
+    const expense = await Expense.create({Item, MoneySpent, Description, user_id,Date})
     res.status(200).json(expense)
   } catch (error) {
     res.status(400).json({error: error.message})
   }
 }
 
-// delete a workout
+// delete a expense
 const deleteExpense = async (req, res) => {
   const { id } = req.params
 
@@ -77,7 +77,7 @@ const deleteExpense = async (req, res) => {
   res.status(200).json(expense)
 }
 
-// update a workout
+// update a expense
 const updateExpense = async (req, res) => {
   const { id } = req.params
 
@@ -85,7 +85,7 @@ const updateExpense = async (req, res) => {
     return res.status(404).json({error: 'No such expenses'})
   }
 
-  const expense = await Workout.findOneAndUpdate({_id: id}, {
+  const expense = await expense.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
