@@ -21,10 +21,14 @@ const userSchema = new Schema({
     rollNo:{
         type:Number,
         required:false
+    },
+    shopName:{
+        type:String,
+        required: false
     }
 })
 // static signup model
-userSchema.statics.signup = async function(email,password,userType,rollNo){
+userSchema.statics.signup = async function(email,password,userType,rollNo,shopName){
     const exist = await this.findOne({email})
 
     //validation
@@ -42,7 +46,7 @@ userSchema.statics.signup = async function(email,password,userType,rollNo){
     }
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password,salt)
-    const user = this.create({email,password:hash,userType,rollNo})
+    const user = this.create({email,password:hash,userType,rollNo,shopName})
     return user
 }
 //static login method

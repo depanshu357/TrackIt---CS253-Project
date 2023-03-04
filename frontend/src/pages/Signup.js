@@ -6,7 +6,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [rollNo, setRollNo] = useState(0);
   const [userType,setUserType] = useState("Customer");
-  const [shopName,setShopName] = useState(null);
+  const [shopName,setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer","Shopkeeper"]
   const handleSubmit = async (e) => {

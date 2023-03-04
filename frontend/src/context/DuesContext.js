@@ -10,7 +10,7 @@ export const DuesReducer = (state, action) => {
       }
     case 'CREATE_DUES':
       return {
-        Dues: [action.payload, ...state.Dues]
+        Dues: [action.payload,...state.Dues]
       }
     case 'DELETE_DUES':
       return {
