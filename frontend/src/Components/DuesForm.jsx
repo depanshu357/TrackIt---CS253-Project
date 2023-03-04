@@ -1,15 +1,17 @@
 import { useState } from "react"
-import { useExpenseContext } from "../hooks/useExpenseContext"
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useDuesContext } from "../hooks/useDuesContext"
 
 const ExpenseForm = () => {
-  const { dispatch } = useExpenseContext()
+  const { dispatch } = useDuesContext()
   const { user } = useAuthContext()
 
   const [Item, setItem] = useState('')
-  const [MoneySpent, setMoneySpent] = useState('')
+  const [Amount, setAmount] = useState('')
   const [Description, setDescription] = useState('')
   const [Date, setDate] = useState('')
+  const [RollNo,setRollNo] = useState('')
+  const [shopName,setShopName] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -20,12 +22,12 @@ const ExpenseForm = () => {
       setError('You must be logged in')
       return
     }
+    setShopName(user.shopName);
+    const due = {Item, Amount, Description,Date,RollNo,shopName}
 
-    const expense = {Item, MoneySpent, Description,Date}
-
-    const response = await fetch('/api/expense', {
+    const response = await fetch('/api/dues', {
       method: 'POST',
-      body: JSON.stringify(expense),
+      body: JSON.stringify(due),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -39,19 +41,21 @@ const ExpenseForm = () => {
     }
     if (response.ok) {
       setItem('')
-      setMoneySpent('')
+      setAmount('')
       setDescription('')
+      setRollNo('')
       setError(null)
       setEmptyFields([])
-      dispatch({type: 'CREATE_EXPENSE', payload: json})
+
+      dispatch({type: 'CREATE_DUES', payload: json})
     }
   }
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Purchase</h3>
+      <h3>Add a New Borrowing</h3>
 
-      <label>Expense Details:</label>
+      <label>Item:</label>
       <input 
         type="text"
         onChange={(e) => setItem(e.target.value)}
@@ -59,12 +63,19 @@ const ExpenseForm = () => {
         className={emptyFields.includes('Item') ? 'error' : ''}
       />
 
-      <label>Money Spent:</label>
+        <label >RollNo:</label>
+        <input 
+        type="number"
+        onChange = {(e)=> setRollNo(e.target.value)}
+        value={RollNo}
+        />
+
+      <label>Amount:</label>
       <input 
         type="number"
-        onChange={(e) => setMoneySpent(e.target.value)}
-        value={MoneySpent}
-        className={emptyFields.includes('MoneySpent') ? 'error' : ''}
+        onChange={(e) => setAmount(e.target.value)}
+        value={Amount}
+        className={emptyFields.includes('Amount') ? 'error' : ''}
       />
 
       <label>Description:</label>
@@ -82,6 +93,7 @@ const ExpenseForm = () => {
         value={Date}
         className={emptyFields.includes('Date') ? 'error' : ''}
       />
+
 
       <button>Add To List</button>
       {error && <div className="error">{error}</div>}
