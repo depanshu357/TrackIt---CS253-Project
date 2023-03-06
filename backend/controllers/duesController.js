@@ -42,7 +42,7 @@ const getDues = async (req, res) => {
 
 // create new Dues
 const createDues = async (req, res) => {
-  const {Item, Amount,RollNo, Description,Date} = req.body
+  const {Item, Amount,RollNo, Description,Date,shopName} = req.body
 
   let emptyFields = []
 
@@ -68,7 +68,7 @@ const createDues = async (req, res) => {
   // add doc to db
   try {
     // const user_id = req.user._id
-    const dues = await Dues.create({Item, Amount, Description,RollNo,Date})
+    const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName})
     res.status(200).json(dues)
 
     var mailOptions = {
@@ -78,13 +78,13 @@ const createDues = async (req, res) => {
         text: `An amount of ${Amount} is added to your dues for item ${Item}`
       };
 
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response + ` ${RollNo}@iitk.ac.in`);
-        }
-      });
+      // transporter.sendMail(mailOptions, function(error, info){
+      //   if (error) {
+      //     console.log(error);
+      //   } else {
+      //     console.log('Email sent: ' + info.response + ` ${RollNo}@iitk.ac.in`);
+      //   }
+      // });
   } catch (error) {
     res.status(400).json({error: error.message})
   }

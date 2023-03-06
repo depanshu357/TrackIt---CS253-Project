@@ -26,6 +26,10 @@ const expenseSchema = new Schema({
   Date:{
     type: Date,
     default : Date.now
+  },
+  shopName:{
+    type:String,
+    required: false
   }
 }, { timestamps: true })
 

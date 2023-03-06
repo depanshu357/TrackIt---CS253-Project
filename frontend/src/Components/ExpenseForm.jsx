@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useExpenseContext } from "../hooks/useExpenseContext"
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useDuesContext } from "../hooks/useDuesContext"
 
 const ExpenseForm = () => {
-  const { dispatch } = useExpenseContext()
+  const { dispatch } = useDuesContext()
   const { user } = useAuthContext()
 
   const [Item, setItem] = useState('')
@@ -67,7 +67,7 @@ const ExpenseForm = () => {
         className={emptyFields.includes('MoneySpent') ? 'error' : ''}
       />
 
-      <label>Descrition:</label>
+      <label>Description:</label>
       <input 
         type="text"
         onChange={(e) => setDescription(e.target.value)}
