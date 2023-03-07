@@ -9,6 +9,7 @@ import { useDuesContext } from "../hooks/useDuesContext";
 import ExpenseDetails from "../Components/ExpenseDetails";
 import ExpenseForm from "../Components/ExpenseForm";
 import DuesForm from "../Components/DuesForm";
+import DuesDetailsForShopkeeper from "../Components/DuesDetailsForShopkeeper";
 
 const Home = () => {
   const { expense, dispatch } = useExpenseContext();
@@ -79,6 +80,7 @@ const Home = () => {
             Dues.map((borrow) => {
               if (borrow.RollNo === user.rollNo) console.log("hua");
               return (
+                
                 <div>
                   <div>
                     Item - {borrow.Item} <br></br>
@@ -113,12 +115,13 @@ const Home = () => {
             return(
 
               <div>
-              <div>
+                <DuesDetailsForShopkeeper key={due._id} due={due} />
+              {/* <div>
                 Item - {due.Item} <br></br>
                 Amount - {due.Amount} <br></br>
                 RollNo - {due.RollNo} <br></br>
                 Description - {due.Description}
-              </div>
+              </div> */}
             </div>
               )
           })}

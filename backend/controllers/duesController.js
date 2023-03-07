@@ -98,13 +98,13 @@ const deleteDues = async (req, res) => {
     return res.status(404).json({error: 'No such Duess'})
   }
 
-  const Dues = await Dues.findOneAndDelete({_id: id})
+  const dues = await Dues.findOneAndDelete({_id: id})
 
-  if (!Dues) {
+  if (!dues) {
     return res.status(400).json({error: 'No such Duess'})
   }
 
-  res.status(200).json(Dues)
+  res.status(200).json(dues)
 }
 
 // update a workout

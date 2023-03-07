@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useExpenseContext } from "../hooks/useExpenseContext"
-import { useDuesContext } from "../hooks/useDuesContext"
 
 const ExpenseForm = () => {
   const { dispatch } = useExpenseContext()
