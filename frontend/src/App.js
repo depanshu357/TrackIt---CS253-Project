@@ -1,7 +1,10 @@
 // import { Routes } from "react-router-dom";
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import CurrentMonth from "./Components/CurrentMonth";
+import MonthSummary from "./Components/MonthSummary";
+import DailySummary from "./Components/DailySummary";
+import Expenses from "./Components/Expenses";
+import Borrowings from "./Components/Borrowings";
 import History from "./Components/History";
 import Profile from "./Components/Profile";
 // import Login from "./Components/Login";
@@ -28,8 +31,20 @@ function App() {
               element={user ? <Home /> : <Navigate to="/login" />} 
             />
             <Route 
-              path="/currentMonth" 
-              element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
+              path="/monthSummary" 
+              element={user ? <MonthSummary /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/borrowings" 
+              element={user ? <Borrowings /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/expenses" 
+              element={user ? <Expenses /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/dailySummary" 
+              element={user ? <DailySummary /> : <Navigate to="/login" />} 
             />
             <Route 
               path="/dashboard" 
