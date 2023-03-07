@@ -29,11 +29,15 @@ function App() {
             />
             {/* <Route 
               path="/currentMonth" 
+<<<<<<< HEAD
               element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
             /> */}
             <Route
               path="/dashboard"
               element={user ? <Dashboard /> : <Navigate to="/login" />}
+=======
+              element={user ? <Home /> : <Navigate to="/login" />} 
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
             />
             <Route
               path="/profile"

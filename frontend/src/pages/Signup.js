@@ -19,12 +19,17 @@ let otp;
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
   const [OTP, setOTP] = useState("");
   const [rollNo, setRollNo] = useState(0);
+=======
+  const [rollNo, setRollNo] = useState(null);
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
+<<<<<<< HEAD
   const [newError, setNewError] = useState(null);
 
   const sendEmail = async (e) => {
@@ -57,14 +62,25 @@ const Signup = () => {
       setNewError(null);
       await signup(email, password, userType, rollNo, shopName);
     }
+=======
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await signup(email, password, userType, rollNo, shopName);
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   };
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   const onOptionChangeHandler = (e) => {
     console.log(e.target.value);
+<<<<<<< HEAD
     setUserType(e.target.value)
   }
+=======
+    setUserType(e.target.value);
+  };
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
 
   function generateString(length) {
     let result = " ";
@@ -77,6 +93,7 @@ const Signup = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <form className="signup" onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
@@ -101,13 +118,120 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
+=======
+    <>
+      <div className="singup-page-background">
+        <div className="container">
+          <div className="design">
+            <div className="pill-1 rotate-45" />
+            <div className="pill-2 rotate-45" />
+            <div className="pill-3 rotate-45" />
+            <div className="pill-4 rotate-45" />
+          </div>
+          <form className="login signup" onSubmit={handleSubmit}>
+            <h3 className="title">Register</h3>
+            {/* <div className="text-input">
+            <i className="ri-user-fill" />
+            <input type="text" placeholder="First Name" />
+          </div>
+          <div className="text-input">
+            <i className="ri-user-fill" />
+            <input type="text" placeholder="Last Name" />
+          </div> */}
+            <div className="text-input">
+              <i className="ri-user-fill" />
+              <input
+                placeholder="Email id"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+            <div className="text-input">
+              <i className="ri-lock-fill" />
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+            </div>
+            <select className="text-input" onChange={onOptionChangeHandler}>
+              <i className="ri-user-fill" />
+              {/* <input
+            placeholder="Email id"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email} /> */}
+              <option>Please choose one option</option>
+              {options.map((option, index) => {
+                return <option key={index}>{option}</option>;
+              })}
+            </select>
+            <div className="text-input">
+              <i className="ri-user-fill" />
+              {/* <input
+            placeholder="Email id"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email} /> */}
+              {userType === "Customer" && (
+                <div>
+                  <input
+                    type="number"
+                    value={rollNo}
+                    onChange={(e) => setRollNo(e.target.value)}
+                    placeholder="IITK RollNo"
+                  />
+                </div>
+              )}
+
+              {userType === "Shopkeeper" && (
+                <div>
+                  <input
+                    type="text"
+                    value={shopName}
+                    onChange={(e) => setShopName(e.target.value)}
+                    placeholder="ShopName"
+                  />
+                </div>
+              )}
+            </div>
+            <button className="login-btn" disabled={isLoading}>
+              SUBMIT
+            </button>
+            {error && <div className="error">{error}</div>}
+            <div className="create">
+              <a href="/login"> Registered Already? Log in</a>
+              <i className="ri-arrow-right-fill" />
+            </div>
+          </form>
+        </div>
+
+        {/* <form className="signup" onSubmit={handleSubmit}>
+      <h3>Sign Up</h3>
+
+      <label>Email address:</label>
+      <input
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        />
+      <label>Password:</label>
+      <input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        /> */}
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
         {/* <label> IITK Roll Number</label>
       <input
-        type="text"
-        onChange={(e) => setRollNo(e.target.value)}
-        value={rollNo}
-      /> */}
+      type="text"
+      onChange={(e) => setRollNo(e.target.value)}
+      value={rollNo}
+    /> */}
 
+<<<<<<< HEAD
         <select onChange={onOptionChangeHandler}>
           <option>Please choose one option</option>
           {options.map((option, index) => {
@@ -126,6 +250,26 @@ const Signup = () => {
             />
           </div>
         }
+=======
+        {/* <select onChange={onOptionChangeHandler}>
+        <option>Please choose one option</option>
+        {options.map((option, index) => {
+          return <option key={index}>{option}</option>;
+        })}
+      </select>
+
+      {
+        (userType==="Customer") && <div>
+          <label >IITK RollNo: </label>
+          <input
+           type="number"
+           value={rollNo}
+           onChange={(e)=>setRollNo(e.target.value)}
+           placeholder="IITK RollNo"
+           />
+        </div>
+      }
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
 
         {
           (userType === "Shopkeeper") &&
@@ -139,6 +283,7 @@ const Signup = () => {
           </div>
         }
 
+<<<<<<< HEAD
         <button disabled={isLoading}>Sign up</button>
         <p>
           Already a user!! <a href="/login">Login Here</a>
@@ -147,6 +292,16 @@ const Signup = () => {
         {error && <div className="error">{newError}</div>}
       </form >
     </div>
+=======
+      <button disabled={isLoading}>Sign up</button>
+      <p>
+        Already a user!! <a href="/login">Login Here</a>
+      </p>
+      {error && <div className="error">{error}</div>}
+    </form> */}
+      </div>
+    </>
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   );
 };
 
