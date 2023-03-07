@@ -29,7 +29,6 @@ function App() {
             />
             {/* <Route 
               path="/currentMonth" 
-<<<<<<< HEAD
               element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
             /> */}
             <Route
