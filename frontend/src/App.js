@@ -1,5 +1,5 @@
 // import { Routes } from "react-router-dom";
-import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 // import CurrentMonth from "./Components/CurrentMonth";
 import History from "./Components/History";
@@ -23,33 +23,37 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route 
-              path="/" 
-              element={user ? <Home /> : <Navigate to="/login" />} 
+            <Route
+              path="/"
+              element={user ? <Home /> : <Navigate to="/login" />}
             />
-            <Route 
+            {/* <Route 
               path="/currentMonth" 
+<<<<<<< HEAD
+              element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
+            /> */}
+            <Route
+              path="/dashboard"
+              element={user ? <Dashboard /> : <Navigate to="/login" />}
+=======
               element={user ? <Home /> : <Navigate to="/login" />} 
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
             />
-            <Route 
-              path="/dashboard" 
-              element={user ? <Dashboard /> : <Navigate to="/login" />} 
+            <Route
+              path="/profile"
+              element={user ? <Profile /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/profile" 
-              element={user ? <Profile /> : <Navigate to="/login" />} 
+            <Route
+              path="/history"
+              element={user ? <History /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/history" 
-              element={user ? <History /> : <Navigate to="/login" />} 
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/" />}
             />
-            <Route 
-              path="/login" 
-              element={!user ? <Login /> : <Navigate to="/" />} 
-            />
-            <Route 
-              path="/signup" 
-              element={!user ? <Signup /> : <Navigate to="/" />} 
+            <Route
+              path="/signup"
+              element={!user ? <Signup /> : <Navigate to="/" />}
             />
           </Routes>
         </div>

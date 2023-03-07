@@ -1,26 +1,86 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 
+let otp;
+
+// var nodemailer = require('nodemailer');
+
+// var transporter = nodemailer.createTransport({
+//   host: 'smtp.gmail.com',
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: 'noreplytrackit98@gmail.com',
+//     pass: 'nfkyirhkalqckdop'
+//   }
+// });
+
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
+  const [OTP, setOTP] = useState("");
+  const [rollNo, setRollNo] = useState(0);
+=======
   const [rollNo, setRollNo] = useState(null);
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
+<<<<<<< HEAD
+  const [newError, setNewError] = useState(null);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    otp = Math.floor(100000 + Math.random() * 900000);
+    const otp_email = { otp, email };
+    console.log(otp);
+
+
+    const fetchOtp = async () => {
+      const response = await fetch("/api/user/signup/otp", {
+        method: "POST",
+        body: JSON.stringify(otp_email),
+        headers: { 'Content-Type': 'application/json', }
+      })
+      const json = await response.json();
+
+    }
+    fetchOtp();
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (otp != OTP) {
+      setNewError("OTP does not match!");
+      console.log("wrong otp", otp, OTP);
+    }
+    else {
+      console.log("correct otp");
+      setNewError(null);
+      await signup(email, password, userType, rollNo, shopName);
+    }
+=======
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await signup(email, password, userType, rollNo, shopName);
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   };
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   const onOptionChangeHandler = (e) => {
     console.log(e.target.value);
+<<<<<<< HEAD
+    setUserType(e.target.value)
+  }
+=======
     setUserType(e.target.value);
   };
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
 
   function generateString(length) {
     let result = " ";
@@ -33,6 +93,32 @@ const Signup = () => {
   }
 
   return (
+<<<<<<< HEAD
+    <div>
+      <form className="signup" onSubmit={handleSubmit}>
+        <h3>Sign Up</h3>
+
+        <label>Email address:</label>
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+
+        <button onClick={sendEmail}>Verify Email</button>
+
+        <label>OTP:</label>
+        <input type="number"
+          onChange={(e) => setOTP(e.target.value)}
+          value={OTP}
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+=======
     <>
       <div className="singup-page-background">
         <div className="container">
@@ -137,6 +223,7 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         /> */}
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
         {/* <label> IITK Roll Number</label>
       <input
       type="text"
@@ -144,6 +231,26 @@ const Signup = () => {
       value={rollNo}
     /> */}
 
+<<<<<<< HEAD
+        <select onChange={onOptionChangeHandler}>
+          <option>Please choose one option</option>
+          {options.map((option, index) => {
+            return <option key={index}>{option}</option>;
+          })}
+        </select>
+
+        {
+          (userType === "Customer") && <div>
+            <label>IITK RollNo: </label>
+            <input
+              type="number"
+              value={rollNo}
+              onChange={(e) => setRollNo(e.target.value)}
+              placeholder="IITK RollNo"
+            />
+          </div>
+        }
+=======
         {/* <select onChange={onOptionChangeHandler}>
         <option>Please choose one option</option>
         {options.map((option, index) => {
@@ -162,18 +269,30 @@ const Signup = () => {
            />
         </div>
       }
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
 
-      {(userType==="Shopkeeper") && 
-        <div>
-          <label >Shop Name:</label>
-          <input 
-          type="text"
-          value={shopName}
-          onChange={e => setShopName(e.target.value)}
-          />
-        </div>
-      }
+        {
+          (userType === "Shopkeeper") &&
+          <div>
+            <label >Shop Name:</label>
+            <input
+              type="text"
+              value={shopName}
+              onChange={e => setShopName(e.target.value)}
+            />
+          </div>
+        }
 
+<<<<<<< HEAD
+        <button disabled={isLoading}>Sign up</button>
+        <p>
+          Already a user!! <a href="/login">Login Here</a>
+        </p>
+        {error && <div className="error">{error}</div>}
+        {error && <div className="error">{newError}</div>}
+      </form >
+    </div>
+=======
       <button disabled={isLoading}>Sign up</button>
       <p>
         Already a user!! <a href="/login">Login Here</a>
@@ -182,6 +301,7 @@ const Signup = () => {
     </form> */}
       </div>
     </>
+>>>>>>> 225b4d30ec59829a79968403fbd9677d808bda9b
   );
 };
 
