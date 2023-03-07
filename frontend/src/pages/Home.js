@@ -4,6 +4,8 @@ import { useDuesContext } from "../hooks/useDuesContext";
 import { useExpenseContext } from "../hooks/useExpenseContext";
 
 // components
+// import ExpenseDetails from '../components/ExpenseDetails'
+// import ExpenseForm from "../components/ExpenseForm"
 import ExpenseDetails from "../Components/ExpenseDetails";
 import ExpenseForm from "../Components/ExpenseForm";
 import DuesForm from "../Components/DuesForm";
@@ -119,6 +121,7 @@ const Home = () => {
             console.log(due);
             console.log("accha");
             if(due.shopName === user.shopName)
+
             return(
               
               <div>
