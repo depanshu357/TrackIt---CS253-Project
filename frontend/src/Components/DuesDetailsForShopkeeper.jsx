@@ -33,7 +33,7 @@ const DuesDetailsForShopkeeper = (props) => {
                 Amount - {props.due.Amount} <br></br>
                 RollNo - {props.due.RollNo} <br></br>
                 Description - {props.due.Description}
-      {/* <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span> */}
+      <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span>
 
     </div>
   )

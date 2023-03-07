@@ -23,6 +23,7 @@ const ExpenseForm = () => {
       return
     }
     setShopName(user.shopName);
+    console.log(shopName)
     const due = {Item, Amount, Description,Date,RollNo,shopName}
 
     const response = await fetch('/api/dues', {

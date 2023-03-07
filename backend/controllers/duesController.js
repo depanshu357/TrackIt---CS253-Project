@@ -24,19 +24,36 @@ const getDuess = async (req, res) => {
 
 // get a single Dues
 const getDues = async (req, res) => {
-  const { id } = req.params
+  const { rollNo } = req.params
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such Duess'})
-  }
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({error: 'No such Duess'})
+  // }
 
-  const Dues = await Dues.findById(id)
+  const dues = await Dues.find({RollNo: rollNo})
 
-  if (!Dues) {
+  if (!dues) {
     return res.status(404).json({error: 'No such Dues'})
   }
   
-  res.status(200).json(Dues)
+  res.status(200).json(dues)
+}
+
+// get a single Dues
+const getDuesByShopName = async (req, res) => {
+  const { shopName } = req.params
+
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({error: 'No such Duess'})
+  // }
+
+  const dues = await Dues.find({shopName: shopName})
+
+  if (!dues) {
+    return res.status(404).json({error: 'No such Dues'})
+  }
+  
+  res.status(200).json(dues)
 }
 
 
@@ -132,5 +149,6 @@ module.exports = {
   getDues,
   createDues,
   deleteDues,
-  updateDues
+  updateDues,
+  getDuesByShopName
 }
