@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useExpenseContext } from "../hooks/useExpenseContext"
 import { useDuesContext } from "../hooks/useDuesContext"
 
 const ExpenseForm = () => {
-  const { dispatch } = useDuesContext()
+  const { dispatch } = useExpenseContext()
   const { user } = useAuthContext()
 
   const [Item, setItem] = useState('')
@@ -38,12 +39,12 @@ const ExpenseForm = () => {
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
+      dispatch({type: 'CREATE_EXPENSE', payload: json})
       setItem('')
       setMoneySpent('')
       setDescription('')
       setError(null)
       setEmptyFields([])
-      dispatch({type: 'CREATE_EXPENSE', payload: json})
     }
   }
 

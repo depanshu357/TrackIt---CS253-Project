@@ -46,7 +46,7 @@ const Home = () => {
         console.log(" dues coming up ");
         // console.log(json[0])
         setBorrows(json);
-        console.log(borrows[0].RollNo);
+        // console.log(borrows[0].RollNo);
         console.log(borrows);
         dispatchd({ type: "SET_DUESS", payload: json });
       }
