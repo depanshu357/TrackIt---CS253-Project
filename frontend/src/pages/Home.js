@@ -4,11 +4,12 @@ import { useExpenseContext } from "../hooks/useExpenseContext";
 import { useDuesContext } from "../hooks/useDuesContext";
 
 // components
+// import ExpenseDetails from '../components/ExpenseDetails'
+// import ExpenseForm from "../components/ExpenseForm"
 import ExpenseDetails from "../Components/ExpenseDetails";
 import ExpenseForm from "../Components/ExpenseForm";
 import DuesForm from "../Components/DuesForm";
 import DuesDetailsForShopkeeper from "../Components/DuesDetailsForShopkeeper";
-import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer"
 
 const Home = () => {
   const { expense, dispatch } = useExpenseContext();
@@ -45,7 +46,7 @@ const Home = () => {
       if (response.ok) {
         console.log(" dues coming up ");
         // console.log(json[0])
-        // setBorrows(json);
+        setBorrows(json);
         // console.log(borrows[0].RollNo);
         console.log(borrows);
         dispatchd({ type: "SET_DUESS", payload: json });
@@ -77,21 +78,19 @@ const Home = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {Dues &&
             Dues.map((borrow) => {
-              if (borrow.RollNo === user.rollNo){
-
-                return (
+              if (borrow.RollNo === user.rollNo) console.log("hua");
+              return (
+                
+                <div>
                   <div>
-                  <DuesDetailsForCustomer key={borrow._id} due={borrow} />
-                  {/* <div>
                     Item - {borrow.Item} <br></br>
                     Amount - {borrow.Amount} <br></br>
                     RollNo - {borrow.RollNo} <br></br>
                     Description - {borrow.Description} <br />
                     shopName - {borrow.shopName}
-                  </div> */}
+                  </div>
                 </div>
               );
-            }
             })}
         </div>
       </div>
@@ -112,6 +111,7 @@ const Home = () => {
             console.log(due);
             console.log("accha");
             if(due.shopName === user.shopName)
+
             return(
 
               <div>
