@@ -1,7 +1,7 @@
 // import { Routes } from "react-router-dom";
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import CurrentMonth from "./Components/CurrentMonth";
+// import CurrentMonth from "./Components/CurrentMonth";
 import History from "./Components/History";
 import Profile from "./Components/Profile";
 // import Login from "./Components/Login";
@@ -29,7 +29,7 @@ function App() {
             />
             <Route 
               path="/currentMonth" 
-              element={user ? <CurrentMonth /> : <Navigate to="/login" />} 
+              element={user ? <Home /> : <Navigate to="/login" />} 
             />
             <Route 
               path="/dashboard" 

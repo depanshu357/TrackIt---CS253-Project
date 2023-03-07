@@ -5,7 +5,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
-const DuesDetailsForShopkeeper = (props) => {
+const DuesDetailsForCustomer = (props) => {
     const {dispatch} = useDuesContext();
     const {user} = useAuthContext();
 
@@ -33,10 +33,10 @@ const DuesDetailsForShopkeeper = (props) => {
                 Amount - {props.due.Amount} <br></br>
                 RollNo - {props.due.RollNo} <br></br>
                 Description - {props.due.Description}
-      {/* <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span> */}
+      <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span>
 
     </div>
   )
 }
 
-export default DuesDetailsForShopkeeper
+export default DuesDetailsForCustomer
