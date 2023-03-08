@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer/Footer";
+import MonthSummary from "./Components/MonthSummary"
 
 function App() {
   const { user } = useAuthContext()
@@ -29,7 +30,7 @@ function App() {
             />
             <Route 
               path="/currentMonth" 
-              element={user ? <Home /> : <Navigate to="/login" />} 
+              element={user ? <MonthSummary /> : <Navigate to="/login" />} 
             />
             <Route 
               path="/dashboard" 
