@@ -13,8 +13,8 @@ const Signup = () => {
   const [shopName, setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
-  const [newError, setNewError] = useState(null);
 
+  const [newError, setNewError] = useState(null);
 
 
   const sendEmail = async (e) => {
