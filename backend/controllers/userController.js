@@ -1,13 +1,27 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 
+
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'noreplytrackit98@gmail.com',
+    pass: 'nfkyirhkalqckdop'
+  }
+});
+
 const createToken = (_id) => {
-  return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' })
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
 }
 
 // login a user
 const loginUser = async (req, res) => {
-  const {email, password} = req.body
+  const { email, password } = req.body
 
   try {
     const user = await User.login(email, password)
@@ -18,26 +32,56 @@ const loginUser = async (req, res) => {
     // create a token
     const token = createToken(user._id)
 
-    res.status(200).json({email, token,userType,rollNo,shopName})
+    res.status(200).json({ email, token, userType, rollNo, shopName })
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.status(400).json({ error: error.message })
   }
 }
 
 // signup a user
 const signupUser = async (req, res) => {
-  const {email, password,userType,rollNo,shopName} = req.body
+  const { email, password, userType, rollNo, shopName } = req.body
 
   try {
-    const user = await User.signup(email, password,userType,rollNo,shopName)
+    const user = await User.signup(email, password, userType, rollNo, shopName)
 
     // create a token
     const token = createToken(user._id)
 
-    res.status(200).json({email, token,userType,rollNo,shopName})
+    res.status(200).json({ email, token, userType, rollNo, shopName })
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.status(400).json({ error: error.message })
   }
 }
 
-module.exports = { signupUser, loginUser }
+
+const getOtp = async (req, res) => {
+  // console.log(req.body)
+  const { otp, email } = req.body
+  console.log(otp);
+  // console.log(email);
+
+  try {
+
+    var mailOptions = {
+      from: 'noreplytrackit98@gmail.com',
+      to: email,
+      subject: "Validation OTP from TrackIT",
+      html: `Hello,<br> Please find below your requested OTP: <br> <h1>${otp}</h1><br>regards <br> Customer Care,<br>TrackIT`
+    };
+
+    transporter.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent to: ' + email);
+      }
+    });
+
+    res.status(200).json("OK")
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
+}
+
+module.exports = { signupUser, loginUser, getOtp }

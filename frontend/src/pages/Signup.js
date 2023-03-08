@@ -1,19 +1,55 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 
+let otp;
+
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [OTP, setOTP] = useState("");
   const [rollNo, setRollNo] = useState(null);
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
-  const handleSubmit = async (e) => {
+
+  const [newError, setNewError] = useState(null);
+
+
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    await signup(email, password, userType, rollNo, shopName);
+    otp = Math.floor(100000 + Math.random() * 900000);
+    console.log(otp);
+    const otp_email = { otp, email };
+
+
+    const fetchOtp = async () => {
+      const response = await fetch("/api/user/signup/otp", {
+        method: "POST",
+        body: JSON.stringify(otp_email),
+        headers: { 'Content-Type': 'application/json', }
+      })
+      const json = await response.json();
+
+    };
+    fetchOtp();
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (otp != OTP) {
+      setNewError("OTP does not match!");
+      console.log("wrong otp");
+    }
+    else {
+      console.log("correct otp");
+      setNewError(null);
+      await signup(email, password, userType, rollNo, shopName);
+    }
+  };
+
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -52,7 +88,8 @@ const Signup = () => {
             <i className="ri-user-fill" />
             <input type="text" placeholder="Last Name" />
           </div> */}
-            <div className="text-input">
+
+            <div className="text-input email-verify">
               <i className="ri-user-fill" />
               <input
                 placeholder="Email id"
@@ -60,7 +97,21 @@ const Signup = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
               />
+              <button className="verify-btn" onClick={sendEmail}>Verify</button>
             </div>
+
+
+
+            <div className="text-input">
+              <i className="ri-user-fill" />
+              <label>OTP:</label>
+              <input type="number"
+                onChange={(e) => setOTP(e.target.value)}
+                value={OTP}
+              />
+            </div>
+
+
             <div className="text-input">
               <i className="ri-lock-fill" />
               <input
