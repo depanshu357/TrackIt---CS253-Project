@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-*, html, body {
+*,
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
-.login-page-background, .singup-page-background {
+.login-page-background,
+.singup-page-background {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     display: flex;
@@ -15,8 +18,8 @@
 }
 
 .container {
-    width: 50vw;
-    height: 60vh;
+    width: 55vw;
+    height: 75vh;
     display: grid;
     grid-template-columns: 100%;
     grid-template-areas: "login";
@@ -95,11 +98,17 @@
     background: #e4bae2;
     height: 40px;
     display: flex;
-    width: 60%;
+    width: 70%;
     align-items: center;
     border-radius: 10px;
     padding: 0 15px;
     margin: 5px 0;
+}
+
+.email-verify {
+    position: relative;
+    display: flex;
+    padding: 0 !important;
 }
 
 .text-input input {
@@ -113,6 +122,21 @@
 
 .text-input i {
     color: #bd74a1;
+}
+
+.verify-btn {
+
+    /* width: 61%; */
+    height: 40px;
+    padding: 5px;
+    color: white;
+    background: linear-gradient(to right, #ff966d, #fa538d, #89379c);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 0;
+    font-size: 20px;
+
 }
 
 ::placeholder {
