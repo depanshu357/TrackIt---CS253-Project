@@ -6,17 +6,22 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const DuesDetailsForShopkeeper = (props) => {
-  const { dispatch } = useDuesContext();
+  const { Dues,dispatch } = useDuesContext();
   const { user } = useAuthContext();
-  const [Paid, setPaid] = useState(true);
-  console.log(props.due.Paid)
+  const [Paid, setPaid] = useState(props.due.Paid);
+  // console.log(props.due.Paid)
 
   const handleChange = async (e) => {
-    console.log(e.target.checked);
-    setPaid( e => !e);
+    console.log(e.target);
+    setPaid( !(props.due.Paid));
     const due ={...(props.due),Paid:`${Paid}`}
-    console.log(due);
-    console.log(props.due.Paid)
+    if(e.target.backgroundColor!=="green"){
+      e.target.style.backgroundColor = "green"
+    }else{
+
+    }
+    // console.log(due);
+    // console.log(props.due.Paid)
     const fetchPaidStatus = await fetch( "/api/dues/" + props.due._id,{
        method:"PATCH",
        body: JSON.stringify(
@@ -34,7 +39,7 @@ const DuesDetailsForShopkeeper = (props) => {
     if(fetchPaidStatus.ok){
       dispatch({type: 'UPDATE_DUES',payload: json});
     }
-    // console.log()
+    console.log(json)
   };
 
   const handleClick = async () => {
@@ -61,21 +66,27 @@ const DuesDetailsForShopkeeper = (props) => {
       Amount - {props.due.Amount} <br></br>
       RollNo - {props.due.RollNo} <br></br>
       Description - {props.due.Description} <br />
-      <input
+      {/* <input
         class="form-check-input"
         type="checkbox"
-        value=""
+        value={Paid}
         id="flexCheckDefault"
         onChange={handleChange}
         style={{ border: "2px solid red" }}
-      />
-      <label
+        checked="false"
+      /> */}
+      <button
+      onClick={handleChange}
+      style={props.due.Paid?{backgroundColor:"green"}:{backgroundColor:"white"}}
+      >
+        {(props.due.Paid)?"Paid":"Not Paid"}
+      </button>
+      {/* <label
         class="form-check-label"
         for="flexCheckDefault"
-        checked={props.due.Paid ? true : false}
       >
-        {Paid?"Mark as Paid":"Mark as unPaid"}
-      </label>{" "}
+        {(props.due.Paid)?"Mark as Paid":"Mark as unPaid"}
+      </label>{" "} */}
       <br />
       <span
         className="material-symbols-outlined"
