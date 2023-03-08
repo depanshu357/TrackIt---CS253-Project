@@ -16,6 +16,10 @@ export const DuesReducer = (state, action) => {
       return {
         Dues: state.Dues.filter((e) => e._id !== action.payload._id)
       }
+    case 'UPDATE_DUES':
+      return {
+        Dues: [...state.Dues.filter( e=> e._id !== action.payload._id),action.payload]
+      }
     default:
       return state
   }

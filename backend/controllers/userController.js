@@ -65,18 +65,18 @@ const getOtp = async (req, res) => {
 
     var mailOptions = {
       from: 'noreplytrackit98@gmail.com',
-      to: email,
+      to: email, 
       subject: "Validation OTP from TrackIT",
       html: `Hello,<br> Please find below your requested OTP: <br> <h1>${otp}</h1><br>regards <br> Customer Care,<br>TrackIT`
     };
 
-    transporter.sendMail(mailOptions, function (error) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent to: ' + email);
-      }
-    });
+    // transporter.sendMail(mailOptions, function (error) {
+    //   if (error) {
+    //     console.log(error);
+    //   } else {
+    //     console.log('Email sent to: ' + email);
+    //   }
+    // });
 
     res.status(200).json("OK")
   } catch (error) {

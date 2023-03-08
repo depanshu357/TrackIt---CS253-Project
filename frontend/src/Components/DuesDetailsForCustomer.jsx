@@ -32,7 +32,8 @@ const DuesDetailsForCustomer = (props) => {
       Item - {props.due.Item} <br></br>
                 Amount - {props.due.Amount} <br></br>
                 RollNo - {props.due.RollNo} <br></br>
-                Description - {props.due.Description}
+                Description - {props.due.Description} <br />
+                shopName - {props.due.shopName} <br />
       <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span>
 
     </div>

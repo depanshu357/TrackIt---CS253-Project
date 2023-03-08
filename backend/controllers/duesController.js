@@ -132,15 +132,15 @@ const updateDues = async (req, res) => {
     return res.status(404).json({error: 'No such Duess'})
   }
 
-  const Dues = await Workout.findOneAndUpdate({_id: id}, {
+  const dues = await Dues.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
-  if (!Dues) {
+  if (!dues) {
     return res.status(400).json({error: 'No such Duess'})
   }
 
-  res.status(200).json(Dues)
+  res.status(200).json(dues)
 }
 
 

@@ -11,7 +11,6 @@ const ExpenseForm = () => {
   const [Description, setDescription] = useState('')
   const [Date, setDate] = useState('')
   const [RollNo,setRollNo] = useState('')
-  const [shopName,setShopName] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -22,8 +21,8 @@ const ExpenseForm = () => {
       setError('You must be logged in')
       return
     }
-    setShopName(user.shopName);
     console.log(user.shopName)
+    var shopName = user.shopName;
     const due = {Item, Amount, Description,Date,RollNo,shopName}
 
     const response = await fetch('/api/dues', {

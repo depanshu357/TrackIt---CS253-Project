@@ -16,7 +16,7 @@ const Shopkeeper = () => {
         const fetchDues = async () => {
           const response = await fetch(`/api/dues/`, {
             method: "GET",
-            headers: { Authorization: `Bearer ${user.token}` },
+            headers: { 'Authorization': `Bearer ${user.token}` },
           });
           const json = await response.json();
     
@@ -30,7 +30,7 @@ const Shopkeeper = () => {
           }
         };
         if (user) {
-          fetchDues();
+          fetchDues();  
         }
       }, [dispatchd, user]);
 
@@ -52,8 +52,8 @@ const Shopkeeper = () => {
           </div> */}
         {Dues &&
           Dues.map((due) => {
-            console.log(due);
-            console.log("accha");
+            // console.log(due);
+            // console.log("accha");
             if(due.shopName === user.shopName)
             return(
 
