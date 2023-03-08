@@ -138,7 +138,16 @@ body {
     font-size: 20px;
 
 }
-
+.login-btnn {
+    width: 60%;
+    padding: 2px;
+    color: white;
+    background: linear-gradient(to right, #ff966d, #fa538d, #89379c);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1px;
+}
 ::placeholder {
     color: #131212;
 }
