@@ -30,6 +30,16 @@ const expenseSchema = new Schema({
   shopName:{
     type:String,
     required: false
+  },
+  TransactionType:{
+    type: String,
+    default:"Borrowed",
+    required:true
+  },
+  Paid:{
+    type: Boolean,
+    default: false,
+    required: true
   }
 }, { timestamps: true })
 

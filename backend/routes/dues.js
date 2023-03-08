@@ -4,7 +4,8 @@ const {
   getDues,
   createDues,
   deleteDues,
-  updateDues
+  updateDues,
+  getDuesByShopName
 } = require('../controllers/duesController')
 // const requireAuth = require('../middleware/requireAuth')
 
@@ -16,11 +17,15 @@ const router = express.Router()
 // GET all Duess
 router.get('/', getDuess)
 
-//GET a single Dues
-router.get('/:id', getDues)
+//GET Dues by rollNo
+router.get('/:rollNo', getDues)
+
+//get Dues by ShopName
+router.get('/:shopName',getDuesByShopName)
 
 // POST a new Dues
 router.post('/', createDues)
+
 
 // DELETE a Dues
 router.delete('/:id', deleteDues)

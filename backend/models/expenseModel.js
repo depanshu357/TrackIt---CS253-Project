@@ -22,6 +22,11 @@ const expenseSchema = new Schema({
   Date:{
     type: Date,
     default : Date.now
+  },
+  TransactionType:{
+    type: String,
+    default:"Paid",
+    required:true
   }
 }, { timestamps: true })
 
