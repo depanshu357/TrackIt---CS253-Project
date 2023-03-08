@@ -11,6 +11,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Forget_Password from "./pages/Forget_Password";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer/Footer";
 import MonthSummary from "./Components/MonthSummary"
@@ -51,6 +52,10 @@ function App() {
             <Route 
               path="/signup" 
               element={!user ? <Signup /> : <Navigate to="/" />} 
+            />
+                <Route 
+              path="/Forget_Password" 
+              element={!user ? <Forget_Password /> : <Navigate to="/" />} 
             />
           </Routes>
         </div>
