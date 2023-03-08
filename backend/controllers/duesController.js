@@ -17,9 +17,9 @@ var transporter = nodemailer.createTransport({
 const getDuess = async (req, res) => {
 //   const user_id = req.user._id
 //   const dues = req.user._id
-  const Duess = await Dues.find({}).sort({createdAt: -1})
+  const dues = await Dues.find({}).sort({createdAt: -1})
 
-  res.status(200).json(Duess)
+  res.status(200).json(dues)
 }
 
 // get a single Dues
