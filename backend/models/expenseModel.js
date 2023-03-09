@@ -27,6 +27,11 @@ const expenseSchema = new Schema({
     type: String,
     default:"Paid",
     required:true
+  },
+  Category:{
+    type: String,
+    default:"others",
+    required: true
   }
 }, { timestamps: true })
 

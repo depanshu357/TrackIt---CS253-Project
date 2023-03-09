@@ -1,7 +1,6 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
-
-
+const bcrypt = require("bcrypt")
 
 var nodemailer = require('nodemailer');
 
@@ -84,4 +83,21 @@ const getOtp = async (req, res) => {
   }
 }
 
-module.exports = { signupUser, loginUser, getOtp }
+//updatePassword
+const updatePassword = async(req,res) => {
+  const {email,password} = req.body;
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(password,salt)
+  const opts = { new: true };
+  const user = await User.findOneAndUpdate({email:email},{
+    password: hash,
+  },opts)
+  if(user){
+    res.status(200).json("OK")
+    // console.log(user)
+  }
+  else{ res.status.json({error: error.message})}
+
+}
+
+module.exports = { signupUser, loginUser, getOtp , updatePassword}

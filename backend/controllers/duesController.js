@@ -59,7 +59,7 @@ const getDuesByShopName = async (req, res) => {
 
 // create new Dues
 const createDues = async (req, res) => {
-  const {Item, Amount,RollNo, Description,Date,shopName} = req.body
+  const {Item, Amount,RollNo, Description,Date,shopName,Category} = req.body
 
   let emptyFields = []
 
@@ -85,7 +85,7 @@ const createDues = async (req, res) => {
   // add doc to db
   try {
     // const user_id = req.user._id
-    const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName})
+    const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName,Category})
     res.status(200).json(dues)
 
     var mailOptions = {
