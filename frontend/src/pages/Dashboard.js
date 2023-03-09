@@ -20,6 +20,7 @@ import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer"
 
 // ];
 let month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+let data_to_show;
 
 
 const Dashboard = () => {
@@ -28,6 +29,7 @@ const Dashboard = () => {
     const { user } = useAuthContext();
     const [borrows, setBorrows] = useState(null);
     const { Dues, dispatch: dispatchd } = useDuesContext();
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         const fetchExpense = async () => {
@@ -140,6 +142,17 @@ const Dashboard = () => {
 
     ];
 
+    const setBarGraphdata = async (e) => {
+        setChecked(!checked);
+        if (!checked) {
+            data_to_show = last_ten_days_data;
+        }
+        else {
+            data_to_show = total_data;
+
+        }
+    }
+
     return (
         <div
             style={{
@@ -166,12 +179,13 @@ const Dashboard = () => {
                     />
                 </PieChart>
             </div>
+
             <div className="bargraph">
 
                 <BarChart
                     width={600}
                     height={400}
-                    data={last_ten_days_data}
+                    data={data_to_show ? data_to_show : total_data}
                     margin={{
                         top: 5,
                         right: 30,
@@ -188,13 +202,18 @@ const Dashboard = () => {
                     <Bar dataKey="value" fill="#8884d8" background={{ fill: '#eee' }} />
                 </BarChart>
             </div>
-
+            <div className='bargraph'>
+                <label>
+                    <input type="checkbox" checked={checked} onChange={setBarGraphdata} />
+                    Show Last 10 days
+                </label>
+            </div>
             <div className="linegraph">
 
                 <LineChart
                     width={500}
                     height={400}
-                    data={data}
+                    data={data_to_show ? data_to_show : total_data}
                     margin={{
                         top: 5,
                         right: 30,
