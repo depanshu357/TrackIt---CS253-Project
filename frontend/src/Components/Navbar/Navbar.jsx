@@ -75,6 +75,8 @@ const Navbar = () => {
               <Link to="/history" className="main-page-links" activeStyle>History </Link>
               <Link to="/profile" className="main-page-links" activeStyle>Profile </Link>
               <Link to="/dashboard" className="main-page-links" activeStyle>Dashboard </Link>
+              <Link to="/expenses" className="main-page-links" activeStyle>Expenses </Link>
+              <Link to="/borrowings" className="main-page-links" activeStyle>Borrowings </Link>
               </span>
               <span >
 

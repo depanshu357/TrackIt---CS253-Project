@@ -46,7 +46,7 @@ const Login = () => {
             <button className="login-btn" disabled={isLoading}>
               LOGIN
             </button>
-            <a href="#" className="forgot">
+            <a href="/Forget_Password" className="forgot">
               Forgot Password?
             </a>
               {error && <div className="error">{error}</div>}

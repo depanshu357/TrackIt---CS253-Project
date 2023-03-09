@@ -1,0 +1,27 @@
+.progressbar {
+    position: relative;
+    top: 200px;
+    right: 80%;
+
+}
+
+.piechart {
+    position: relative;
+    bottom: 20%;
+    left: 10%;
+
+}
+
+.bargraph {
+    position: relative;
+    bottom: 20%;
+    left: 30%;
+
+}
+
+.linegraph {
+    position: relative;
+    top: 250px;
+    right: 10%;
+
+}
