@@ -42,6 +42,7 @@ const ExpenseDetails = ({ expensee }) => {
     <div className="expense-details">
       <h4>{expensee.Item}</h4>
       <p><strong>Money Spent: </strong>{expensee.MoneySpent}</p>
+      <p><strong>Category: </strong>{expensee.Category}</p>
       <p><strong>Description: </strong>{expensee.Description}</p>
       <p>{formatDistanceToNow(new Date(expensee.createdAt), { addSuffix: true })}</p>
       <p><strong>Date: </strong>{expensee.Date}</p>

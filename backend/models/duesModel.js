@@ -35,6 +35,11 @@ const expenseSchema = new Schema({
     type: String,
     default:"Borrowed",
     required:true
+  },
+  Paid:{
+    type: Boolean,
+    default: false,
+    required: true
   }
 }, { timestamps: true })
 

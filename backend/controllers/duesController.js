@@ -17,26 +17,43 @@ var transporter = nodemailer.createTransport({
 const getDuess = async (req, res) => {
 //   const user_id = req.user._id
 //   const dues = req.user._id
-  const Duess = await Dues.find({}).sort({createdAt: -1})
+  const dues = await Dues.find({}).sort({createdAt: -1})
 
-  res.status(200).json(Duess)
+  res.status(200).json(dues)
 }
 
 // get a single Dues
 const getDues = async (req, res) => {
-  const { id } = req.params
+  const { rollNo } = req.params
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such Duess'})
-  }
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({error: 'No such Duess'})
+  // }
 
-  const Dues = await Dues.findById(id)
+  const dues = await Dues.find({RollNo: rollNo})
 
-  if (!Dues) {
+  if (!dues) {
     return res.status(404).json({error: 'No such Dues'})
   }
   
-  res.status(200).json(Dues)
+  res.status(200).json(dues)
+}
+
+// get a single Dues
+const getDuesByShopName = async (req, res) => {
+  const { shopName } = req.params
+
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({error: 'No such Duess'})
+  // }
+
+  const dues = await Dues.find({shopName: shopName})
+
+  if (!dues) {
+    return res.status(404).json({error: 'No such Dues'})
+  }
+  
+  res.status(200).json(dues)
 }
 
 
@@ -115,15 +132,15 @@ const updateDues = async (req, res) => {
     return res.status(404).json({error: 'No such Duess'})
   }
 
-  const Dues = await Workout.findOneAndUpdate({_id: id}, {
+  const dues = await Dues.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
-  if (!Dues) {
+  if (!dues) {
     return res.status(400).json({error: 'No such Duess'})
   }
 
-  res.status(200).json(Dues)
+  res.status(200).json(dues)
 }
 
 
@@ -132,5 +149,6 @@ module.exports = {
   getDues,
   createDues,
   deleteDues,
-  updateDues
+  updateDues,
+  getDuesByShopName
 }
