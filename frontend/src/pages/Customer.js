@@ -36,7 +36,7 @@ const Customer = () => {
 
   useEffect(() => {
     const fetchDues = async () => {
-      const response = await fetch(`/api/dues/${user.rollNo}`, {
+      const response = await fetch(`/api/dues/rollNo/${user.rollNo}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${user.token}` },
       });

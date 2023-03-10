@@ -41,17 +41,23 @@ const Forget_Password = () => {
     } else if (confirmPassword !== password) {
       setMessage("Passwords do not match");
     } else {
-      const response = await fetch("/api/user/signup/updatePassword", {
-        method: "POST",
-        body: JSON.stringify(updatePassword),
-        headers: { "Content-Type": "application/json" },
-      });
-      const json = await response.json();
-      if (response.ok) {
-        setMessage("Password successfully updated, Please go to Login Page");
-      } else {
-        setMessage("Error in updating password, Please try again");
-      }
+        console.log("ok to proceed")
+        const fetchUpdatePassword = async() =>{
+
+            const response = await fetch("/api/user/signup/updatePassword", {
+                method: "POST",
+                body: JSON.stringify(updatePassword),
+                headers: { "Content-Type": "application/json" },
+            });
+            const json = await response.json();
+            console.log(response)
+            if (response.ok) {
+              setMessage("Password successfully updated, Please go to Login Page");
+            } else {
+              setMessage("Error in updating password, Please try again");
+            }
+        }
+        fetchUpdatePassword();
     }
   };
 
