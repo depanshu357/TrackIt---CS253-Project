@@ -33,29 +33,29 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-            path ="/expenses"
-            element={<CalendarMonth/>}
+              path="/calenderMonth"
+              element={user ? <CalendarMonth /> : <Navigate to="/login" />}
             />
             <Route
               path="/"
               element={user ? <Home /> : <Navigate to="/login" />}
             />
 
-            <Route 
-              path="/monthSummary" 
-              element={user ? <MonthSummary /> : <Navigate to="/login" />} 
+            <Route
+              path="/monthSummary"
+              element={user ? <MonthSummary /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/borrowings" 
-              element={user ? <Borrowings /> : <Navigate to="/login" />} 
+            <Route
+              path="/borrowings"
+              element={user ? <Borrowings /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/expenses" 
-              element={user ? <Expenses /> : <Navigate to="/login" />} 
+            <Route
+              path="/expenses"
+              element={user ? <Expenses /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/dailySummary" 
-              element={user ? <DailySummary /> : <Navigate to="/login" />} 
+            <Route
+              path="/dailySummary"
+              element={user ? <DailySummary /> : <Navigate to="/login" />}
 
             />
             <Route

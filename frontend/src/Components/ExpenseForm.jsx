@@ -10,7 +10,7 @@ const ExpenseForm = () => {
   const [MoneySpent, setMoneySpent] = useState('')
   const [Description, setDescription] = useState('')
   const [Date, setDate] = useState('')
-  const [Category,setCategory] = useState("Others")
+  const [Category, setCategory] = useState("Others")
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -22,7 +22,7 @@ const ExpenseForm = () => {
       return
     }
 
-    const expense = {Item, MoneySpent, Description,Date,Category}
+    const expense = { Item, MoneySpent, Description, Date, Category }
 
     const response = await fetch('/api/expense', {
       method: 'POST',
@@ -39,7 +39,7 @@ const ExpenseForm = () => {
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
-      dispatch({type: 'CREATE_EXPENSE', payload: json})
+      dispatch({ type: 'CREATE_EXPENSE', payload: json })
       setItem('')
       setMoneySpent('')
       setDescription('')
@@ -53,7 +53,7 @@ const ExpenseForm = () => {
       <h3>Add a New Purchase</h3>
 
       <label>Expense Details:</label>
-      <input 
+      <input
         type="text"
         onChange={(e) => setItem(e.target.value)}
         value={Item}
@@ -61,7 +61,7 @@ const ExpenseForm = () => {
       />
 
       <label>Money Spent:</label>
-      <input 
+      <input
         type="number"
         onChange={(e) => setMoneySpent(e.target.value)}
         value={MoneySpent}
@@ -69,7 +69,7 @@ const ExpenseForm = () => {
       />
 
       <label>Description:</label>
-      <input 
+      <input
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={Description}
@@ -77,17 +77,17 @@ const ExpenseForm = () => {
       />
 
       <label>Date:</label>
-      <input 
+      <input
         type="date"
         onChange={(e) => setDate(e.target.value)}
         value={Date}
         className={emptyFields.includes('Date') ? 'error' : ''}
       />
       <label >Category:</label>
-      <input type="text" 
-      value={Category}
-      onChange={e=>setCategory(e.target.value)}
-      className={emptyFields.includes('Category')?'error':''} 
+      <input type="text"
+        value={Category}
+        onChange={e => setCategory(e.target.value)}
+        className={emptyFields.includes('Category') ? 'error' : ''}
       />
 
       <button>Add To List</button>
