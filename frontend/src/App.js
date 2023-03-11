@@ -6,6 +6,7 @@ import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
 import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
+import CalendarMonth from "./Components/calendarMonth";
 
 import History from "./Components/History";
 import Profile from "./Components/Profile";
@@ -31,6 +32,10 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
+            <Route
+            path ="/expenses"
+            element={<CalendarMonth/>}
+            />
             <Route
               path="/"
               element={user ? <Home /> : <Navigate to="/login" />}
