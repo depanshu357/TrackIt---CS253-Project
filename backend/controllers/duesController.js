@@ -143,6 +143,20 @@ const updateDues = async (req, res) => {
   res.status(200).json(dues)
 }
 
+const getDuesByRollNo = async(req,res) => {
+  const {rollNo} = req.params;
+  console.log(parseInt(rollNo));
+  console.log(typeof(parseInt(rollNo)));
+
+  const dues = await Dues.find({rollNo: parseInt(rollNo)})
+
+  if (!dues) {
+    return res.status(404).json({error: 'No such Dues'})
+  }
+  
+  res.status(200).json(dues)
+  // res.status(200).json("Ok")
+}
 
 module.exports = {
     getDuess,
@@ -150,5 +164,6 @@ module.exports = {
   createDues,
   deleteDues,
   updateDues,
-  getDuesByShopName
+  getDuesByShopName,
+  getDuesByRollNo
 }

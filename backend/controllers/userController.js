@@ -89,14 +89,18 @@ const updatePassword = async(req,res) => {
   const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password,salt)
   const opts = { new: true };
-  const user = await User.findOneAndUpdate({email:email},{
-    password: hash,
-  },opts)
-  if(user){
-    res.status(200).json("OK")
-    // console.log(user)
+  try{
+
+    const user = await User.findOneAndUpdate({email:email},{
+      password: hash,
+    },opts)
+      res.status(200).json("OK")
+      // console.log(user)
+    // cons
   }
-  else{ res.status.json({error: error.message})}
+  catch(error){
+     res.status.json({error: error.message})
+  }
 
 }
 

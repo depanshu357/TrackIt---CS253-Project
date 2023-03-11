@@ -2,9 +2,10 @@ import React from "react";
 import stethoscope from "../images/stethoscope.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import CalendarMonth from "./calendarMonth";
 
 function Expenses() {
+  console.log(CalendarMonth());
   const {user} = useAuthContext;
   const names = [
     {
@@ -29,9 +30,13 @@ function Expenses() {
       Money: "78",
     },
   ];
-  const renderListOfUserNames = (names) => {
+
+  // var namesdate = names.filter(function(el){
+  //   return el.Date == date;
+  // });
+  const renderListOfUserNames = (namesdate) => {
     
-    return names.map((name) => (
+    return namesdate.map((name) => (
       <div
         style={{
           backgroundColor: "grey",
