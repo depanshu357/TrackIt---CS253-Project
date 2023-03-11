@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Outlet,Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./navbar.css"
@@ -14,10 +14,10 @@ import {
 } from './NavbarElements';
 
 const Navbar = () => {
-  const {logout} = useLogout();
+  const { logout } = useLogout();
   const { user } = useAuthContext()
 
-  const handleClick = () =>{
+  const handleClick = () => {
     logout()
   }
   return (
@@ -44,7 +44,7 @@ const Navbar = () => {
                 <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
-              </li> */}  
+              </li> */}
               {/* <li className="nav-item">
                 <a className="nav-link" href="/currentMonth">
                   CurrentMonth
@@ -66,36 +66,37 @@ const Navbar = () => {
                 </a>
               </li> */}
               {user && (
-                
-              <>
-            <span className="nav-elements">
-              <span>
 
-              <Link to="/currentMonth" className="main-page-links" activeStyle>currentMonth </Link>
-              <Link to="/history" className="main-page-links" activeStyle>History </Link>
-              <Link to="/profile" className="main-page-links" activeStyle>Profile </Link>
-              <Link to="/dashboard" className="main-page-links" activeStyle>Dashboard </Link>
-              <Link to="/expenses" className="main-page-links" activeStyle>Expenses </Link>
-              <Link to="/borrowings" className="main-page-links" activeStyle>Borrowings </Link>
-              </span>
-              <span >
+                <>
+                  <span className="nav-elements">
+                    <span>
 
-              <span style={{color:"white"}}>{user.email}</span>
-              <button onClick={handleClick} className="logout-btn">Log out</button>
-              </span>
-            </span>
-            <li className="nav-item active main-page-links">
-        <a className="nav-link" href="#">Home <span class="sr-only main-page-links">Home</span></a>
-      </li>
-            </>
-          )}
-          {!user && (
-            <div>
-              <Link to="/login" className="main-page-links">Login</Link>
-              <Link to="/signup" className="main-page-links">Signup</Link>
-              
-            </div>
-          )}
+                      <Link to="/currentMonth" className="main-page-links" activeStyle>currentMonth </Link>
+                      <Link to="/history" className="main-page-links" activeStyle>History </Link>
+                      <Link to="/profile" className="main-page-links" activeStyle>Profile </Link>
+                      <Link to="/dashboard" className="main-page-links" activeStyle>Dashboard </Link>
+                      <Link to="/expenses" className="main-page-links" activeStyle>Expenses </Link>
+                      <Link to="/borrowings" className="main-page-links" activeStyle>Borrowings </Link>
+                      <Link to="/calenderMonth" className="main-page-links" activeStyle>CalenderMonth </Link>
+                    </span>
+                    <span >
+
+                      <span style={{ color: "white" }}>{user.email}</span>
+                      <button onClick={handleClick} className="logout-btn">Log out</button>
+                    </span>
+                  </span>
+                  <li className="nav-item active main-page-links">
+                    <a className="nav-link" href="#">Home <span class="sr-only main-page-links">Home</span></a>
+                  </li>
+                </>
+              )}
+              {!user && (
+                <div>
+                  <Link to="/login" className="main-page-links">Login</Link>
+                  <Link to="/signup" className="main-page-links">Signup</Link>
+
+                </div>
+              )}
 
 
 

@@ -10,19 +10,21 @@ const DuesDetailsForShopkeeper = (props) => {
   const { user } = useAuthContext();
   const [Paid, setPaid] = useState(props.due.Paid);
   // console.log(props.due.Paid)
-
+  //  console.log(props.due.Paid)
   const handleChange = async (e) => {
     console.log(e.target);
     setPaid( !(props.due.Paid));
-    const due ={...(props.due),Paid:`${Paid}`}
-    if(e.target.backgroundColor!=="green"){
-      e.target.style.backgroundColor = "green"
-    }else{
-
-    }
+    // const due ={Paid:`${!(props.due.Paid)}`}
+    const due ={...(props.due),Paid:`${!(props.due.Paid)}`}
+    // if(!props.due.Paid){
+    //   e.target.style.backgroundColor = "green"
+    // }else{
+    //   e.target.style.backgroundColor = "red"
+    // }
     // console.log(due);
     // console.log(props.due.Paid)
-    const fetchPaidStatus = await fetch( "/api/dues/" + props.due._id,{
+    console.log(due)
+    const response = await fetch( "/api/dues/" + props.due._id,{
        method:"PATCH",
        body: JSON.stringify(
         due
@@ -35,11 +37,11 @@ const DuesDetailsForShopkeeper = (props) => {
     if(user){
       // fetchPaidStatus();
     }
-    const json = await fetchPaidStatus.json();
-    if(fetchPaidStatus.ok){
+    const json = await response.json();
+    console.log(json)
+    if(response.ok){
       dispatch({type: 'UPDATE_DUES',payload: json});
     }
-    console.log(json)
   };
 
   const handleClick = async () => {
@@ -54,7 +56,6 @@ const DuesDetailsForShopkeeper = (props) => {
       },
     });
     const json = await response.json();
-
     if (response.ok) {
       dispatch({ type: "DELETE_DUES", payload: json });
     }
@@ -77,7 +78,7 @@ const DuesDetailsForShopkeeper = (props) => {
       /> */}
       <button
       onClick={handleChange}
-      style={props.due.Paid?{backgroundColor:"green"}:{backgroundColor:"white"}}
+      style={props.due.Paid?{backgroundColor:"green"}:{backgroundColor:"red"}}
       >
         {(props.due.Paid)?"Paid":"Not Paid"}
       </button>

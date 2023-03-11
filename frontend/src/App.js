@@ -6,6 +6,7 @@ import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
 import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
+import CalendarMonth from "./Components/calendarMonth";
 
 import History from "./Components/History";
 import Profile from "./Components/Profile";
@@ -32,25 +33,29 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
+              path="/calenderMonth"
+              element={user ? <CalendarMonth /> : <Navigate to="/login" />}
+            />
+            <Route
               path="/"
               element={user ? <Home /> : <Navigate to="/login" />}
             />
 
-            <Route 
-              path="/monthSummary" 
-              element={user ? <MonthSummary /> : <Navigate to="/login" />} 
+            <Route
+              path="/monthSummary"
+              element={user ? <MonthSummary /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/borrowings" 
-              element={user ? <Borrowings /> : <Navigate to="/login" />} 
+            <Route
+              path="/borrowings"
+              element={user ? <Borrowings /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/expenses" 
-              element={user ? <Expenses /> : <Navigate to="/login" />} 
+            <Route
+              path="/expenses"
+              element={user ? <Expenses /> : <Navigate to="/login" />}
             />
-            <Route 
-              path="/dailySummary" 
-              element={user ? <DailySummary /> : <Navigate to="/login" />} 
+            <Route
+              path="/dailySummary"
+              element={user ? <DailySummary /> : <Navigate to="/login" />}
 
             />
             <Route

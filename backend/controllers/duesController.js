@@ -59,7 +59,7 @@ const getDuesByShopName = async (req, res) => {
 
 // create new Dues
 const createDues = async (req, res) => {
-  const {Item, Amount,RollNo, Description,Date,shopName} = req.body
+  const {Item, Amount,RollNo, Description,Date,shopName,Category} = req.body
 
   let emptyFields = []
 
@@ -85,7 +85,7 @@ const createDues = async (req, res) => {
   // add doc to db
   try {
     // const user_id = req.user._id
-    const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName})
+    const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName,Category})
     res.status(200).json(dues)
 
     var mailOptions = {
@@ -143,6 +143,20 @@ const updateDues = async (req, res) => {
   res.status(200).json(dues)
 }
 
+const getDuesByRollNo = async(req,res) => {
+  const {rollNo} = req.params;
+  console.log(parseInt(rollNo));
+  console.log(typeof(parseInt(rollNo)));
+
+  const dues = await Dues.find({rollNo: parseInt(rollNo)})
+
+  if (!dues) {
+    return res.status(404).json({error: 'No such Dues'})
+  }
+  
+  res.status(200).json(dues)
+  // res.status(200).json("Ok")
+}
 
 module.exports = {
     getDuess,
@@ -150,5 +164,6 @@ module.exports = {
   createDues,
   deleteDues,
   updateDues,
-  getDuesByShopName
+  getDuesByShopName,
+  getDuesByRollNo
 }

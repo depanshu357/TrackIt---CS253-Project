@@ -27,7 +27,7 @@ const Signup = () => {
 
     const fetchOtp = async () => {
       const response = await fetch("/api/user/signup/otp", {
-        method: "POST",
+        method: "PATCH",
         body: JSON.stringify(otp_email),
         headers: { 'Content-Type': 'application/json', }
       })
