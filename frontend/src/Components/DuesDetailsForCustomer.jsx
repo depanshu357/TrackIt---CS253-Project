@@ -26,7 +26,7 @@ const DuesDetailsForCustomer = (props) => {
     //       dispatch({type: 'DELETE_DUES', payload: json})
     //     }
     //   }
-    console.log(props)
+    // console.log(props)
 
   return (
     <div>

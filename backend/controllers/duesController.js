@@ -148,7 +148,8 @@ const getDuesByRollNo = async(req,res) => {
   console.log(parseInt(rollNo));
   console.log(typeof(parseInt(rollNo)));
 
-  const dues = await Dues.find({rollNo: parseInt(rollNo)})
+  const dues = await Dues.find({RollNo: parseInt(rollNo)})
+  
 
   if (!dues) {
     return res.status(404).json({error: 'No such Dues'})

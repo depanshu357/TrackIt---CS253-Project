@@ -38,7 +38,7 @@ const Customer = () => {
     const fetchDues = async () => {
       const response = await fetch(`/api/dues/rollNo/${user.rollNo}`, {
         method: "GET",
-        headers: { Authorization: `Bearer ${user.token}` },
+        headers: { 'Authorization': `Bearer ${user.token}` },
       });
       const json = await response.json();
 
@@ -77,21 +77,14 @@ const Customer = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {Dues &&
             Dues.map((borrow) => {
-              if (borrow.RollNo === user.rollNo){
+              // console.log(borrow.RollNo)
                 
                 return (
                   <div>
                   <DuesDetailsForCustomer key={borrow._id} due={borrow} />
-                  {/* <div>
-                    Item - {borrow.Item} <br></br>
-                    Amount - {borrow.Amount} <br></br>
-                    RollNo - {borrow.RollNo} <br></br>
-                    Description - {borrow.Description} <br />
-                    shopName - {borrow.shopName}
-                  </div> */}
                 </div>
               );
-            }
+            
           })}
         </div>
       </div>
