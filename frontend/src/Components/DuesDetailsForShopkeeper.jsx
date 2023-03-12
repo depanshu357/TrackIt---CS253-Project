@@ -14,8 +14,8 @@ const DuesDetailsForShopkeeper = (props) => {
   const handleChange = async (e) => {
     console.log(e.target);
     setPaid( !(props.due.Paid));
-    // const due ={Paid:`${!(props.due.Paid)}`}
-    const due ={...(props.due),Paid:`${!(props.due.Paid)}`}
+    const due ={Paid:`${!(props.due.Paid)}`}
+    // const due ={...(props.due),Paid:`${!(props.due.Paid)}`}
     // if(!props.due.Paid){
     //   e.target.style.backgroundColor = "green"
     // }else{
@@ -37,11 +37,13 @@ const DuesDetailsForShopkeeper = (props) => {
     if(user){
       // fetchPaidStatus();
     }
-    const json = await response.json();
-    console.log(json)
+    const jsonAp = await response.json();
+    console.log(jsonAp)
+
     if(response.ok){
-      dispatch({type: 'UPDATE_DUES',payload: json});
+      dispatch({type: 'UPDATE_DUES',payload: jsonAp});
     }
+    window.location.reload(true);
   };
 
   const handleClick = async () => {

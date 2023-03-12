@@ -14,6 +14,8 @@ const ExpenseForm = () => {
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
+  const options = ["Food","Health","Shopping","Others"];
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -84,11 +86,18 @@ const ExpenseForm = () => {
         className={emptyFields.includes('Date') ? 'error' : ''}
       />
       <label >Category:</label>
-      <input type="text"
+      <select onChange={(e)=>setCategory(e.target.value)}>
+
+      <option>Please Select a Category</option>
+      {options.map((option, index) => {
+        return <option key={index}>{option}</option>;
+      })}
+        </select>
+      {/* <input type="text"
         value={Category}
         onChange={e => setCategory(e.target.value)}
         className={emptyFields.includes('Category') ? 'error' : ''}
-      />
+      /> */}
 
       <button>Add To List</button>
       {error && <div className="error">{error}</div>}

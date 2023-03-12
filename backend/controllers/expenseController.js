@@ -30,7 +30,7 @@ const getExpense = async (req, res) => {
 
 // create new expense
 const createExpense = async (req, res) => {
-  const {Item, MoneySpent, Description,Date} = req.body
+  const {Item, MoneySpent, Description,Date,Category} = req.body
 
   let emptyFields = []
 
@@ -53,7 +53,7 @@ const createExpense = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const expense = await Expense.create({Item, MoneySpent, Description, user_id,Date})
+    const expense = await Expense.create({Item, MoneySpent, Description, user_id,Date,Category})
     res.status(200).json(expense)
   } catch (error) {
     res.status(400).json({error: error.message})

@@ -124,7 +124,7 @@ const deleteDues = async (req, res) => {
   res.status(200).json(dues)
 }
 
-// update a workout
+// update a dues
 const updateDues = async (req, res) => {
   const { id } = req.params
 
