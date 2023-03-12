@@ -10,7 +10,7 @@ import ExpenseForm from "../Components/ExpenseForm";
 import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer"
 
 const Customer = () => {
-    const { expense, dispatch } = useExpenseContext();
+  const { expense, dispatch } = useExpenseContext();
   const { user } = useAuthContext();
   const [borrows, setBorrows] = useState(null);
   const { Dues, dispatch: dispatchd } = useDuesContext();
@@ -36,7 +36,7 @@ const Customer = () => {
 
   useEffect(() => {
     const fetchDues = async () => {
-      const response = await fetch(`/api/dues/rollNo/${user.rollNo}`, {
+      const response = await fetch(`/api/dues`, {
         method: "GET",
         headers: { 'Authorization': `Bearer ${user.token}` },
       });
@@ -66,26 +66,26 @@ const Customer = () => {
           alignItems: "center",
           height: "90vh",
         }}
-        >
+      >
         <div className="expenses">
           {expense &&
             expense.map((expensee) => (
               <ExpenseDetails key={expensee._id} expensee={expensee} />
-              ))}
+            ))}
         </div>
         <ExpenseForm />
         <div style={{ display: "flex", flexDirection: "column" }}>
           {Dues &&
             Dues.map((borrow) => {
               // console.log(borrow.RollNo)
-                
-                return (
-                  <div>
+
+              return (
+                <div>
                   <DuesDetailsForCustomer key={borrow._id} due={borrow} />
                 </div>
               );
-            
-          })}
+
+            })}
         </div>
       </div>
     </div>
