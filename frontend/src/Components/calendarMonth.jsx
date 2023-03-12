@@ -45,6 +45,50 @@ const CalendarMonth = () => {
   console.log(date2);
   //console.log(typeof date2);
 
+
+  var daily_category = [0, 0, 0, 0];
+  var monthly_category = [0, 0, 0, 0];
+
+
+  for (let i = 0; i < expense.length; i++) {
+
+    if (expense[i].Date.substring(5, 7) == month) {
+      if (expense[i].Category == "Food") {
+        monthly_category[0] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Health") {
+        monthly_category[1] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Shopping") {
+        monthly_category[2] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Others") {
+        monthly_category[3] += expense[i].MoneySpent;
+      }
+    }
+
+    if (expense[i].Date.substring(0, 10) == date2) {
+      if (expense[i].Category == "Food") {
+        daily_category[0] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Health") {
+        daily_category[1] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Shopping") {
+        daily_category[2] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Others") {
+        daily_category[3] += expense[i].MoneySpent;
+      }
+    }
+
+
+
+  }
+
+
+
+
   //const {user} = useAuthContext;
   const names = [
     {
@@ -116,16 +160,16 @@ const CalendarMonth = () => {
           />
         </div>
         <div class="listdetails">
-          <div class="listname">{name.name}</div>
-          <div class="listmoney">{name.Money}</div>
-          <div class="listdate">{name.Date}</div>
-          <div class="listtype">{name.type}</div>
+          <div class="listname">{name.Item}</div>
+          <div class="listmoney">{name.MoneySpent}</div>
+          <div class="listdate">{name.Date.substring(0, 10)}</div>
+          <div class="listtype">{name.Category}</div>
 
 
           <a
             class="btn btn-primary listcollapsebutton"
             data-bs-toggle="collapse"
-            href={`#collapseExample${name.id}`}
+            href={`#collapseExample${name._id}`}
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
@@ -140,8 +184,8 @@ const CalendarMonth = () => {
 
 
       </div>
-        <div class="collapse listdescription" id={`collapseExample${name.id}`}>
-          <div class=" listdesc">{name.description}</div>
+        <div class="collapse listdescription" id={`collapseExample${name._id}`}>
+          <div class=" listdesc">{name.Description}</div>
         </div></div>
 
     ));
@@ -164,7 +208,7 @@ const CalendarMonth = () => {
               <img src={stethoscope} alt="" />
             </div>
             <div class="smallboxm lgreen">
-              <span class="text">546</span>
+              <span class="text">{monthly_category[0]}</span>
             </div>
           </span>
           <span class="bigboxm dred bigm">
@@ -172,7 +216,7 @@ const CalendarMonth = () => {
               <img src={stethoscope} alt="" />
             </div>
             <div class="smallboxm lred smallm">
-              <span class="text">546</span>
+              <span class="text">{monthly_category[1]}</span>
             </div>
           </span>
         </div>
@@ -182,7 +226,7 @@ const CalendarMonth = () => {
               <img src={stethoscope} alt="" />
             </div>
             <div class="smallboxm lyellow smallm">
-              <span class="text">546</span>
+              <span class="text">{monthly_category[2]}</span>
             </div>
           </span>
           <span class="bigboxm dblue bigm">
@@ -190,7 +234,7 @@ const CalendarMonth = () => {
               <img src={stethoscope} alt="" />
             </div>
             <div class="smallboxm lblue smallm">
-              <span class="text">546</span>
+              <span class="text">{monthly_category[3]}</span>
             </div>
           </span>
         </div>
@@ -213,7 +257,8 @@ const CalendarMonth = () => {
             </div>
             <div class="smallbox lgreen">
 
-              546
+              {daily_category[0]}
+
 
             </div>
           </div>
@@ -223,7 +268,8 @@ const CalendarMonth = () => {
             </div>
             <div class="smallbox lred">
 
-              320
+              {daily_category[1]}
+
 
             </div>
           </div>
@@ -235,7 +281,7 @@ const CalendarMonth = () => {
             </div>
             <div class="smallbox lyellow">
 
-              534
+              {daily_category[2]}
 
             </div>
           </div>
@@ -245,7 +291,8 @@ const CalendarMonth = () => {
             </div>
             <div class="smallbox lblue">
 
-              312
+              {daily_category[3]}
+
 
             </div>
           </div>

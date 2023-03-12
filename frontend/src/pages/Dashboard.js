@@ -58,11 +58,18 @@ const Dashboard = () => {
     var last_ten_days_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var last_ten_days_data = [];
     var piechart_data = [];
+    var bar_graph_progress = 0;
+    var total_budget = 500000;
     for (let i = 1; i <= 12; i++) {
         let temp = 0;
         for (let j = 0; j < expense.length; j++) {
+            // console.log(expense[j].Date[5] + expense[j].Date[6], current_month);
+            if (expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
+                bar_graph_progress += expense[j].MoneySpent;
+            }
             if (expense[j].Date[5] + expense[j].Date[6] == i) {
                 temp += expense[j].MoneySpent;
+
 
                 if (todays_date >= 11) {
                     if (expense[j].Date.substring(0, 4) == current_year && expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
@@ -104,16 +111,16 @@ const Dashboard = () => {
 
 
                 if (i == current_month + 1) {
-                    if (expense[j].Description == "Food") {
+                    if (expense[j].Category == "Food") {
                         Food += expense[j].MoneySpent;
                     }
-                    if (expense[j].Description == "Health") {
+                    if (expense[j].Category == "Health") {
                         Health += expense[j].MoneySpent;
                     }
-                    if (expense[j].Description == "Shopping") {
+                    if (expense[j].Category == "Shopping") {
                         Shopping += expense[j].MoneySpent;
                     }
-                    if (expense[j].Description == "Others") {
+                    if (expense[j].Category == "Others") {
                         Others += expense[j].MoneySpent;
                     }
                 }
@@ -126,10 +133,16 @@ const Dashboard = () => {
         last_ten_days_data.push({ name: last_ten_days_name[i], value: last_ten_days_value[i] });
     }
 
+    bar_graph_progress = (bar_graph_progress * 100) / total_budget;
+    bar_graph_progress = bar_graph_progress > 100 ? 100 : Math.round(bar_graph_progress);
+
+
     piechart_data.push({ name: "Food", value: Food });
     piechart_data.push({ name: "Health", value: Health });
     piechart_data.push({ name: "Shopping", value: Shopping });
     piechart_data.push({ name: "Other", value: Others });
+
+    // console.log(bar_graph_progress, "Hello");
 
     console.log(expense);
     const data = [
@@ -234,7 +247,7 @@ const Dashboard = () => {
             </div>
 
             <div className="progressbar">
-                <Progressbar bgcolor="violet" progress='10' height={10} />
+                <Progressbar bgcolor="cyan" progress={bar_graph_progress} height={10} />
             </div>
 
         </div>
