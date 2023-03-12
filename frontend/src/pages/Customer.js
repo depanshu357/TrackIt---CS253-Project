@@ -36,7 +36,7 @@ const Customer = () => {
 
   useEffect(() => {
     const fetchDues = async () => {
-      const response = await fetch(`/api/dues/rollNo/${user.rollNo}`, {
+      const response = await fetch(`/api/dues`, {
         method: "GET",
         headers: { 'Authorization': `Bearer ${user.token}` },
       });
@@ -78,7 +78,7 @@ const Customer = () => {
           {Dues &&
             Dues.map((borrow) => {
               // console.log(borrow.RollNo)
-                
+                if(user.rollNo == borrow.RollNo)
                 return (
                   <div>
                   <DuesDetailsForCustomer key={borrow._id} due={borrow} />

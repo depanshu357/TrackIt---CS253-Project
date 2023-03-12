@@ -14,6 +14,8 @@ const Shopkeeper = () => {
   const [borrows, setBorrows] = useState(null);
   // const [customers,setCustomers] = useState([]);
   const [dataUniue, setDataUnique] = useState([]);
+  var [index, setIndex] = useState(0);
+  var total = 0;
   var customers = [];
 
   useEffect(() => {
@@ -75,69 +77,92 @@ const Shopkeeper = () => {
   //   console.log(customers);
   // }, [dispatchd, user]);
 
-  return (
-    <div
-      className="home"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "90vh",
-      }}
-    >
-      {/* <div>
-            Item - {due.Item} <br></br>
-            Amount - {due.Amount} <br></br>
-            RollNo - {due.RollNo} <br></br>
-            Description - {due.Description}
-          </div> */}
-      {/* {Dues && updateCustomers} */}
-      {customers && customers.map((rollNo)=>{
-        console.log(rollNo)
-        return 
-      })}
-      {
-        customers &&
-          customers.map((customer) => {
-          Dues &&
-          Dues.map((due) => {
-            // console.log(due);
-            // console.log("accha");
-            // if(due.shopName === user.shopName)
-            console.log(due);
-            // var customers = [];
-            // Dues?.forEach(function (due) {
-            //   // console.log(due)
-            //   customers.push(due);
-            // });
-            // function onlyUnique(value, index, self) {
-            //   return self.indexOf(value) === index;
-            // }
-            // customers = customers.filter(onlyUnique);
-            // console.log(customers);
-            // customers.map((customer) => {
-            //   console.log(customer);
-            if (due.RollNo === customers[0]) {
-              //     console.log(true);
+  const names = [
+    {
+      Description: "f",
+      Date: "May 6 2023",
+      Money: "78",
+    },
+    {
+      Description: "ff",
+      Date: "May 6 2023",
+      Money: "78",
+    },
+    {
+      Description: "fff",
+      Date: "Aug 6 2023",
+      Money: "78",
+    },
+  ];
 
-              // console.log("matched")
-              return (
-                <div>
-                  <DuesDetailsForShopkeeper key={due._id} due={due} />
-                </div>
-              );
-            }
-          })
-        // if(due.RollNo)
-        // return <DuesDetailsForShopkeeper key={due._id} due={due} />;
-        // } else {
-        // return <div>Ok</div>;
-        // }
-        // });
-        return <div>k</div>
-      }
-       )} 
-      <DuesForm />
+  const renderListOfUserNames = (names) => {
+    return names.map((name) => (
+      <div>
+        <div className="entry-display">
+          <div className="date">{name.Date}</div>
+          <div className="Description">{name.Description}</div>
+          <div className="amount">{name.Money}</div>
+        </div>
+      </div>
+    ));
+  };
+
+  return (
+    <div className="home-shopkeeper">
+      {customers &&
+        customers.map((customer) => (
+          <div style={{ position: "relative" }}>
+            <div
+              className="card"
+            >
+              <div className="card-header">{customer}</div>
+              {/* <div className="card-body">
+                <ul className="entries">{renderListOfUserNames(names)}</ul>
+              </div> */}
+              {/* <div className="data-entry">
+                <label className="date-entry">
+                  <input type="date" style={{ width: "90px" }} />
+                </label>
+                <label className="descrp-entry">
+                  <input
+                    type="text"
+                    size="10px"
+                    style={{ width: "100px" }}
+                    placeholder="Description"
+                  />
+                </label>
+                <label className="amt-entry">
+                  <input
+                    type="number"
+                    style={{ width: "75px" }}
+                    placeholder="Amount"
+                  />
+                </label>
+                <button className="add-button">+</button>
+              </div> */}
+              <div style={{ display: "none" }}>{(total = 0)}</div>
+              <div style={{ padding: "10px", height: "100%" }}>
+                {Dues &&
+                  Dues.map((due) => {
+                    if (due.RollNo == customer) {
+                      console.log(due.Amount);
+                      total = total + due.Amount;
+                      return (
+                        <DuesDetailsForShopkeeper key={due._id} due={due} />
+                      );
+                    }
+                  })}
+              </div>
+              <div className="card-footer">
+                {/* <button className="footbutton">Edit</button> */}
+                <div className="foottotal">Total: </div>
+                <div className="footvalue">{total}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+      {/* <DuesForm /> */}
     </div>
   );
 };

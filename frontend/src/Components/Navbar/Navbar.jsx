@@ -71,11 +71,11 @@ const Navbar = () => {
                   <span className="nav-elements">
                     <span>
 
-                      <Link to="/currentMonth" className="main-page-links" activeStyle>currentMonth </Link>
-                      <Link to="/history" className="main-page-links" activeStyle>History </Link>
-                      <Link to="/profile" className="main-page-links" activeStyle>Profile </Link>
+                      {/* <Link to="/currentMonth" className="main-page-links" activeStyle>currentMonth </Link> */}
+                      {/* <Link to="/history" className="main-page-links" activeStyle>History </Link>
+                      <Link to="/profile" className="main-page-links" activeStyle>Profile </Link> */}
                       <Link to="/dashboard" className="main-page-links" activeStyle>Dashboard </Link>
-                      <Link to="/expenses" className="main-page-links" activeStyle>Expenses </Link>
+                      {user.userType=="Customer" && <Link to="/expenses" className="main-page-links" activeStyle>Expenses </Link>}
                       <Link to="/borrowings" className="main-page-links" activeStyle>Borrowings </Link>
                       <Link to="/calenderMonth" className="main-page-links" activeStyle>CalenderMonth </Link>
                     </span>
