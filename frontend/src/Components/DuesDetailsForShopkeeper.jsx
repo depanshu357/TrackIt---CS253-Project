@@ -3,6 +3,7 @@ import { useDuesContext } from "../hooks/useDuesContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./borrowings.css";
+import "./DueDetails.css"
 
 // date fns
 const { format } = require("date-fns");
@@ -78,8 +79,8 @@ const DuesDetailsForShopkeeper = (props) => {
           onClick={handleChange}
           style={
             props.due.Paid
-              ? { backgroundColor: "green", borderRadius: "5px" }
-              : { backgroundColor: "red", borderRadius: "5px" }
+              ? { backgroundColor: "lightgreen", borderRadius: "5px" }
+              : { backgroundColor: "tomato", borderRadius: "5px" }
           }
         >
           {props.due.Paid ? "Paid" : "Paid"}
@@ -100,14 +101,14 @@ const DuesDetailsForShopkeeper = (props) => {
         </div>
 
       </div>
-      <div class="collapse" id={"collapseExample" + props.due._id}>
-        <div class="">Description - {props.due.Description} </div>
+      <div class="collapse dep-collapse-box" id={"collapseExample" + props.due._id} >
+        <div class="collapse-inside">Description - {props.due.Description} </div>
         <span
-          className="material-symbols-outlined"
+          className="material-symbols-outlined delete-button"
           onClick={handleClick}
-          style={{ cursor: "pointer", borderRadius: "10px" }}
+          style={{ cursor: "pointer"}}
         >
-          delete
+          
         </span>
       </div>
       {/* Item - {props.due.Item} <br></br>

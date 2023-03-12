@@ -31,9 +31,9 @@ const Navbar = () => {
         {user && (
           <>
             <div className="navbar-inner">
-              <Link to="/expenses" className="navbar-home">Expenses</Link>
-              <Link to="/borrowings" className="navbar-home">Borrowings</Link>
-              <Link to="/dashboard" className="navbar-home">Dashboard</Link>
+              {user.userType=="Customer" && <Link to="/expenses" className="navbar-home">Expenses</Link>}
+              {user.userType=="Customer" && <Link to="/borrowings" className="navbar-home">Borrowings</Link>}
+              {user.userType=="Customer" && <Link to="/dashboard" className="navbar-home">Dashboard</Link>}
             </div>
           </>
         )}

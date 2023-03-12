@@ -29,8 +29,27 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 6px solid #06C9A1;
+  /* border: 6px solid #06C9A1; */
 
+}
+
+.card::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+.card::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.card::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.card::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @media screen and (max-width:410px) {
@@ -40,7 +59,7 @@ code {
 }
 
 .card-header {
-  background-color: rgb(212, 212, 212);
+  background-color: rgb(147 239 171);
   border-radius: 200px;
   text-align: center;
   height: 50px;
@@ -59,7 +78,7 @@ code {
   max-width: 100%;
   flex-direction: row;
   padding: auto;
-  background-color: rgb(212, 212, 212);
+  background-color: rgb(147 239 171);
   position: sticky;
   bottom: 0;
   display: flex;

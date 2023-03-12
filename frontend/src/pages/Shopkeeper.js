@@ -116,30 +116,6 @@ const Shopkeeper = () => {
               className="card"
             >
               <div className="card-header">{customer}</div>
-              {/* <div className="card-body">
-                <ul className="entries">{renderListOfUserNames(names)}</ul>
-              </div> */}
-              {/* <div className="data-entry">
-                <label className="date-entry">
-                  <input type="date" style={{ width: "90px" }} />
-                </label>
-                <label className="descrp-entry">
-                  <input
-                    type="text"
-                    size="10px"
-                    style={{ width: "100px" }}
-                    placeholder="Description"
-                  />
-                </label>
-                <label className="amt-entry">
-                  <input
-                    type="number"
-                    style={{ width: "75px" }}
-                    placeholder="Amount"
-                  />
-                </label>
-                <button className="add-button">+</button>
-              </div> */}
               <div style={{ display: "none" }}>{(total = 0)}</div>
               <div style={{ padding: "10px", height: "100%" }}>
                 {Dues &&
@@ -162,7 +138,7 @@ const Shopkeeper = () => {
           </div>
         ))}
 
-      {/* <DuesForm /> */}
+      <DuesForm />
     </div>
   );
 };

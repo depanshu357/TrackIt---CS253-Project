@@ -1,0 +1,22 @@
+.delete-button{
+    background: url("./bin.png");
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    display: block;
+    height: 26px;
+    width: 26px;
+    display: flex;
+    justify-content: flex-end;
+    /* width: 10px; */
+}
+.collapse-inside{
+    width: 90%;
+}
+.dep-collapse-box{
+    display: flex;
+    margin: 3px;
+    /* height: 40px; */
+    flex-direction: row;
+    justify-content: space-between;
+}
