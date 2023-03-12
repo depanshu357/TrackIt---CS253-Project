@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="navbar-middle-links">
         <div>
           <a href="/">
-            <img className="navbar-logo" src="./TrackITlogo.png" alt="logo" />
+            <img className="navbar-logo" src="/images/TrackIT-logo-bgrm.png" alt="logo" />
           </a>
         </div>
         {user && (
