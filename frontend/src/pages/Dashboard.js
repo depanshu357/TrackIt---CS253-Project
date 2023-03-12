@@ -131,7 +131,7 @@ const Dashboard = () => {
     piechart_data.push({ name: "Shopping", value: Shopping });
     piechart_data.push({ name: "Other", value: Others });
 
-    console.log(last_ten_days_data);
+    console.log(expense);
     const data = [
         { name: 'Jan', value: 400 },
         { name: 'Feb', value: 300 },
@@ -186,6 +186,7 @@ const Dashboard = () => {
                     width={600}
                     height={400}
                     data={data_to_show ? data_to_show : total_data}
+                    // data={data}
                     margin={{
                         top: 5,
                         right: 30,
@@ -214,6 +215,7 @@ const Dashboard = () => {
                     width={500}
                     height={400}
                     data={data_to_show ? data_to_show : total_data}
+                    // data={data}
                     margin={{
                         top: 5,
                         right: 30,
