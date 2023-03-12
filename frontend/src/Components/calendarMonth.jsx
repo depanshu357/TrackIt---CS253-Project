@@ -17,11 +17,13 @@ import './calendarMonth.css';
 
 
 
+
 const CalendarMonth = () => {
   const { expense, dispatch } = useExpenseContext();
   const { user } = useAuthContext();
   const [borrows, setBorrows] = useState(null);
   const [date, setDate] = useState(new Date());
+  const [showPopup, setShowPopup] = useState(false);
 
 
 
@@ -86,6 +88,11 @@ const CalendarMonth = () => {
 
   }
 
+  const handlePopup = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setShowPopup(!showPopup);
+  }
 
 
 
@@ -195,6 +202,58 @@ const CalendarMonth = () => {
   return (
     <div class="everything">
 
+      <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'block' }}>
+        <div className="add-expense-date">
+          <h6>
+            Date:
+          </h6>
+          <input type="date" id="date1" name="date" />
+        </div>
+        <div className="add-expense-item">
+          <h6>Item:</h6>
+          <input type="text" id="add-expense-item" name="item" />
+        </div>
+        <div className="add-expense-amount">
+          <h6>
+            Amount:
+          </h6>
+          <input type="number" id="add-expense-amount" name="amount" />
+        </div>
+        <div className="add-expense-category">
+          <h6>
+            Category:
+          </h6>
+          <select name="cat" id="cat">
+            <option value="shopping">Shopping</option>
+            <option value="health">Health</option>
+            <option value="food">Food</option>
+            <option value="travel">Travel</option>
+          </select>
+        </div>
+        <div className="add-expense-description">
+          <h6>
+            Description:
+          </h6>
+          <input type="text" id="add-expense-description" name="description" />
+        </div>
+        <div className="add-expense-submit">
+          <button type="submit" ><h1>+</h1></button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="calendar-comp">
         <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
       </div>
@@ -202,6 +261,7 @@ const CalendarMonth = () => {
 
 
       <div class="monthsummary-comp">
+        <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
         <div class="span2">
           <span class="bigboxm dgreen">
             <div class="image">
@@ -301,7 +361,7 @@ const CalendarMonth = () => {
 
 
 
-    </div>
+    </div >
   );
 
 
