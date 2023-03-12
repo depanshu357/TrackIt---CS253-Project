@@ -41,7 +41,7 @@ function App() {
             />
             <Route
               path="/seller"
-              element={user ? <Seller /> : <Navigate to="/login" />}
+              element={<Seller />}
             />
             <Route
               path="/"
@@ -56,7 +56,7 @@ function App() {
               path="/borrowings"
               element={user ? <CalendarYear /> : <Navigate to="/login" />}
             />
-            
+
             <Route
               path="/dailySummary"
               element={user ? <DailySummary /> : <Navigate to="/login" />}
