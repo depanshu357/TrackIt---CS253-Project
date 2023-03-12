@@ -7,6 +7,7 @@ import DailySummary from "./Components/DailySummary";
 import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
+import CalendarYear from "./Components/calendarYear";
 import Seller from "./Components/seller";
 
 
@@ -53,7 +54,7 @@ function App() {
             />
             <Route
               path="/borrowings"
-              element={user ? <Borrowings /> : <Navigate to="/login" />}
+              element={user ? <CalendarYear /> : <Navigate to="/login" />}
             />
             
             <Route

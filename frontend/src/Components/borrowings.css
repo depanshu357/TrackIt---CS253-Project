@@ -1,0 +1,133 @@
+.everything-b{
+    position: relative;
+}
+
+.calendaryear-comp{
+    /* position: absolute; */
+    
+   top: -20%;
+    left:1%;
+    width:40%;
+    height: 80% ;
+}
+
+.monthlyborrowings{
+
+    position: absolute;
+    top:3%;
+    left:30%;
+    padding-left: 5%;
+    font-size: 3.5vw;
+    font-weight:bolder;
+    
+}
+
+ .borrowings-comp{
+    position: absolute;
+    top:20%;
+    left:30%;
+    bottom:1%;
+    right:1%; 
+    width:30%;
+    overflow-x: auto; 
+    overflow-y: auto; 
+}
+
+.listelement1{
+    
+        
+    
+    padding-left: 3%;
+    
+    padding-bottom: 2%;
+   
+    
+    display: flex; 
+    
+
+/* flex:50%; */
+
+}
+
+.hi1{
+background-color: grey;
+border-radius: 25px;
+margin-bottom: 2%;
+width:100%;
+
+/* padding-bottom: 3%; */
+}
+.listdetails1{
+padding-top: 7%;
+position: relative;
+width: 100%;
+display: flex; 
+padding: 10%;
+}
+
+.listimage{
+width:10%;
+}
+
+.listname1{
+position: absolute;
+font-size: 2vw;
+font-weight: 600;
+bottom: 50%;
+
+}
+.listdate1{
+position: absolute;
+font-size: 1vw;
+bottom: 5%;
+}
+
+.listtype{
+position: absolute;
+bottom: 5%;
+font-size: 2vw;
+
+left: 50%;
+}
+
+.listmoney1{
+position: absolute;
+font-size: 2vw;
+right:10%;
+bottom: 50%;
+
+}
+
+.listdescription1{
+/* background-color: gold; */
+margin:0;
+padding: 0;
+border:0;
+padding-bottom: 2%;
+/* padding-top: 2%; */
+width: 100%;
+}
+
+.listdesc1{
+margin:0;
+border:0;
+/* background-color:blueviolet; */
+padding: 0;
+font-size: 1vw;
+width:100%;
+padding-left: 10%;
+padding-right: 10%;
+}
+
+.listcollapsebutton1{
+position: absolute;
+top: 40%;
+right:10%;
+width:7%;
+height: 50%;
+font-size: vw;
+background-color: gray;
+border-color: black;
+margin: 2% auto 2% auto;
+
+}
