@@ -12,7 +12,7 @@ import { render } from "react-dom";
 import Calendar from 'react-calendar'
 import './calendarMonth.css';
 // import Features from "./Features";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -97,7 +97,7 @@ const CalendarMonth = () => {
     }
   ];
 
-  const namesdate = names.filter(function (el) {
+  const namesdate = expense.filter(function (el) {
     // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 10) == date2;
   });
