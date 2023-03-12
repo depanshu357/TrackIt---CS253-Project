@@ -14,44 +14,74 @@ const MonthSummary = () => {
     // >
     //   <h1>Current Month</h1>
     // </div>
-    <div>
-      <div>
-        <div class = "bigboxm">
-          <span class="image">
+    // <div>
+    //   <div>
+    <div >
+<div class="span2">
+        <span class = "bigboxm dgreen">
+          <div class="image">
             <img src={stethoscope} alt="" />
-          </span>
-          <span class = "smallboxm">
-            546
-          </span>
+          </div>
+          <div class = "smallboxm lgreen">
+            <span class="text">546</span>
+          </div>
+        </span>
+        <span class = "bigboxm dred bigm">
+        <div class="image">
+          <img src={stethoscope} alt=""  />
         </div>
-        <div class = "bigboxm" >
-          <span  class="image">
+        <div class = "smallboxm lred smallm">
+          <span class="text">546</span>
+        </div>
+      </span>
+      </div>
+      <div class="span2">
+        <span class = "bigboxm dyellow bigm">
+          <div class="image">
+            <img src={stethoscope} alt=""  />
+          </div>
+          <div class = "smallboxm lyellow smallm">
+            <span class="text">546</span>
+          </div>
+        </span>
+        <span class = "bigboxm dblue bigm">
+        <div class="image">
+          <img src={stethoscope} alt=""  />
+        </div>
+        <div class = "smallboxm lblue smallm">
+          <span class="text">546</span>
+        </div>
+      </span>
+      </div>
+  </div>
+        /* <div class = "bigboxm" >
+          <div  class="image">
             <img src={stethoscope} alt="" />
-          </span>
-          <span class = "smallboxm">
+          </div>
+          <div class = "smallboxm">
             320
-          </span>
+          </div>
         </div>
       </div>
       <div>
       <div class = "bigboxm" >
-        <span  class="image">
+        <div  class="image">
           <img src={stethoscope} alt="" />
-        </span>
-        <span class = "smallboxm">
+        </div>
+        <div class = "smallboxm">
           534
-        </span>
+        </div>
       </div>
       <div class = "bigboxm" >
-        <span  class="image">
+        <div  class="image">
           <img src={stethoscope} alt="" />
-        </span>
-        <span class = "smallboxm">
+        </div>
+        <div class = "smallboxm">
           312
-        </span>
+        </div>
       </div>
     </div>
-  </div>
+  </div> */
   );
 };
 

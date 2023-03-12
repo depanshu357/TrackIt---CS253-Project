@@ -7,6 +7,8 @@ import DailySummary from "./Components/DailySummary";
 import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
+import Seller from "./Components/seller";
+
 
 import History from "./Components/History";
 import Profile from "./Components/Profile";
@@ -33,8 +35,12 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-              path="/calenderMonth"
+              path="/expenses"
               element={user ? <CalendarMonth /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/seller"
+              element={user ? <Seller /> : <Navigate to="/login" />}
             />
             <Route
               path="/"
@@ -49,10 +55,7 @@ function App() {
               path="/borrowings"
               element={user ? <Borrowings /> : <Navigate to="/login" />}
             />
-            <Route
-              path="/expenses"
-              element={user ? <Expenses /> : <Navigate to="/login" />}
-            />
+            
             <Route
               path="/dailySummary"
               element={user ? <DailySummary /> : <Navigate to="/login" />}

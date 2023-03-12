@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useExpenseContext } from "../hooks/useExpenseContext";
 import stethoscope from "../images/stethoscope.png";
-
+import "./monthSummary.css"
+import "./expenses.css";
 // components
 // import ExpenseDetails from "./ExpenseDetails";
 // import ExpenseForm from "./ExpenseForm";
@@ -56,20 +57,44 @@ const CalendarMonth = () => {
     },
     {
       id: "345",
-      description: "ff",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
       name: "Hall 1 Canteen",
       type: "Food",
-      Date: "2023-03-21",
+      Date: "2023-03-12",
+      Money: 68,
+    },
+    {
+      id:"234",
+      description: "fffffffffffffff fffffffffffffffffff fffffffffffffffff f fffffffffffffff fffffffffff fffffffffff ffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
       Money: "78",
     },
     {
-      id: "234",
-      description: "fff",
+      id: "3645",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
       name: "Hall 1 Canteen",
       type: "Food",
-      Date: "2023-03-21",
-      Money: "78",
+      Date: "2023-03-12",
+      Money: 68,
     },
+    {
+      id: "3456",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
+      Money: 68,
+    },
+    {
+      id: "3465",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
+      Money: 68,
+    }
   ];
 
   const namesdate = expense.filter(function (el) {
@@ -81,28 +106,24 @@ const CalendarMonth = () => {
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate.map((name) => (
-      <div
-        style={{
-          backgroundColor: "grey",
-          paddingBottom: "3%",
-          marginBottom: "10%",
-        }}
-      >
+      <div class="hi"><div class="listelement">
+        <div class="listimage">
         <img
           src={stethoscope}
           alt=""
-          style={{ width: "10%", float: "left", paddingTop: "5%" }}
+          
+         
         />
-        <span>{name.name}</span> &emsp;&emsp;&emsp;&emsp;{" "}
-        <span>{name.Money}</span>
-        <br />
-        <br />
-        <br />
-        <span>{name.Date}</span> &emsp;&emsp;&emsp;&emsp;{" "}
-        <span>{name.type}</span>
-        <p>
+        </div>
+        <div class ="listdetails">
+            <div class="listname">{name.name}</div>
+            <div class="listmoney">{name.Money}</div>
+            <div class="listdate">{name.Date}</div>
+            <div class="listtype">{name.type}</div>
+            
+        
           <a
-            class="btn btn-primary"
+            class="btn btn-primary listcollapsebutton"
             data-bs-toggle="collapse"
             href={`#collapseExample${name.id}`}
             role="button"
@@ -111,132 +132,137 @@ const CalendarMonth = () => {
           >
             v
           </a>
-          {/* <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-bs-target
-  </button> */}
-        </p>
-        <div class="collapse" id={`collapseExample${name.id}`}>
-          <div class="card card-body">{name.description}</div>
+          
+        
+        
+
         </div>
+        
+    
       </div>
+      <div class="collapse listdescription" id={`collapseExample${name.id}`}>
+      <div class=" listdesc">{name.description}</div>
+    </div></div>
+      
     ));
   };
+  
 
-
-  return (<div>
-
-    <div> <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />  </div>
-
-
-    <div>
-      <div>
-        <div class="bigboxm">
-          <span class="image">
+  return (
+<div class="everything">
+  
+    <div class="calendar-comp"> 
+      <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month"/>  
+    </div>
+    
+    
+    
+    <div class="monthsummary-comp">
+      <div class="span2">
+        <span class = "bigboxm dgreen">
+          <div class="image">
             <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            546
-          </span>
-        </div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            320
-          </span>
-        </div>
+          </div>
+          <div class = "smallboxm lgreen">
+            <span class="text">546</span>
+          </div>
+        </span>
+        <span class = "bigboxm dred bigm">
+          <div class="image">
+            <img src={stethoscope} alt=""  />
+          </div>
+          <div class = "smallboxm lred smallm">
+            <span class="text">546</span>
+          </div>
+        </span>
       </div>
-      <div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            534
-          </span>
-        </div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            312
-          </span>
-        </div>
+      <div class="span2">
+        <span class = "bigboxm dyellow bigm">
+          <div class="image">
+            <img src={stethoscope} alt=""  />
+          </div>
+          <div class = "smallboxm lyellow smallm">
+            <span class="text">546</span>
+          </div>
+        </span>
+        <span class = "bigboxm dblue bigm">
+          <div class="image">
+            <img src={stethoscope} alt=""  />
+          </div>
+          <div class = "smallboxm lblue smallm">
+            <span class="text">546</span>
+          </div>
+        </span>
       </div>
     </div>
+  
 
+  
 
-
-    <div>
+  
+      <h1 class="dailytransactions">Daily Transactions</h1>
+      <div class="expenses-comp">
       <ul>{renderListOfUserNames(namesdate)}</ul>
     </div>
 
+  <div  class="dailysummary-comp">
     <div>
-      <div class="bigbox" >
+      <div class = "bigbox dgreen" >
         <div>
-          <img src={stethoscope} alt="" />
-
+          <img src={stethoscope} alt=""  class="imaged"/>
         </div>
-        <div class="smallbox">
-
+        <div class = "smallbox lgreen">
+      
           546
-
+      
         </div>
       </div>
-      <div class="bigbox" >
+      <div class = "bigbox dred" >
         <div>
-          <img src={stethoscope} alt="" />
+          <img src={stethoscope} alt="" class="imaged" />
         </div>
-        <div class="smallbox">
-
-          320
-
+        <div class = "smallbox lred">
+            
+                320
+            
         </div>
       </div>
     </div>
     <div>
-      <div class="bigbox" >
+      <div class = "bigbox dyellow" >
         <div>
-          <img src={stethoscope} alt="" />
+          <img src={stethoscope} alt=""  class="imaged"/>
         </div>
-        <div class="smallbox">
-
+        <div class = "smallbox lyellow">
+        
           534
-
+        
         </div>
       </div>
-      <div class="bigbox" >
+      <div class = "bigbox dblue" >
         <div>
-          <img src={stethoscope} alt="" />
+          <img src={stethoscope} alt=""  class="imaged" />
         </div>
-        <div class="smallbox">
-
-          312
-
+        <div class = "smallbox lblue">
+              
+                  312
+              
         </div>
       </div>
     </div>
+  </div>
 
 
 
-
-
-
-
-  </div>);
+</div>
+  );
 
 
 };
 
+ 
 
 
-
-// render(
-//   <CalendarMonth />, document.querySelector("#root")
-
-// );
 
 
 
