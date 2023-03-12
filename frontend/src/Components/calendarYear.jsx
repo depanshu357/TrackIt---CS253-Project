@@ -8,7 +8,7 @@ import "./borrowings.css";
 const CalendarYear = () => {
   const [date, setDate] = useState(new Date());
 
-  const onChange = date =>{
+  const onChange = date => {
     setDate(date)
   }
   var d = date;
@@ -35,6 +35,7 @@ const CalendarYear = () => {
       type: "Food",
       Date: "May 6 2023",
       Money: "78",
+      Paid: "True"
     },
     {
       id: "345",
@@ -43,14 +44,16 @@ const CalendarYear = () => {
       type: "Food",
       Date: "2023-03-12",
       Money: 68,
+      Paid: "False"
     },
     {
-      id:"234",
+      id: "234",
       description: "fffffffffffffff fffffffffffffffffff fffffffffffffffff f fffffffffffffff fffffffffff fffffffffff ffffffffff",
       name: "Hall 1 Canteen",
       type: "Food",
       Date: "2023-03-12",
       Money: "78",
+      Paid: "True"
     },
     {
       id: "3645",
@@ -59,6 +62,7 @@ const CalendarYear = () => {
       type: "Food",
       Date: "2023-03-12",
       Money: 68,
+      Paid: "False"
     },
     {
       id: "3456",
@@ -67,6 +71,7 @@ const CalendarYear = () => {
       type: "Food",
       Date: "2023-03-12",
       Money: 68,
+      Paid: "False"
     },
     {
       id: "3465",
@@ -75,6 +80,7 @@ const CalendarYear = () => {
       type: "Food",
       Date: "2023-03-12",
       Money: 68,
+      Paid: "True"
     }
   ];
 
@@ -88,14 +94,14 @@ const CalendarYear = () => {
 
     return namesdate.map((name) => (
       <div class="hi1">
-        
-        <div class ="listdetails1">
-            <div class="listname1">{name.name}</div>
-            <div class="listmoney1">{name.Money}</div>
-            <div class="listdate1">{name.Date}</div>
-            
-            
-        
+
+        <div class="listdetails1">
+          <div class="listname1">{name.name}</div>
+          <div class="listmoney1">{name.Money}</div>
+          <div class="listdate1">{name.Date}</div>
+
+
+
           <a
             class="btn btn-primary listcollapsebutton1"
             data-bs-toggle="collapse"
@@ -104,34 +110,35 @@ const CalendarYear = () => {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            v
+            <span class="textv">
+              v</span>
           </a>
-          
-        
-        
 
-        
-        
-    
-      </div>
-      <div class="collapse listdescription1" id={`collapseExample${name.id}`}>
-      <div class=" listdesc1">{name.description}</div>
-    </div></div>
-      
+
+
+
+
+
+
+        </div>
+        <div class="collapse listdescription1" id={`collapseExample${name.id}`}>
+          <div class=" listdesc1">{name.description}</div>
+        </div></div>
+
     ));
   };
-  
+
 
   return (
-    <div  class="everything-b">
-  <div class="calendaryear-comp">
-    <Calendar onChange={onChange} value={date} maxDetail='year' minDetail="year" defaultView="year" />  </div>
-    <h1 class="monthlyborrowings">Monthly Borrowings</h1>
+    <div class="everything-b">
+      <div class="calendaryear-comp">
+        <Calendar onChange={onChange} value={date} maxDetail='year' minDetail="year" defaultView="year" />  </div>
+      <h1 class="monthlyborrowings">Monthly Borrowings</h1>
       <div class="borrowings-comp">
-      <ul>{renderListOfUserNames(namesdate)}</ul>
+        <ul>{renderListOfUserNames(namesdate)}</ul>
+      </div>
     </div>
-    </div>
-    );
+  );
 };
 
 // render(
