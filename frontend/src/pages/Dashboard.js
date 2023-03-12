@@ -131,7 +131,7 @@ const Dashboard = () => {
     piechart_data.push({ name: "Shopping", value: Shopping });
     piechart_data.push({ name: "Other", value: Others });
 
-    console.log(last_ten_days_data);
+    console.log(expense);
     const data = [
         { name: 'Jan', value: 400 },
         { name: 'Feb', value: 300 },
