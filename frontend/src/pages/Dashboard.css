@@ -1,4 +1,69 @@
-.progressbar {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard-outer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: spa; */
+    /* align-items: center; */
+    /* height: 140vh; */
+    background-color: #D9D9D9;
+    padding: 10px;
+}
+
+
+.dashboard-upper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.dashboard-upper-right,
+.dashboard-upper-left-top,
+.dashboard-upper-left-bottom,
+.dashboard-lower {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.dashboard-upper-left {
+    margin-right: 15px;
+}
+
+.dashboard-upper-left-top {
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.dashboard-upper-left-bottom {
+    margin-top: 10px;
+
+}
+
+.dashboard-lower {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 5px;
+}
+
+.bargraph-show-last {
+    position: relative;
+    bottom: 2vh;
+    left: 41vw;
+}
+
+.bargraph-show-last input {
+    margin-right: 5px;
+}
+
+/* .progressbar {
     position: relative;
     top: 200px;
     right: 80%;
@@ -24,4 +89,4 @@
     top: 250px;
     right: 10%;
 
-}
+} */
