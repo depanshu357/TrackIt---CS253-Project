@@ -65,6 +65,7 @@ const DuesDetailsForShopkeeper = (props) => {
 
   return (
     <div>
+      {console.log("working")}
       Item - {props.due.Item} <br></br>
       Amount - {props.due.Amount} <br></br>
       RollNo - {props.due.RollNo} <br></br>
