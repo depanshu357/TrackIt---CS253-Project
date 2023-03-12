@@ -25,6 +25,7 @@ import Forget_Password from "./pages/Forget_Password";
 import Footer from "./Components/Footer/Footer";
 // import MonthSummary from "./pages/MonthSummary"
 import CurrentMonth from "./pages/CurrentMonth";
+import ExpenseForm from "./Components/ExpenseForm";
 
 function App() {
   const { user } = useAuthContext()
@@ -32,48 +33,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+
         <div className="pages">
           <Routes>
-            <Route
-              path="/expenses"
-              element={user ? <CalendarMonth /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/seller"
-              element={<Seller />}
-            />
-            <Route
-              path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
-            />
-
-            <Route
-              path="/monthSummary"
-              element={user ? <MonthSummary /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/borrowings"
-              element={user ? <CalendarYear /> : <Navigate to="/login" />}
-            />
-
-            <Route
-              path="/dailySummary"
-              element={user ? <DailySummary /> : <Navigate to="/login" />}
-
-            />
-            <Route
-              path="/dashboard"
-              element={<Dashboard />}
-            />
-            <Route
-              path="/profile"
-              element={user ? <Profile /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/history"
-              element={user ? <History /> : <Navigate to="/login" />}
-            />
             <Route
               path="/login"
               element={!user ? <Login /> : <Navigate to="/" />}
@@ -86,11 +48,56 @@ function App() {
               path="/Forget_Password"
               element={!user ? <Forget_Password /> : <Navigate to="/" />}
             />
+            <Route
+              path="/expenses"
+              element={user ? <div><Navbar /><CalendarMonth /></div> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/seller"
+              element={<Seller />}
+            />
+            <Route
+              path="/"
+              element={user ? <div><Navbar /><Home /></div> : <Navigate to="/login" />}
+            />
+
+            <Route
+              path="/monthSummary"
+              element={user ? <div><Navbar /><MonthSummary /></div> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/borrowings"
+              element={user ? <div><Navbar /><CalendarYear /></div> : <Navigate to="/login" />}
+            />
+
+            <Route
+              path="/dailySummary"
+              element={user ? <div><Navbar /><DailySummary /></div> : <Navigate to="/login" />}
+
+            />
+            <Route
+              path="/dashboard"
+              element={user ? <div><Navbar /><Dashboard /></div> : <Navigate to={"/login"} />}
+            />
+            <Route
+              path="/profile"
+              element={user ? <div><Navbar /><Profile /></div> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/history"
+              element={user ? <div><Navbar /><History /></div> : <Navigate to="/login" />}
+            />
+
+            <Route
+              path="/add-expense"
+              element={<CurrentMonth />}
+            />
+
           </Routes>
         </div>
-        <Footer />
-      </BrowserRouter>
-    </div>
+        {/* <Footer /> */}
+      </BrowserRouter >
+    </div >
   );
 }
 
