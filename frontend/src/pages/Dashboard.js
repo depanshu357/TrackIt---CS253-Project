@@ -186,6 +186,7 @@ const Dashboard = () => {
                     width={600}
                     height={400}
                     data={data_to_show ? data_to_show : total_data}
+                    // data={data}
                     margin={{
                         top: 5,
                         right: 30,
@@ -214,6 +215,7 @@ const Dashboard = () => {
                     width={500}
                     height={400}
                     data={data_to_show ? data_to_show : total_data}
+                    // data={data}
                     margin={{
                         top: 5,
                         right: 30,
