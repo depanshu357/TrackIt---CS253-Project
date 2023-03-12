@@ -1,26 +1,30 @@
 import React from 'react'
 
-const Progress_bar = ({ bgcolor, progress, height }) => {
+const Progress_bar = ({ bgcolor, progress, total, height }) => {
 
     const Parentdiv = {
-        height: '40px',
-        width: '180px',
+        height: '46px',
+        width: '68vw',
         backgroundColor: 'whitesmoke',
-        borderRadius: 40,
-        margin: 50
+        borderRadius: 10,
+
+        margin: 0,
+        border: '3px solid black',
     }
 
     const Childdiv = {
         height: '40px',
-        width: `${progress}%`,
+        width: `${(progress * 100) / total}%`,
         backgroundColor: bgcolor,
-        borderRadius: 40,
-        textAlign: 'right'
+        borderRadius: 10,
+        textAlign: 'right',
+        paddingTop: 2,
     }
 
     const progresstext = {
         padding: 10,
-
+        position: 'relative',
+        left: '8%',
         color: 'black',
         fontWeight: 900
     }
@@ -28,7 +32,7 @@ const Progress_bar = ({ bgcolor, progress, height }) => {
     return (
         <div style={Parentdiv}>
             <div style={Childdiv}>
-                <span style={progresstext}>{`${progress}%`}</span>
+                <span style={progresstext}>{`${progress}/${total}`}</span>
             </div>
         </div>
     )

@@ -133,8 +133,8 @@ const Dashboard = () => {
         last_ten_days_data.push({ name: last_ten_days_name[i], value: last_ten_days_value[i] });
     }
 
-    bar_graph_progress = (bar_graph_progress * 100) / total_budget;
-    bar_graph_progress = bar_graph_progress > 100 ? 100 : Math.round(bar_graph_progress);
+    // bar_graph_progress = (bar_graph_progress * 100) / total_budget;
+    // bar_graph_progress = bar_graph_progress > 100 ? 100 : Math.round(bar_graph_progress);
 
 
     piechart_data.push({ name: "Food", value: Food });
@@ -167,45 +167,63 @@ const Dashboard = () => {
     }
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '140vh'
-            }}
-        >
+        <div className='dashboard-outer'>
+            <div className='dashboard-upper'>
 
-            <div className="piechart">
-                <h3>Average spending of people with income</h3>
-                <PieChart width={400} height={400}>
-                    <Pie
-                        dataKey="value"
-                        startAngle={360}
-                        endAngle={0}
-                        data={piechart_data}
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={80}
-                        fill="#8884d8"
-                        label
-                    />
-                </PieChart>
+                <div className='dashboard-upper-left'>
+                    <div className="linegraph dashboard-upper-left-top">
+
+                        <LineChart
+                            width={928}
+                            height={400}
+                            data={data_to_show ? data_to_show : total_data}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
+
+                        </LineChart>
+                    </div>
+
+                    <div className="progressbar dashboard-upper-left-bottom">
+                        <Progressbar bgcolor="cyan" progress={bar_graph_progress} total={total_budget} height={10} />
+                    </div>
+
+
+                </div>
+                <div className="piechart dashboard-upper-right">
+                    <PieChart width={398} height={400}>
+                        <Pie
+                            dataKey="value"
+                            startAngle={360}
+                            endAngle={0}
+                            data={piechart_data}
+                            cx="50%"
+                            cy="50%"
+                            innerRadius={80}
+                            outerRadius={120}
+                            fill="#8884d8"
+                            label
+                        />
+                    </PieChart>
+                </div>
+
+
+
+
+
             </div>
-
-            <div className="bargraph">
+            <div className="bargraph dashboard-lower">
 
                 <BarChart
-                    width={600}
-                    height={400}
+                    width={1320}
+                    height={300}
                     data={data_to_show ? data_to_show : total_data}
                     // data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
+
                     barSize={20}
                 >
                     <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
@@ -215,41 +233,11 @@ const Dashboard = () => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <Bar dataKey="value" fill="#8884d8" background={{ fill: '#eee' }} />
                 </BarChart>
-            </div>
-            <div className='bargraph'>
-                <label>
+                <label className='bargraph-show-last'>
                     <input type="checkbox" checked={checked} onChange={setBarGraphdata} />
                     Show Last 10 days
                 </label>
             </div>
-            <div className="linegraph">
-
-                <LineChart
-                    width={500}
-                    height={400}
-                    data={data_to_show ? data_to_show : total_data}
-                    // data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
-
-                </LineChart>
-            </div>
-
-            <div className="progressbar">
-                <Progressbar bgcolor="cyan" progress={bar_graph_progress} height={10} />
-            </div>
-
         </div>
 
     );
