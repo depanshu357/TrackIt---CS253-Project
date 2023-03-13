@@ -17,8 +17,9 @@
 
 .dashboard-upper {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 10px;
+    width: 98vw;
 
 }
 
@@ -34,6 +35,14 @@
 
 .dashboard-upper-left {
     margin-right: 15px;
+    width: 71vw;
+}
+
+.dashboard-upper-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27vw;
 }
 
 .dashboard-upper-left-top {

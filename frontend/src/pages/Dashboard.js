@@ -174,8 +174,9 @@ const Dashboard = () => {
                     <div className="linegraph dashboard-upper-left-top">
 
                         <LineChart
-                            width={928}
-                            height={400}
+                            width={window.innerWidth * 0.68}
+                            // width={100}
+                            height={300}
                             data={data_to_show ? data_to_show : total_data}
                         >
                             <CartesianGrid strokeDasharray="3 3" />
@@ -195,7 +196,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className="piechart dashboard-upper-right">
-                    <PieChart width={398} height={400}>
+                    <PieChart width={window.innerWidth * 0.32} height={300}>
                         <Pie
                             dataKey="value"
                             startAngle={360}
@@ -219,7 +220,8 @@ const Dashboard = () => {
             <div className="bargraph dashboard-lower">
 
                 <BarChart
-                    width={1320}
+                    // width={window.innerWidth * 0.90}
+                    width={1300}
                     height={300}
                     data={data_to_show ? data_to_show : total_data}
                     // data={data}
