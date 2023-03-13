@@ -66,8 +66,9 @@ const DuesDetailsForShopkeeper = (props) => {
 
   return (
     <div >
+      
       {console.log("working")}
-      <div className="entry-display">
+      <div className="entry-display" >
         <div className="date">
           {format(new Date(props.due.createdAt), "dd.MM.yyyy")}
         </div>
@@ -111,25 +112,6 @@ const DuesDetailsForShopkeeper = (props) => {
           
         </span>
       </div>
-      {/* Item - {props.due.Item} <br></br>
-      Amount - {props.due.Amount} <br></br>
-      RollNo - {props.due.RollNo} <br></br>
-      Description - {props.due.Description} <br /> */}
-      {/* <input
-        class="form-check-input"
-        type="checkbox"
-        value={Paid}
-        id="flexCheckDefault"
-        onChange={handleChange}
-        style={{ border: "2px solid red" }}
-        checked="false"
-      /> */}
-      {/* <label
-        class="form-check-label"
-        for="flexCheckDefault"
-      >
-        {(props.due.Paid)?"Mark as Paid":"Mark as unPaid"}
-      </label>{" "} */}
     </div>
   );
 };

@@ -20,3 +20,64 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.shopkeeper-plus-button{
+    background: url("./plus.png");
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: 55px 55px;
+    height: 61px;
+    width: 62px;
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    cursor: pointer;
+}
+.pop-up-card-dues{
+    height: 500px;
+    width: 400px;
+    background-color: rgb(124, 249, 128);
+    /* display: none; */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left:50%;
+    border: 2px solid greenyellow;
+    z-index: 90;
+    border-radius: 20px;
+}
+.create-dues{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.create-dues input{
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.create-dues button{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: lightgreen;
+}
+.create-dues button:hover{
+    background-color: rgb(149, 216, 149);
+    
+}
+.cross-delete-button{
+    background: url("./delete-button.png");
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

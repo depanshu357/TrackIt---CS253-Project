@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useDuesContext } from "../hooks/useDuesContext"
+import "./DueDetails.css"
 
-const ExpenseForm = () => {
+const ExpenseForm = ({d,setD}) => {
   const { dispatch } = useDuesContext()
   const { user } = useAuthContext()
 
@@ -51,47 +52,57 @@ const ExpenseForm = () => {
     }
   }
 
+  const handleDelete = () =>{
+    setD("none");
+  }
+
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form className="create-dues" onSubmit={handleSubmit}>
+      <div className="cross-delete-button" onClick={handleDelete}></div>
       <h3>Add a New Borrowing</h3>
 
-      <label>Item:</label>
+      {/* <label>Item:</label> */}
       <input 
         type="text"
         onChange={(e) => setItem(e.target.value)}
         value={Item}
         className={emptyFields.includes('Item') ? 'error' : ''}
+        placeholder="Item"
       />
 
-        <label >RollNo:</label>
+        {/* <label >RollNo:</label> */}
         <input 
         type="number"
         onChange = {(e)=> setRollNo(e.target.value)}
         value={RollNo}
+        placeholder="RollNo"
         />
 
-      <label>Amount:</label>
+      {/* <label>Amount:</label> */}
       <input 
         type="number"
         onChange={(e) => setAmount(e.target.value)}
         value={Amount}
         className={emptyFields.includes('Amount') ? 'error' : ''}
+        placeholder="Amount"
       />
 
-      <label>Description:</label>
+      {/* <label>Description:</label> */}
       <input 
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={Description}
         className={emptyFields.includes('Description') ? 'error' : ''}
+        placeholder="Description"
       />
 
-      <label>Date:</label>
+      {/* <label>Date:</label> */}
       <input 
         type="date"
         onChange={(e) => setDate(e.target.value)}
         value={Date}
         className={emptyFields.includes('Date') ? 'error' : ''}
+        placeholder="Date"
       />
 
 

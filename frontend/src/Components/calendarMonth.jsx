@@ -13,7 +13,7 @@ import Calendar from 'react-calendar'
 import './calendarMonth.css';
 // import Features from "./Features";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AddExpense from './AddExpense.js';
 
 
 
@@ -23,8 +23,15 @@ const CalendarMonth = () => {
   const { user } = useAuthContext();
   const [borrows, setBorrows] = useState(null);
   const [date, setDate] = useState(new Date());
-  const [showPopup, setShowPopup] = useState(false);
 
+
+
+  const [showPopup, setShowPopup] = useState(false);
+  const handlePopup = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setShowPopup(!showPopup);
+  }
 
 
   console.log(expense);
@@ -86,12 +93,6 @@ const CalendarMonth = () => {
 
 
 
-  }
-
-  const handlePopup = (e) => {
-    e.preventDefault();
-    console.log(e);
-    setShowPopup(!showPopup);
   }
 
 
@@ -200,9 +201,13 @@ const CalendarMonth = () => {
 
 
   return (
-    <div class="everything">
+    <div class="everything" >
 
-      <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'none' }}>
+      {showPopup && (<div style={{ width: '100vw', height: '80vh', position: 'absolute', zIndex: '5' }}>
+        <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
+      </div>)
+      }
+      {/* <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'none' }}>
         <div className="add-expense-date">
           <h6>
             Date:
@@ -224,10 +229,10 @@ const CalendarMonth = () => {
             Category:
           </h6>
           <select name="cat" id="cat">
-            <option value="shopping">Shopping</option>
-            <option value="health">Health</option>
-            <option value="food">Food</option>
-            <option value="travel">Travel</option>
+            <option value="Food">Food</option>
+            <option value="Health">Health</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Others">Others</option>
           </select>
         </div>
         <div className="add-expense-description">
@@ -239,7 +244,7 @@ const CalendarMonth = () => {
         <div className="add-expense-submit">
           <button type="submit" ><h1>+</h1></button>
         </div>
-      </div>
+      </div> */}
 
 
 
@@ -252,115 +257,115 @@ const CalendarMonth = () => {
 
 
 
+      <div style={{ filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false }}>
 
-
-      <div class="calendar-comp">
-        <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
-      </div>
-
-
-
-      <div class="monthsummary-comp">
-        <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
-        <div class="span2">
-          <span class="bigboxm dgreen">
-            <div class="image">
-              <img src={stethoscope} alt="" />
-            </div>
-            <div class="smallboxm lgreen">
-              <span class="text">{monthly_category[0]}</span>
-            </div>
-          </span>
-          <span class="bigboxm dred bigm">
-            <div class="image">
-              <img src={stethoscope} alt="" />
-            </div>
-            <div class="smallboxm lred smallm">
-              <span class="text">{monthly_category[1]}</span>
-            </div>
-          </span>
+        <div class="calendar-comp">
+          <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
         </div>
-        <div class="span2">
-          <span class="bigboxm dyellow bigm">
-            <div class="image">
-              <img src={stethoscope} alt="" />
-            </div>
-            <div class="smallboxm lyellow smallm">
-              <span class="text">{monthly_category[2]}</span>
-            </div>
-          </span>
-          <span class="bigboxm dblue bigm">
-            <div class="image">
-              <img src={stethoscope} alt="" />
-            </div>
-            <div class="smallboxm lblue smallm">
-              <span class="text">{monthly_category[3]}</span>
-            </div>
-          </span>
-        </div>
-      </div>
 
 
 
-
-
-      <h1 class="dailytransactions">Daily Transactions</h1>
-      <div class="expenses-comp">
-        <ul>{renderListOfUserNames(namesdate)}</ul>
-      </div>
-
-      <div class="dailysummary-comp">
-        <div>
-          <div class="bigbox dgreen" >
-            <div>
-              <img src={stethoscope} alt="" class="imaged" />
-            </div>
-            <div class="smallbox lgreen">
-
-              {daily_category[0]}
-
-
-            </div>
+        <div class="monthsummary-comp">
+          <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
+          <div class="span2">
+            <span class="bigboxm dgreen">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lgreen">
+                <span class="text">{monthly_category[0]}</span>
+              </div>
+            </span>
+            <span class="bigboxm dred bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lred smallm">
+                <span class="text">{monthly_category[1]}</span>
+              </div>
+            </span>
           </div>
-          <div class="bigbox dred" >
-            <div>
-              <img src={stethoscope} alt="" class="imaged" />
-            </div>
-            <div class="smallbox lred">
-
-              {daily_category[1]}
-
-
-            </div>
+          <div class="span2">
+            <span class="bigboxm dyellow bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lyellow smallm">
+                <span class="text">{monthly_category[2]}</span>
+              </div>
+            </span>
+            <span class="bigboxm dblue bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lblue smallm">
+                <span class="text">{monthly_category[3]}</span>
+              </div>
+            </span>
           </div>
         </div>
-        <div>
-          <div class="bigbox dyellow" >
-            <div>
-              <img src={stethoscope} alt="" class="imaged" />
+
+
+
+
+
+        <h1 class="dailytransactions">Daily Transactions</h1>
+        <div class="expenses-comp">
+          <ul>{renderListOfUserNames(namesdate)}</ul>
+        </div>
+
+        <div class="dailysummary-comp">
+          <div>
+            <div class="bigbox dgreen" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lgreen">
+
+                {daily_category[0]}
+
+
+              </div>
             </div>
-            <div class="smallbox lyellow">
+            <div class="bigbox dred" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lred">
 
-              {daily_category[2]}
+                {daily_category[1]}
 
+
+              </div>
             </div>
           </div>
-          <div class="bigbox dblue" >
-            <div>
-              <img src={stethoscope} alt="" class="imaged" />
+          <div>
+            <div class="bigbox dyellow" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lyellow">
+
+                {daily_category[2]}
+
+              </div>
             </div>
-            <div class="smallbox lblue">
+            <div class="bigbox dblue" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lblue">
 
-              {daily_category[3]}
+                {daily_category[3]}
 
 
+              </div>
             </div>
           </div>
         </div>
+
+
       </div>
-
-
-
     </div >
   );
 

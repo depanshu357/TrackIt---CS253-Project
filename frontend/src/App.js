@@ -22,7 +22,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Forget_Password from "./pages/Forget_Password";
-import Footer from "./Components/Footer/Footer";
 // import MonthSummary from "./pages/MonthSummary"
 import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";

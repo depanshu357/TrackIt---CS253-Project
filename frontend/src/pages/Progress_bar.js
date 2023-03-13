@@ -4,7 +4,7 @@ const Progress_bar = ({ bgcolor, progress, total, height }) => {
 
     const Parentdiv = {
         height: '46px',
-        width: '68vw',
+        width: '70',
         backgroundColor: 'whitesmoke',
         borderRadius: 10,
 
