@@ -10,7 +10,7 @@ import ExpenseForm from "../Components/ExpenseForm";
 import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer"
 
 const Customer = () => {
-    const { expense, dispatch } = useExpenseContext();
+  const { expense, dispatch } = useExpenseContext();
   const { user } = useAuthContext();
   const [borrows, setBorrows] = useState(null);
   const { Dues, dispatch: dispatchd } = useDuesContext();
@@ -36,9 +36,9 @@ const Customer = () => {
 
   useEffect(() => {
     const fetchDues = async () => {
-      const response = await fetch(`/api/dues/rollNo/${user.rollNo}`, {
+      const response = await fetch(`/api/dues`, {
         method: "GET",
-        headers: { Authorization: `Bearer ${user.token}` },
+        headers: { 'Authorization': `Bearer ${user.token}` },
       });
       const json = await response.json();
 
@@ -66,33 +66,26 @@ const Customer = () => {
           alignItems: "center",
           height: "90vh",
         }}
-        >
+      >
         <div className="expenses">
           {expense &&
             expense.map((expensee) => (
               <ExpenseDetails key={expensee._id} expensee={expensee} />
-              ))}
+            ))}
         </div>
         <ExpenseForm />
         <div style={{ display: "flex", flexDirection: "column" }}>
           {Dues &&
             Dues.map((borrow) => {
-              if (borrow.RollNo === user.rollNo){
-                
+              // console.log(borrow.RollNo)
+                if(user.rollNo == borrow.RollNo)
                 return (
                   <div>
                   <DuesDetailsForCustomer key={borrow._id} due={borrow} />
-                  {/* <div>
-                    Item - {borrow.Item} <br></br>
-                    Amount - {borrow.Amount} <br></br>
-                    RollNo - {borrow.RollNo} <br></br>
-                    Description - {borrow.Description} <br />
-                    shopName - {borrow.shopName}
-                  </div> */}
                 </div>
               );
-            }
-          })}
+
+            })}
         </div>
       </div>
     </div>

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useExpenseContext } from "../hooks/useExpenseContext";
 import stethoscope from "../images/stethoscope.png";
-
+import "./monthSummary.css"
+import "./expenses.css";
 // components
 // import ExpenseDetails from "./ExpenseDetails";
 // import ExpenseForm from "./ExpenseForm";
@@ -11,7 +12,8 @@ import { render } from "react-dom";
 import Calendar from 'react-calendar'
 import './calendarMonth.css';
 // import Features from "./Features";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import AddExpense from './AddExpense.js';
 
 
 
@@ -22,6 +24,14 @@ const CalendarMonth = () => {
   const [borrows, setBorrows] = useState(null);
   const [date, setDate] = useState(new Date());
 
+
+
+  const [showPopup, setShowPopup] = useState(false);
+  const handlePopup = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setShowPopup(!showPopup);
+  }
 
 
   console.log(expense);
@@ -44,6 +54,49 @@ const CalendarMonth = () => {
   console.log(date2);
   //console.log(typeof date2);
 
+
+  var daily_category = [0, 0, 0, 0];
+  var monthly_category = [0, 0, 0, 0];
+
+
+  for (let i = 0; i < expense.length; i++) {
+
+    if (expense[i].Date.substring(5, 7) == month) {
+      if (expense[i].Category == "Food") {
+        monthly_category[0] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Health") {
+        monthly_category[1] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Shopping") {
+        monthly_category[2] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Others") {
+        monthly_category[3] += expense[i].MoneySpent;
+      }
+    }
+
+    if (expense[i].Date.substring(0, 10) == date2) {
+      if (expense[i].Category == "Food") {
+        daily_category[0] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Health") {
+        daily_category[1] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Shopping") {
+        daily_category[2] += expense[i].MoneySpent;
+      }
+      else if (expense[i].Category == "Others") {
+        daily_category[3] += expense[i].MoneySpent;
+      }
+    }
+
+
+
+  }
+
+
+
   //const {user} = useAuthContext;
   const names = [
     {
@@ -56,20 +109,44 @@ const CalendarMonth = () => {
     },
     {
       id: "345",
-      description: "ff",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
       name: "Hall 1 Canteen",
       type: "Food",
-      Date: "2023-03-21",
-      Money: "78",
+      Date: "2023-03-12",
+      Money: 68,
     },
     {
       id: "234",
-      description: "fff",
+      description: "fffffffffffffff fffffffffffffffffff fffffffffffffffff f fffffffffffffff fffffffffff fffffffffff ffffffffff",
       name: "Hall 1 Canteen",
       type: "Food",
-      Date: "2023-03-21",
+      Date: "2023-03-12",
       Money: "78",
     },
+    {
+      id: "3645",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
+      Money: 68,
+    },
+    {
+      id: "3456",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
+      Money: 68,
+    },
+    {
+      id: "3465",
+      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
+      name: "Hall 1 Canteen",
+      type: "Food",
+      Date: "2023-03-12",
+      Money: 68,
+    }
   ];
 
   const namesdate = expense.filter(function (el) {
@@ -81,151 +158,216 @@ const CalendarMonth = () => {
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate.map((name) => (
-      <div
-        style={{
-          backgroundColor: "grey",
-          paddingBottom: "3%",
-          marginBottom: "10%",
-        }}
-      >
-        <img
-          src={stethoscope}
-          alt=""
-          style={{ width: "10%", float: "left", paddingTop: "5%" }}
-        />
-        <span>{name.name}</span> &emsp;&emsp;&emsp;&emsp;{" "}
-        <span>{name.Money}</span>
-        <br />
-        <br />
-        <br />
-        <span>{name.Date}</span> &emsp;&emsp;&emsp;&emsp;{" "}
-        <span>{name.type}</span>
-        <p>
+      <div class="hi"><div class="listelement">
+        <div class="listimage">
+          <img
+            src={stethoscope}
+            alt=""
+
+
+          />
+        </div>
+        <div class="listdetails">
+          <div class="listname">{name.Item}</div>
+          <div class="listmoney">{name.MoneySpent}</div>
+          <div class="listdate">{name.Date.substring(0, 10)}</div>
+          <div class="listtype">{name.Category}</div>
+
+
           <a
-            class="btn btn-primary"
+            class="btn btn-primary listcollapsebutton"
             data-bs-toggle="collapse"
-            href={`#collapseExample${name.id}`}
+            href={`#collapseExample${name._id}`}
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
           >
             v
           </a>
-          {/* <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-bs-target
-  </button> */}
-        </p>
-        <div class="collapse" id={`collapseExample${name.id}`}>
-          <div class="card card-body">{name.description}</div>
+
+
+
+
         </div>
+
+
       </div>
+        <div class="collapse listdescription" id={`collapseExample${name._id}`}>
+          <div class=" listdesc">{name.Description}</div>
+        </div></div>
+
     ));
   };
 
 
-  return (<div>
+  return (
+    <div class="everything" >
 
-    <div> <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />  </div>
-
-
-    <div>
-      <div>
-        <div class="bigboxm">
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            546
-          </span>
+      {showPopup && (<div style={{ width: '100vw', height: '80vh', position: 'absolute', zIndex: '5' }}>
+        <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
+      </div>)
+      }
+      {/* <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'none' }}>
+        <div className="add-expense-date">
+          <h6>
+            Date:
+          </h6>
+          <input type="date" id="date1" name="date" />
         </div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            320
-          </span>
+        <div className="add-expense-item">
+          <h6>Item:</h6>
+          <input type="text" id="add-expense-item" name="item" />
         </div>
+        <div className="add-expense-amount">
+          <h6>
+            Amount:
+          </h6>
+          <input type="number" id="add-expense-amount" name="amount" />
+        </div>
+        <div className="add-expense-category">
+          <h6>
+            Category:
+          </h6>
+          <select name="cat" id="cat">
+            <option value="Food">Food</option>
+            <option value="Health">Health</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div className="add-expense-description">
+          <h6>
+            Description:
+          </h6>
+          <input type="text" id="add-expense-description" name="description" />
+        </div>
+        <div className="add-expense-submit">
+          <button type="submit" ><h1>+</h1></button>
+        </div>
+      </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+      <div style={{ filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false }}>
+
+        <div class="calendar-comp">
+          <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
+        </div>
+
+
+
+        <div class="monthsummary-comp">
+          <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
+          <div class="span2">
+            <span class="bigboxm dgreen">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lgreen">
+                <span class="text">{monthly_category[0]}</span>
+              </div>
+            </span>
+            <span class="bigboxm dred bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lred smallm">
+                <span class="text">{monthly_category[1]}</span>
+              </div>
+            </span>
+          </div>
+          <div class="span2">
+            <span class="bigboxm dyellow bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lyellow smallm">
+                <span class="text">{monthly_category[2]}</span>
+              </div>
+            </span>
+            <span class="bigboxm dblue bigm">
+              <div class="image">
+                <img src={stethoscope} alt="" />
+              </div>
+              <div class="smallboxm lblue smallm">
+                <span class="text">{monthly_category[3]}</span>
+              </div>
+            </span>
+          </div>
+        </div>
+
+
+
+
+
+        <h1 class="dailytransactions">Daily Transactions</h1>
+        <div class="expenses-comp">
+          <ul>{renderListOfUserNames(namesdate)}</ul>
+        </div>
+
+        <div class="dailysummary-comp">
+          <div>
+            <div class="bigbox dgreen" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lgreen">
+
+                {daily_category[0]}
+
+
+              </div>
+            </div>
+            <div class="bigbox dred" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lred">
+
+                {daily_category[1]}
+
+
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="bigbox dyellow" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lyellow">
+
+                {daily_category[2]}
+
+              </div>
+            </div>
+            <div class="bigbox dblue" >
+              <div>
+                <img src={stethoscope} alt="" class="imaged" />
+              </div>
+              <div class="smallbox lblue">
+
+                {daily_category[3]}
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
-      <div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            534
-          </span>
-        </div>
-        <div class="bigboxm" >
-          <span class="image">
-            <img src={stethoscope} alt="" />
-          </span>
-          <span class="smallboxm">
-            312
-          </span>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div>
-      <ul>{renderListOfUserNames(namesdate)}</ul>
-    </div>
-
-    <div>
-      <div class="bigbox" >
-        <div>
-          <img src={stethoscope} alt="" />
-
-        </div>
-        <div class="smallbox">
-
-          546
-
-        </div>
-      </div>
-      <div class="bigbox" >
-        <div>
-          <img src={stethoscope} alt="" />
-        </div>
-        <div class="smallbox">
-
-          320
-
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="bigbox" >
-        <div>
-          <img src={stethoscope} alt="" />
-        </div>
-        <div class="smallbox">
-
-          534
-
-        </div>
-      </div>
-      <div class="bigbox" >
-        <div>
-          <img src={stethoscope} alt="" />
-        </div>
-        <div class="smallbox">
-
-          312
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-  </div>);
+    </div >
+  );
 
 
 };
@@ -233,10 +375,6 @@ const CalendarMonth = () => {
 
 
 
-// render(
-//   <CalendarMonth />, document.querySelector("#root")
-
-// );
 
 
 
