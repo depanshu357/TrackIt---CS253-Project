@@ -202,7 +202,7 @@ const CalendarMonth = () => {
   return (
     <div class="everything">
 
-      <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'block' }}>
+      <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'none' }}>
         <div className="add-expense-date">
           <h6>
             Date:

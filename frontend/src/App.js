@@ -55,7 +55,7 @@ function App() {
             <Route
               path="/seller"
               element={<Seller />}
-            />
+            />~
             <Route
               path="/"
               element={user ? <div><Navbar /><Home /></div> : <Navigate to="/login" />}
