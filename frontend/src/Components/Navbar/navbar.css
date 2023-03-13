@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+body{
+    min-width: 980px;
+}
 
 .navbar-inner a {
     color: black;
@@ -45,6 +48,8 @@
     display: flex;
     justify-content: center;
     margin-left: 30vw;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .navbar-home,
@@ -76,4 +81,16 @@
 .navbar-signup-link {
     padding-right: 5vw;
 
+}
+
+@media (max-width:1270px) {
+    .navbar-inner {
+        margin-left: 10vw;
+    }
+}
+
+@media (max-width:980) {
+    .navbar-inner {
+        margin-left: 0;
+    }
 }
