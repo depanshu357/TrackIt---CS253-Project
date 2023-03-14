@@ -1,4 +1,6 @@
 // import { Routes } from "react-router-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 
@@ -8,7 +10,7 @@ import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-import Seller from "./Components/Seller";
+import Seller from "./Components/seller";
 
 
 import History from "./Components/History";

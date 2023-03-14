@@ -35,6 +35,14 @@ const Navbar = () => {
               {user.userType=="Customer" && <Link to="/borrowings" className="navbar-home">Borrowings</Link>}
               {user.userType=="Customer" && <Link to="/dashboard" className="navbar-home">Dashboard</Link>}
             </div>
+            <button className="navbar-dropdown-btn">
+  <i class="fa fa-caret-down"></i>
+</button>
+<div className="navbar-dropdown-menu">
+{user.userType=="Customer" && <Link to="/expenses" className="navbar-home">Expenses</Link>}
+              {user.userType=="Customer" && <Link to="/borrowings" className="navbar-home">Borrowings</Link>}
+              {user.userType=="Customer" && <Link to="/dashboard" className="navbar-home">Dashboard</Link>}
+</div>
           </>
         )}
       </div>
