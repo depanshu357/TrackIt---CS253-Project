@@ -6,16 +6,14 @@
 }
 
 body{
-    min-width: 980px;
+    min-width: none;
 }
 .navbar-middle-logout {
   display: flex;
 }
 
 .navbar-inner a {
-    color: black;
     text-decoration: none;
-    font-size: 1rem;
 }
 
 
@@ -27,42 +25,57 @@ body{
 .navbar-outer {
     padding: 8px;
     display: flex;
-    background-color: #06C9A1;
-    height: 80px;
+    background-color: #2E82BE;
+    height: 105px;
     justify-content: space-between;
     align-items: center;
 }
 
 .navbar-outer a {
-    color: black;
     text-decoration: none;
-    font-size: 1rem;
 }
 
 .navbar-outer a:hover {
-    color: white;
+    color:#86b7fe ;
 }
 
 .navbar-logo {
-    height: 60px;
+    height: 4rem;
 
 }
 
 .navbar-inner {
-    /* position: relative; */
+    /* position: relative;
     display: flex;
     justify-content: center;
     margin-left: 12rem;
     align-content: center;
+    flex-wrap: wrap; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     flex-wrap: wrap;
+    margin-left: 3rem;
+    height: 5rem;
 }
 
-.navbar-home,
+.navbar-home{
+  
+  margin-left: 30px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 33px;
+  line-height: normal;
+  color: #FFFFFF;
+
+}
 .navbar-user-email {
     display: flex;
     margin-left: 20px;
     margin-right: 20px;
-    color: #000 !important;
+    color: white !important;
 }
 
 .navbar-logout-btn {
@@ -72,9 +85,9 @@ body{
 .navbar-logout-btn {
     margin-left: 20px;
     margin-right: 20px;
-    color: #06C9A1;
-    background-color: #000;
-    border-radius: 5px;
+    color: #1f1818;
+    background-color: #86b7fe;
+    border-radius: 30px;
     padding-left: 5px;
     padding-right: 5px;
 
@@ -158,16 +171,18 @@ body{
     .navbar-inner {
       margin-left: 0;
       margin-right: 0;
+      height:4rem
     }
   
     .navbar-outer {
       padding: 8px;
-      height: 3rem;
+      height: 4rem;
     }
   
     .navbar-logo {
-      height: auto;
-      width:2rem;
+      height: 3rem;
+      width:4rem
+      ;
     }
   
     .navbar-home,
@@ -178,13 +193,14 @@ body{
     .navbar-middle-links {
       margin-right: auto;
       margin-left: auto;
+      height:4rem;
     }
   
-    .navbar-outer a {
+    /* .navbar-outer a {
       font-size: 0.8rem;
-    }
-    .navbar-inner a {
-        font-size: 0.7rem;
+    } */
+    .navbar-home{
+      font-size: 25px;
     }
     .navbar-user-email {
         font-size: 0.8rem;
@@ -224,3 +240,58 @@ body{
       display: block;
     }
   } */
+  @media only screen and (max-width: 500px) {
+    body {
+      min-width: initial;
+    }
+  
+    .navbar-inner {
+      margin-left: 0;
+      margin-right: 0;
+      height:3rem;
+    }
+  
+    .navbar-outer {
+      padding: 0;
+      height: 3rem;
+    }
+  
+    .navbar-logo {
+      height: 2.5rem;
+      width:3rem
+      ;
+    }
+  
+    .navbar-home,
+    .navbar-user-email {
+      display:grid;
+    }
+  
+    .navbar-middle-links {
+      margin-right: auto;
+      margin-left: auto;
+      height:3rem;
+    }
+  
+    .navbar-home {
+        font-size: 15px;
+    }
+    .navbar-user-email {
+        font-size: 0.8rem;
+    }
+    
+  
+    .navbar-logout-btn {
+      margin-left: auto;
+      margin-right: 0;
+      padding-left: 3px;
+      padding-right: 3px;
+  
+    }
+  
+    .navbar-login-link,
+    .navbar-signup-link {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
