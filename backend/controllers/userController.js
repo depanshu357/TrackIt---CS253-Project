@@ -18,6 +18,18 @@ const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
 }
 
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'noreplytrackit98@gmail.com',
+    pass: 'nfkyirhkalqckdop'
+  }
+});
+
 // login a user
 const loginUser = async (req, res) => {
   const { email, password } = req.body
@@ -53,7 +65,10 @@ const signupUser = async (req, res) => {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 const getOtp = async (req, res) => {
   // console.log(req.body)
   const { otp, email } = req.body
@@ -64,11 +79,16 @@ const getOtp = async (req, res) => {
 
     var mailOptions = {
       from: 'noreplytrackit98@gmail.com',
+<<<<<<< HEAD
       to: email, 
+=======
+      to: email,
+>>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
       subject: "Validation OTP from TrackIT",
       html: `Hello,<br> Please find below your requested OTP: <br> <h1>${otp}</h1><br>regards <br> Customer Care,<br>TrackIT`
     };
 
+<<<<<<< HEAD
     // transporter.sendMail(mailOptions, function (error) {
     //   if (error) {
     //     console.log(error);
@@ -76,6 +96,15 @@ const getOtp = async (req, res) => {
     //     console.log('Email sent to: ' + email);
     //   }
     // });
+=======
+    transporter.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent to: ' + email);
+      }
+    });
+>>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
     res.status(200).json("OK")
   } catch (error) {
@@ -83,6 +112,7 @@ const getOtp = async (req, res) => {
   }
 }
 
+<<<<<<< HEAD
 //updatePassword
 const updatePassword = async(req,res) => {
   const {email,password} = req.body;
@@ -105,3 +135,6 @@ const updatePassword = async(req,res) => {
 }
 
 module.exports = { signupUser, loginUser, getOtp , updatePassword}
+=======
+module.exports = { signupUser, loginUser, getOtp }
+>>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
