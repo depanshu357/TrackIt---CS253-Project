@@ -10,7 +10,7 @@ import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-import Seller from "./Components/Seller";
+// import Seller from "./Components/Seller";
 
 
 import History from "./Components/History";
@@ -53,10 +53,10 @@ function App() {
               path="/expenses"
               element={user ? <div><Navbar /><CalendarMonth /></div> : <Navigate to="/login" />}
             />
-            <Route
+            {/* <Route
               path="/seller"
               element={<Seller />}
-            />~
+            /> */}
             <Route
               path="/"
               element={user ? <div><Navbar /><Home /></div> : <Navigate to="/login" />}
