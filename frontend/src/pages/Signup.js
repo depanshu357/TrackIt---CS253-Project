@@ -3,44 +3,20 @@ import { useSignup } from "../hooks/useSignup";
 
 let otp;
 
-<<<<<<< HEAD
-=======
-// var nodemailer = require('nodemailer');
-
-// var transporter = nodemailer.createTransport({
-//   host: 'smtp.gmail.com',
-//   port: 465,
-//   secure: true,
-//   auth: {
-//     user: 'noreplytrackit98@gmail.com',
-//     pass: 'nfkyirhkalqckdop'
-//   }
-// });
-
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [OTP, setOTP] = useState("");
-<<<<<<< HEAD
   const [rollNo, setRollNo] = useState(null);
-=======
-  const [rollNo, setRollNo] = useState(0);
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
-<<<<<<< HEAD
 
   const [newError, setNewError] = useState(null);
 
 
-=======
-  const [newError, setNewError] = useState(null);
-
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
   const sendEmail = async (e) => {
     e.preventDefault();
 
@@ -51,35 +27,14 @@ const Signup = () => {
 
     const fetchOtp = async () => {
       const response = await fetch("/api/user/signup/otp", {
-<<<<<<< HEAD
         method: "PATCH",
-=======
-        method: "POST",
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
         body: JSON.stringify(otp_email),
         headers: { 'Content-Type': 'application/json', }
       })
       const json = await response.json();
 
-<<<<<<< HEAD
     };
     fetchOtp();
-=======
-    }
-    fetchOtp();
-  }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (otp != OTP) {
-      setNewError("OTP does not match!");
-      console.log("wrong otp");
-    }
-    else {
-      console.log("correct otp");
-      setNewError(null);
-      await signup(email, password, userType, rollNo, shopName);
-    }
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
   };
 
   const handleSubmit = async (e) => {
@@ -100,8 +55,8 @@ const Signup = () => {
 
   const onOptionChangeHandler = (e) => {
     console.log(e.target.value);
-    setUserType(e.target.value)
-  }
+    setUserType(e.target.value);
+  };
 
   function generateString(length) {
     let result = " ";
@@ -114,7 +69,6 @@ const Signup = () => {
   }
 
   return (
-<<<<<<< HEAD
     <>
       <div className="singup-page-background">
         <div className="container">
@@ -196,78 +150,89 @@ const Signup = () => {
                   />
                 </div>
               )}
-=======
-    <div>
-      <form className="signup" onSubmit={handleSubmit}>
-        <h3>Sign Up</h3>
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
-        <label>Email address:</label>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
+              {userType === "Shopkeeper" && (
+                <div>
+                  <input
+                    type="text"
+                    value={shopName}
+                    onChange={(e) => setShopName(e.target.value)}
+                    placeholder="ShopName"
+                  />
+                </div>
+              )}
+            </div>
+            <button className="login-btn" disabled={isLoading}>
+              SUBMIT
+            </button>
+            {error && <div className="error">{error}</div>}
+            <div className="create">
+              <a href="/login"> Registered Already? Log in</a>
+              <i className="ri-arrow-right-fill" />
+            </div>
+          </form>
+        </div>
 
-        <button onClick={sendEmail}>Verify Email</button>
+        {/* <form className="signup" onSubmit={handleSubmit}>
+      <h3>Sign Up</h3>
 
-        <label>OTP:</label>
-        <input type="number"
-          onChange={(e) => setOTP(e.target.value)}
-          value={OTP}
+      <label>Email address:</label>
+      <input
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
         />
-        <label>Password:</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
+      <label>Password:</label>
+      <input
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        /> */}
         {/* <label> IITK Roll Number</label>
       <input
-        type="text"
-        onChange={(e) => setRollNo(e.target.value)}
-        value={rollNo}
-      /> */}
+      type="text"
+      onChange={(e) => setRollNo(e.target.value)}
+      value={rollNo}
+    /> */}
 
-        <select onChange={onOptionChangeHandler}>
-          <option>Please choose one option</option>
-          {options.map((option, index) => {
-            return <option key={index}>{option}</option>;
-          })}
-        </select>
+        {/* <select onChange={onOptionChangeHandler}>
+        <option>Please choose one option</option>
+        {options.map((option, index) => {
+          return <option key={index}>{option}</option>;
+        })}
+      </select>
 
-        {
-          (userType === "Customer") && <div>
-            <label>IITK RollNo: </label>
-            <input
-              type="number"
-              value={rollNo}
-              onChange={(e) => setRollNo(e.target.value)}
-              placeholder="IITK RollNo"
-            />
-          </div>
-        }
+      {
+        (userType==="Customer") && <div>
+          <label >IITK RollNo: </label>
+          <input
+           type="number"
+           value={rollNo}
+           onChange={(e)=>setRollNo(e.target.value)}
+           placeholder="IITK RollNo"
+           />
+        </div>
+      }
 
-        {
-          (userType === "Shopkeeper") &&
-          <div>
-            <label >Shop Name:</label>
-            <input
-              type="text"
-              value={shopName}
-              onChange={e => setShopName(e.target.value)}
-            />
-          </div>
-        }
+      {(userType==="Shopkeeper") && 
+        <div>
+          <label >Shop Name:</label>
+          <input 
+          type="text"
+          value={shopName}
+          onChange={e => setShopName(e.target.value)}
+          />
+        </div>
+      }
 
-        <button disabled={isLoading}>Sign up</button>
-        <p>
-          Already a user!! <a href="/login">Login Here</a>
-        </p>
-        {error && <div className="error">{error}</div>}
-        {error && <div className="error">{newError}</div>}
-      </form >
-    </div>
+      <button disabled={isLoading}>Sign up</button>
+      <p>
+        Already a user!! <a href="/login">Login Here</a>
+      </p>
+      {error && <div className="error">{error}</div>}
+    </form> */}
+      </div>
+    </>
   );
 };
 

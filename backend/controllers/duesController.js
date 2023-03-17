@@ -15,15 +15,9 @@ const mongoose = require('mongoose')
 
 // get all Duess
 const getDuess = async (req, res) => {
-<<<<<<< HEAD
 //   const user_id = req.user._id
 //   const dues = req.user._id
   const dues = await Dues.find({}).sort({createdAt: -1})
-=======
-  //   const user_id = req.user._id
-  //   const dues = req.user._id
-  const Duess = await Dues.find({}).sort({ createdAt: -1 })
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
   res.status(200).json(dues)
 }
@@ -65,11 +59,7 @@ const getDuesByShopName = async (req, res) => {
 
 // create new Dues
 const createDues = async (req, res) => {
-<<<<<<< HEAD
   const {Item, Amount,RollNo, Description,Date,shopName,Category} = req.body
-=======
-  const { Item, Amount, RollNo, Description, Date, shopName } = req.body
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
   let emptyFields = []
 
@@ -93,17 +83,10 @@ const createDues = async (req, res) => {
   }
 
   // add doc to db
-<<<<<<< HEAD
   try {
     // const user_id = req.user._id
     const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName,Category})
     res.status(200).json(dues)
-=======
-  // try {
-  //   // const user_id = req.user._id
-  //   const dues = await Dues.create({ Item, Amount, Description, RollNo, Date, shopName })
-  //   res.status(200).json(dues)
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
 
   //   var mailOptions = {
   //     from: 'noreplytrackit98@gmail.com',
@@ -119,9 +102,9 @@ const createDues = async (req, res) => {
   //       console.log('Email sent: ' + info.response + ` ${RollNo}@iitk.ac.in`);
   //     }
   //   });
-  // } catch (error) {
-  //   res.status(400).json({ error: error.message })
-  // }
+  } catch (error) {
+    res.status(400).json({ error: error.message })
+  }
 }
 
 // delete a workout
@@ -149,21 +132,12 @@ const updateDues = async (req, res) => {
     return res.status(404).json({ error: 'No such Duess' })
   }
 
-<<<<<<< HEAD
   const dues = await Dues.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
   if (!dues) {
     return res.status(400).json({error: 'No such Duess'})
-=======
-  const Dues = await Workout.findOneAndUpdate({ _id: id }, {
-    ...req.body
-  })
-
-  if (!Dues) {
-    return res.status(400).json({ error: 'No such Duess' })
->>>>>>> 24265d28e8e98792efa3236e125f874d74ff5076
   }
 
   res.status(200).json(dues)

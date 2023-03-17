@@ -10,7 +10,7 @@ import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-import Seller from "./Components/seller";
+import Seller from "./Components/Seller";
 
 
 import History from "./Components/History";
