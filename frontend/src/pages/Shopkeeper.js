@@ -55,7 +55,7 @@ const Shopkeeper = () => {
   }, [dispatchd, user]);
 
   var customers = [];
-  Dues.forEach(function (due){
+  Dues && Dues.forEach(function (due){
     // console.log(due)
     customers.push(due.RollNo);
 });

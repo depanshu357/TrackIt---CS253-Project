@@ -62,7 +62,7 @@ const Dashboard = () => {
     var total_budget = 500000;
     for (let i = 1; i <= 12; i++) {
         let temp = 0;
-        for (let j = 0; j < expense.length; j++) {
+        for (let j = 0;expense &&  j < expense.length; j++) {
             // console.log(expense[j].Date[5] + expense[j].Date[6], current_month);
             if (expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
                 bar_graph_progress += expense[j].MoneySpent;
