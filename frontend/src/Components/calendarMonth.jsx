@@ -59,7 +59,7 @@ const CalendarMonth = () => {
   var monthly_category = [0, 0, 0, 0];
 
 
-  for (let i = 0; i < expense.length; i++) {
+  for (let i = 0; expense!== null && i < expense.length; i++) {
 
     if (expense[i].Date.substring(5, 7) == month) {
       if (expense[i].Category == "Food") {
@@ -149,7 +149,7 @@ const CalendarMonth = () => {
     }
   ];
 
-  const namesdate = expense.filter(function (el) {
+  const namesdate = expense!==null && expense.filter(function (el) {
     // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 10) == date2;
   });
@@ -309,10 +309,10 @@ const CalendarMonth = () => {
 
 
 
-        <h1 class="dailytransactions">Daily Transactions</h1>
+        {/* <h1 class="dailytransactions">Daily Transactions</h1>
         <div class="expenses-comp">
           <ul>{renderListOfUserNames(namesdate)}</ul>
-        </div>
+        </div> */}
 
         <div class="dailysummary-comp">
           <div>

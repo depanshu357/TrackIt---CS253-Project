@@ -12,7 +12,7 @@ const Shopkeeper = () => {
   const { Dues, dispatch: dispatchd } = useDuesContext();
   const { user } = useAuthContext();
   // const [borrows, setBorrows] = useState(null);
-  const[d,setD] = useState("none");
+  const [d, setD] = useState("none");
   // const [customers,setCustomers] = useState([]);
   const [dataUniue, setDataUnique] = useState([]);
   var [index, setIndex] = useState(0);
@@ -55,17 +55,17 @@ const Shopkeeper = () => {
   }, [dispatchd, user]);
 
   var customers = [];
-  Dues && Dues.forEach(function (due){
+  Dues && Dues.forEach(function (due) {
     // console.log(due)
     customers.push(due.RollNo);
-});
+  });
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
   customers = customers.filter(onlyUnique);
   console.log(customers);
 
-  const handlePlusButton = () =>{
+  const handlePlusButton = () => {
     setD("block")
   }
   // useEffect(() => {
@@ -114,9 +114,9 @@ const Shopkeeper = () => {
   return (
     <div className="home-shopkeeper">
       <div className="shopkeeper-plus-button" onClick={handlePlusButton}></div>
-      <div className="pop-up-card-dues" style={{display:d}}>
-          <DuesForm d={d} setD={setD}/>
-        </div>
+      <div className="pop-up-card-dues" style={{ display: d }}>
+        <DuesForm d={d} setD={setD} />
+      </div>
       {customers &&
         customers.map((customer) => (
           <div style={{ position: "relative" }}>

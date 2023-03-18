@@ -1,4 +1,4 @@
-import React,{ useState } from "react"
+import React, { useState } from "react"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useExpenseContext } from "../hooks/useExpenseContext"
 
@@ -14,7 +14,7 @@ const ExpenseForm = () => {
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
-  const options = ["Food","Health","Shopping","Others"];
+  const options = ["Food", "Health", "Shopping", "Others"];
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -86,13 +86,13 @@ const ExpenseForm = () => {
         className={emptyFields.includes('Date') ? 'error' : ''}
       />
       <label >Category:</label>
-      <select onChange={(e)=>setCategory(e.target.value)}>
+      <select onChange={(e) => setCategory(e.target.value)}>
 
-      <option>Please Select a Category</option>
-      {options.map((option, index) => {
-        return <option key={index}>{option}</option>;
-      })}
-        </select>
+        <option>Please Select a Category</option>
+        {options.map((option, index) => {
+          return <option key={index}>{option}</option>;
+        })}
+      </select>
       {/* <input type="text"
         value={Category}
         onChange={e => setCategory(e.target.value)}
