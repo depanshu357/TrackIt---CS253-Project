@@ -3,15 +3,15 @@ import { useLogin } from "../hooks/useLogin";
 import "./style.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login, error, isLoading } = useLogin();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {login, error, isLoading} = useLogin()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    await login(email, password);
-  };
+    await login(email, password)
+  }
 
   return (
     <>

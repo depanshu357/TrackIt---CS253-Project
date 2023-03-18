@@ -18,6 +18,18 @@ const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
 }
 
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'noreplytrackit98@gmail.com',
+    pass: 'nfkyirhkalqckdop'
+  }
+});
+
 // login a user
 const loginUser = async (req, res) => {
   const { email, password } = req.body
@@ -52,7 +64,6 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message })
   }
 }
-
 
 const getOtp = async (req, res) => {
   // console.log(req.body)
