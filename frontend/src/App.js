@@ -2,7 +2,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
 
 import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
@@ -27,6 +26,7 @@ import Forget_Password from "./pages/Forget_Password";
 // import MonthSummary from "./pages/MonthSummary"
 import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
+import Navbar from './Components/Navbar/Navbar.js';
 
 function App() {
   const { user } = useAuthContext()
@@ -51,7 +51,7 @@ function App() {
             />
             <Route
               path="/expenses"
-              element={user ? <div><Navbar /><CalendarMonth /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={CalendarMonth} /> : <Navigate to="/login" />}
             />
             {/* <Route
               path="/seller"
@@ -59,41 +59,41 @@ function App() {
             /> */}
             <Route
               path="/"
-              element={user ? <div><Navbar /><Home /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={Home} /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/monthSummary"
-              element={user ? <div><Navbar /><MonthSummary /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={MonthSummary} /> : <Navigate to="/login" />}
             />
             <Route
               path="/borrowings"
-              element={user ? <div><Navbar /><CalendarYear /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={CalendarYear} /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/dailySummary"
-              element={user ? <div><Navbar /><DailySummary /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={DailySummary} /> : <Navigate to="/login" />}
 
             />
             <Route
               path="/dashboard"
-              element={user ? <div><Navbar /><Dashboard /></div> : <Navigate to={"/login"} />}
+              element={user ? <Navbar Display={Dashboard} /> : <Navigate to={"/login"} />}
             />
             <Route
               path="/profile"
-              element={user ? <div><Navbar /><Profile /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={Profile} /> : <Navigate to="/login" />}
             />
             <Route
               path="/history"
-              element={user ? <div><Navbar /><History /></div> : <Navigate to="/login" />}
+              element={user ? <Navbar Display={History} /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/add-expense"
               element={<CurrentMonth />}
             />
-
+            <Route path="/temp" element={<Navbar Display={CalendarMonth} />} />
           </Routes>
         </div>
         {/* <Footer /> */}
