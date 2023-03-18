@@ -3,14 +3,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import { StyledEngineProvider } from '@mui/material/styles';
+
 import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
 import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-import Seller from "./Components/Seller";
+// import Seller from "./Components/Seller";
 
 
 import History from "./Components/History";
@@ -27,7 +27,6 @@ import Forget_Password from "./pages/Forget_Password";
 // import MonthSummary from "./pages/MonthSummary"
 import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
-import Demo from './Components/Navbar/NewNavbar';
 
 function App() {
   const { user } = useAuthContext()
@@ -54,10 +53,10 @@ function App() {
               path="/expenses"
               element={user ? <div><Navbar /><CalendarMonth /></div> : <Navigate to="/login" />}
             />
-            <Route
+            {/* <Route
               path="/seller"
               element={<Seller />}
-            />
+            /> */}
             <Route
               path="/"
               element={user ? <div><Navbar /><Home /></div> : <Navigate to="/login" />}
@@ -94,7 +93,7 @@ function App() {
               path="/add-expense"
               element={<CurrentMonth />}
             />
-            <Route path="/temp" element={<StyledEngineProvider injectFirst> <Demo /></StyledEngineProvider>} />
+
           </Routes>
         </div>
         {/* <Footer /> */}
