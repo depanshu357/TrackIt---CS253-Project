@@ -17,11 +17,17 @@
     "react-scripts": "^2.1.3",
     "recharts": "^2.4.3",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest"
   },
+    "description": "https://github.com/mui/material-ui/blob/v5.11.13/docs/data/material/components/drawers/MiniDrawer.js",
+
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "latest"
   }
 }
