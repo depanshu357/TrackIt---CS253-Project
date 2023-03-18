@@ -18,6 +18,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import Dashboard from '../../pages/Dashboard';
+import "./Navbar.css"
+import ExploreIcon from '@mui/icons-material/Explore';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import { Outlet, Link } from "react-router-dom";
+
+import { useLogout } from "../../hooks/useLogout";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const drawerWidth = 240;
 
@@ -86,9 +95,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function Navbar({ Display }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { logout } = useLogout();
+  const { user } = useAuthContext()
+
+  const handleClick = () => {
+    logout()
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -115,20 +130,40 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
+          <div className='navbar-header'>
+            <img className="navbar-logo" src="/images/TrackIT-logo-bgrm.png" alt="logo" style={{ visibility: open ? "hidden" : "visible" }} />
+            <div className="navbar-logout">
+              {!user && (
+                <div>
+                  <Link to="/login" className="navbar-login-link">Login</Link>
+                  <Link to="/signup" className="navbar-signup-link">Signup</Link>
+
+                </div>
+              )}
+
+              {user && (
+                <span className="navbar-user-email" >
+
+                  <span>{user.email}</span>
+                  <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
+                </span>
+              )
+              }
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+          <img className="navbar-logo uncollapse" src="/images/TrackIT-logo-bgrm.png" alt="logo" />
+
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Expenses', 'Borrowings', 'Dashboard'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -144,69 +179,23 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+
+                  {index === 0 ? <Link to="/expenses" className="navbar-home-icon  "><AccountBalanceWalletIcon className='expenses-icon' /></Link>
+                    : (index === 2 ? <Link to="/dashboard" className="navbar-home-icon  "> <ExploreIcon className='dashboard-icon' /></Link>
+                      : <Link to="/borrowings" className="navbar-home-icon  "> <PeopleAltIcon className='borrowings-icon' /></Link>)}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+
+
+                <ListItemText primary={<Link className='navbar-text' to={index === 0 ? "/expenses" : index == 2 ? "/dashboard" : "/borrowings"}>{text}</Link>} sx={{ opacity: open ? 1 : 0 }} style={{ color: index === 0 ? '#8F5FE8' : (index === 2 ? '#00D25B' : '#F8A91A') }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} style={{ paddingTop: '60px', paddingLeft: '0px', paddingRight: '0px' }}>
+        <Display></Display>
       </Box>
-    </Box>
+    </Box >
   );
 }

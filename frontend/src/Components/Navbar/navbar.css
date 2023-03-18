@@ -1,297 +1,68 @@
-* {
-    padding: 0;
+.MuiPaper-root {
+    background-color: #191c24;
+    color: #fff;
+
+}
+
+.MuiSvgIcon-root {
+    color: #fff
+}
+
+.navbar-home-icon {
     margin: 0;
-    box-sizing: border-box;
-    display: flex-end;
+    padding: 0;
 }
 
-body{
-    min-width: none;
-}
-.navbar-middle-logout {
-  display: flex;
+.expenses-icon {
+    color: #8F5FE8 !important;
 }
 
-.navbar-inner a {
-    text-decoration: none;
+.dashboard-icon {
+    color: #00D25B;
 }
 
-
-
-.navbar-middle-links {
-    display: flex;
-}
-
-.navbar-outer {
-    padding: 8px;
-    display: flex;
-    background-color: #2E82BE;
-    height: 105px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-outer a {
-    text-decoration: none;
-}
-
-.navbar-outer a:hover {
-    color:#86b7fe ;
+.borrowings-icon {
+    color: #F8A91A;
 }
 
 .navbar-logo {
-    height: 4rem;
-
+    height: 50px;
+    width: 100px;
 }
 
-.navbar-inner {
-    /* position: relative;
-    display: flex;
-    justify-content: center;
-    margin-left: 12rem;
-    align-content: center;
-    flex-wrap: wrap; */
+.uncollapse {
+    margin: 0;
+    padding: 0;
     position: relative;
+    right: 2vw;
+}
+
+.navbar-text {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.navbar-header {
     display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    margin-left: 3rem;
-    height: 5rem;
-}
-
-.navbar-home{
-  
-  margin-left: 30px;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 33px;
-  line-height: normal;
-  color: #FFFFFF;
-
-}
-.navbar-user-email {
-    display: flex;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: white !important;
-}
-
-.navbar-logout-btn {
-    position: relative;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .navbar-logout-btn {
     margin-left: 20px;
     margin-right: 20px;
     color: #1f1818;
-    background-color: #86b7fe;
-    border-radius: 30px;
+    background-color: #018EE6;
+    border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
+    color: #1f1818;
+    font-size: 1rem;
+
 
 }
-
-.navbar-login-link {
-    margin-right: 5vw;
-}
-
-.navbar-signup-link {
-    padding-right: 5vw;
-
-}
-
-.navbar-dropdown-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: #100606;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-  }
-  .navbar-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #141111;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .navbar-dropdown-menu a {
-    display: block;
-    color: #333;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  .navbar-dropdown-menu a:hover {
-    background-color: #100e0e;
-  }
-  
-
-/* @media (max-width:1270px) {
-    .navbar-inner {
-        margin-left: 10vw;
-    }
-}
-
-@media (max-width:980) {
-    .navbar-inner {
-        margin-left: 0;
-    }
-} */
-
-/* @media screen and (max-width: 899px)
-    {.navbar-inner{
-    font-size: 1.25rem;
-}}
-@media (max-width: 500px)
-    {.navbar-inner{
-        width:fit-content;
-}
-}
-@media (max-width: 500px)
-    {.navbar-inner a {
-        color: black;
-        text-decoration: none;
-        font-size: 0.8rem;
-    }
-} */
-
- @media only screen and (max-width: 900px) {
-    body {
-      min-width: initial;
-    }
-  
-    .navbar-inner {
-      margin-left: 0;
-      margin-right: 0;
-      height:4rem
-    }
-  
-    .navbar-outer {
-      padding: 8px;
-      height: 4rem;
-    }
-  
-    .navbar-logo {
-      height: 3rem;
-      width:4rem
-      ;
-    }
-  
-    .navbar-home,
-    .navbar-user-email {
-      display:grid;
-    }
-  
-    .navbar-middle-links {
-      margin-right: auto;
-      margin-left: auto;
-      height:4rem;
-    }
-  
-    /* .navbar-outer a {
-      font-size: 0.8rem;
-    } */
-    .navbar-home{
-      font-size: 25px;
-    }
-    .navbar-user-email {
-        font-size: 0.8rem;
-    }
-    
-  
-    .navbar-logout-btn {
-      margin-left: auto;
-      margin-right: 0;
-      padding-left: 3px;
-      padding-right: 3px;
-  
-    }
-  
-    .navbar-login-link,
-    .navbar-signup-link {
-      margin-right: 0;
-      padding-right: 0;
-    }
-  }
-  
-  /* @media only screen and (max-width: 767px) {
-    .navbar-inner {
-      display: none;
-    } 
-    .navbar-logout-btn {
-        margin-left: auto;
-        margin-right: 0;
-        padding-left: 3px;
-        padding-right: 3px;
-      }
-      .navbar-logo {
-        height: 40px;
-      }
-  
-    .navbar-dropdown-btn {
-      display: block;
-    }
-  } */
-  @media only screen and (max-width: 500px) {
-    body {
-      min-width: initial;
-    }
-  
-    .navbar-inner {
-      margin-left: 0;
-      margin-right: 0;
-      height:3rem;
-    }
-  
-    .navbar-outer {
-      padding: 0;
-      height: 3rem;
-    }
-  
-    .navbar-logo {
-      height: 2.5rem;
-      width:3rem
-      ;
-    }
-  
-    .navbar-home,
-    .navbar-user-email {
-      display:grid;
-    }
-  
-    .navbar-middle-links {
-      margin-right: auto;
-      margin-left: auto;
-      height:3rem;
-    }
-  
-    .navbar-home {
-        font-size: 15px;
-    }
-    .navbar-user-email {
-        font-size: 0.8rem;
-    }
-    
-  
-    .navbar-logout-btn {
-      margin-left: auto;
-      margin-right: 0;
-      padding-left: 3px;
-      padding-right: 3px;
-  
-    }
-  
-    .navbar-login-link,
-    .navbar-signup-link {
-      margin-right: 0;
-      padding-right: 0;
-    }
-  }
