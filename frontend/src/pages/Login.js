@@ -88,7 +88,7 @@ const Login = () => {
           <div class="wrap d-md-flex">
             <div class="img" 
             // style ="background: url(IMG_20220816_095445457 (2).jpg"
-            ><img src="D:\trackit new\TrackIt---CS253-Project\frontend\src\pages\IMG_20220816_095445457 (2).jpg"/></div>
+            ><img src="https://i.postimg.cc/Ghz0mN4z/login.jpg"/></div>
             <div class="login-wrap p-4 p-md-5">
               <div class="d-flex">
                 <div class="w-100">
