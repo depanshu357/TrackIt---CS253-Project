@@ -91,7 +91,7 @@ const path = require('path')
 app.use('/api/user',userRoutes)
 app.use('/api/expense',userExpense)
 app.use('/api/dues',userDues)
-app.use(express.static(path.join(__dirname,'/build')))
+// app.use(express.static(path.join(__dirname,'/build')))
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

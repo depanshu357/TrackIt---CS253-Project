@@ -1,0 +1,36 @@
+.create-expense-form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 8px;
+    background-color: #191c24;
+    padding: 10px;
+    border-radius: 7px;
+}
+.create-expense-form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+.create-expense-form h3{
+    color: whitesmoke;
+    padding: 5px 10px;
+    border-bottom: 2px solid white;
+}
+.create-expense-form label{
+    font-size: 17px;
+    font-weight: bold;
+}
+.add-expense-form{
+    padding: 7px;
+    background-color: #61ff73;
+    color: #163e5c;
+    border-radius: 7px;
+}
+.create-expense-form input{
+    background-color: #12151e;
+    width: 200px;
+    color: white;
+}
