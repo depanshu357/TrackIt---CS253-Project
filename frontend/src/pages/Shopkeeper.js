@@ -114,16 +114,16 @@ const Shopkeeper = () => {
   return (
     <div className="home-shopkeeper">
       <div className="shopkeeper-plus-button" onClick={handlePlusButton}></div>
-      <div className="pop-up-card-dues" style={{ display: d }}>
+      <div className="pop-up-card-dues" style={{ display: d, color: "white" }}>
         <DuesForm d={d} setD={setD} />
       </div>
       {customers &&
         customers.map((customer) => (
           <div style={{ position: "relative" }}>
             <div
-              className="card"
+              className="card" style={{backgroundColor: "#191c24"}}
             >
-              <div className="card-header">{customer}</div>
+              <div className="card-header" style={{borderBottom: "2px solid line white"}}>{customer}</div>
               <div style={{ display: "none" }}>{(total = 0)}</div>
               <div style={{ padding: "10px", height: "100%" }}>
                 {Dues &&
