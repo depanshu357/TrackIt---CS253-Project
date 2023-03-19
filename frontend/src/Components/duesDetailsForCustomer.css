@@ -1,0 +1,23 @@
+.due-details-for-customer{
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    background-color: #191c24;
+    padding: 10px;
+    margin: 5px;
+    justify-content: space-between;
+}
+.due-details-for-customer > span:nth-child(1){
+    width: 50%;
+}
+.due-details-for-customer > span:nth-child(2){
+    width: 20%;
+}
+.due-details-for-customer > span:nth-child(3){
+    width: 30%;
+}
+.due-details-for-customer span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+}
