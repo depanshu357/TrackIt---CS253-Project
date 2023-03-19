@@ -1,4 +1,5 @@
 import React from 'react'
+import "./duesDetailsForCustomer.css" 
 // import { useDuesContext } from '../hooks/useDuesContext'
 // import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -29,13 +30,19 @@ const DuesDetailsForCustomer = (props) => {
     // console.log(props)
 
   return (
-    <div>
-      Item - {props.due.Item} <br></br>
-                Amount - {props.due.Amount} <br></br>
-                RollNo - {props.due.RollNo} <br></br>
-                Description - {props.due.Description} <br />
-                shopName - {props.due.shopName} <br />
-                isPaid - {props.due.Paid ? "Paid" : "Not Paid"} <br />
+    <div className='due-details-for-customer' >
+      <span>
+         {props.due.Item} 
+        </span>
+           <span>
+                 {props.due.Amount} 
+            </span>
+                {/* RollNo - {props.due.RollNo} <br></br> */}
+                {/* Description - {props.due.Description} <br /> */}
+                {/* shopName - {props.due.shopName} <br /> */}
+           <span>
+                  {props.due.Paid ? "Paid" : "Not Paid"} <br />
+            </span>
       {/* <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span> */}
 
     </div>

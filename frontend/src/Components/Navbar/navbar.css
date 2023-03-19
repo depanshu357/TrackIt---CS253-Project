@@ -63,6 +63,44 @@ a:hover {
     padding-right: 5px;
     color: #1f1818;
     font-size: 1rem;
+}
 
+.side-bar-email {
+    display: none;
+}
 
+@media screen and (max-width: 700px) {
+    .side-bar-email {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .side-bar-email button {
+        margin-top: 10px;
+    }
+
+    .upper-hide {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .side-bar-email {
+        display: none !important;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .side-bar-email button {
+        margin-top: 10px;
+    }
+
+    .upper-hide {
+        display: block;
+    }
 }
