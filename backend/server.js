@@ -15,6 +15,7 @@ app.use(express.json())
 app.engine('html', require('ejs').renderFile);
 app.set('view engine','html')
 app.use(bodyParser.urlencoded({ extended: true }))
+const path = require('path')
 // const api = "http://localhost:3000"
 
 // const users=[{name:"Depanshu Sahu",
@@ -90,6 +91,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api/user',userRoutes)
 app.use('/api/expense',userExpense)
 app.use('/api/dues',userDues)
+app.use(express.static(path.join(__dirname,'/build')))
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

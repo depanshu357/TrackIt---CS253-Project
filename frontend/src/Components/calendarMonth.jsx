@@ -157,7 +157,7 @@ const CalendarMonth = () => {
 
   const renderListOfUserNames = (namesdate) => {
 
-    return namesdate.map((name) => (
+    return namesdate &&  namesdate.map((name) => (
       <div class="hi"><div class="listelement">
         <div class="listimage">
           <img
