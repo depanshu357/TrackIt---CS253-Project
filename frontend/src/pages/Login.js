@@ -123,7 +123,7 @@ const Login = () => {
                       <span class="checkmark"></span>
                       </label>
                     </div> */}
-                    <div class="w-50 text-md-right">
+                    <div class="w-50 text-md-center">
                     <a href="/Forget_Password" className="forgot">
                       Forgot Password?
                     </a>

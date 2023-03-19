@@ -154,10 +154,11 @@ const Signup = () => {
                       Submit
                     </button>
                     {error && <div className="error">{error}</div>}
-                    <div className="create">
+                    {/* <div className="create">
                       <a href="/login"> Registered Already? Log in</a>
                       <i className="ri-arrow-right-fill" />
-                    </div>
+                    </div> */}
+                    <p class="text-left">Registered Already? <a href="./">Log in</a></p>
                   </form>
               </div>
             </div>
