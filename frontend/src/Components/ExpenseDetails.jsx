@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import{ useExpenseContext } from '../hooks/useExpenseContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PaymentsIcon from "@mui/icons-material/Payments";
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -40,15 +44,24 @@ const ExpenseDetails = ({ expensee }) => {
 
     
   }
+  const renderIcon = () =>{
+    if(expensee.Category==="Food") return <span><FastfoodIcon /></span> 
+    else if(expensee.Category === "Health") return <HealthAndSafetyIcon />
+    else if(expensee.Category ==="Shopping") return <ShoppingCartIcon />
+    return <PaymentsIcon />
+  }
   return (
     <div className="expense-details">
-      <h4>{expensee.Item}</h4>
-      <p><strong>Money Spent: </strong>{expensee.MoneySpent}</p>
-      <p><strong>Category: </strong>{expensee.Category}</p>
-      <p><strong>Description: </strong>{expensee.Description}</p>
-      <p>{formatDistanceToNow(new Date(expensee.createdAt), { addSuffix: true })}</p>
-      <p><strong>Date: </strong>{expensee.Date}</p>
-      <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span>
+      <span>{expensee.Item}</span>
+      <span>{expensee.MoneySpent}</span>
+      <span>{expensee.Category}</span>  
+      
+        {/* expensee.Category=="Food"?<span><PaymentsIcon /></span> */}
+      
+      {/* <p><strong>Description: </strong>{expensee.Description}</p> */}
+      {/* <p>{formatDistanceToNow(new Date(expensee.createdAt), { addSuffix: true })}</p> */}
+      {/* <p><strong>Date: </strong>{expensee.Date}</p> */}
+      {/* <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span> */}
       {/* <span onClick={handleClickForUpdate} style={{cursor:"pointer"}}>Update</span>  */}
     </div>
   )

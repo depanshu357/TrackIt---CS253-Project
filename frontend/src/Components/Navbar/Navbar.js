@@ -97,7 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Navbar({ Display }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const { logout } = useLogout();
   const { user } = useAuthContext()
 
@@ -131,7 +131,9 @@ export default function Navbar({ Display }) {
             <MenuIcon />
           </IconButton>
           <div className='navbar-header'>
-            <img className="navbar-logo" src="/images/TrackIT-logo-bgrm.png" alt="logo" style={{ visibility: open ? "hidden" : "visible" }} />
+            <Link to="/">
+              <img className="navbar-logo" src="/images/TrackIT-logo-bgrm.png" alt="logo" style={{ visibility: open ? "hidden" : "visible" }} />
+            </Link>
             <div className="navbar-logout">
               {!user && (
                 <div>
@@ -142,7 +144,7 @@ export default function Navbar({ Display }) {
               )}
 
               {user && (
-                <span className="navbar-user-email" >
+                <span className="navbar-user-email upper-hide"  >
 
                   <span>{user.email}</span>
                   <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
@@ -155,15 +157,51 @@ export default function Navbar({ Display }) {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <img className="navbar-logo uncollapse" src="/images/TrackIT-logo-bgrm.png" alt="logo" />
-
+          <Link to="/">
+            <img className="navbar-logo uncollapse" src="/images/TrackIT-logo-bgrm.png" alt="logo" />
+          </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          {['Expenses', 'Borrowings', 'Dashboard'].map((text, index) => (
+          {user.userType == "Customer" && ['Expenses', 'Borrowings', 'Dashboard'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+
+                  {index === 0 ? <Link to="/expenses" className="navbar-home-icon  "><AccountBalanceWalletIcon className='expenses-icon' /></Link>
+                    : (index === 2 ? <Link to="/dashboard" className="navbar-home-icon  "> <ExploreIcon className='dashboard-icon' /></Link>
+                      : <Link to="/borrowings" className="navbar-home-icon  "> <PeopleAltIcon className='borrowings-icon' /></Link>)}
+                </ListItemIcon>
+
+
+                <ListItemText primary={<Link className='navbar-text' to={index === 0 ? "/expenses" : index == 2 ? "/dashboard" : "/borrowings"}>{text}</Link>} sx={{ opacity: open ? 1 : 0 }} style={{ color: index === 0 ? '#8F5FE8' : (index === 2 ? '#00D25B' : '#F8A91A') }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+          {user && (
+            <span className="navbar-user-email  side-bar-email" style={{ display: open ? 'flex' : 'none' }}>
+
+              <span>{user.email}</span>
+              <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
+            </span>
+          )
+          }
+          {user.userType == "Shopkeeper" && ['Dashboard'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
