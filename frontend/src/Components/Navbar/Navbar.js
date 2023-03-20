@@ -20,7 +20,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Dashboard from '../../pages/Dashboard';
-import "./navbar.css"
+import "./Navbar.css"
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Outlet, Link } from "react-router-dom";

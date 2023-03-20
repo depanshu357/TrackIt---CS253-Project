@@ -9,7 +9,7 @@ import DailySummary from "./Components/DailySummary";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-import Seller from "./Components/seller";
+import Seller from "./Components/Seller";
 
 
 import History from "./Components/History";
@@ -28,16 +28,16 @@ import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
 import Navbar from './Components/Navbar/Navbar.js';
 
-import Analytics from './components/Analytics';
-import Cards from './components/Cards';
-import lFooter from './components/lFooter';
-import Hero from './components/Hero';
-import lNavbar from './components/lNavbar';
-import Calendarm from './components/calendar';
-import ListExpenses from './components/ListExpenses';
-import ListBorrowings from './components/ListBorrowings';
-import DayChart from './components/daydonut';
-import Expenses from './components/expenses';
+import Analytics from './Components/Analytics';
+import Cards from './Components/Cards';
+import Footer from './Components/Footer';
+import Hero from './Components/Hero';
+import LNavbar from './Components/Navbar';
+import Calendarm from './Components/calendar';
+import ListExpenses from './Components/ListExpenses';
+import ListBorrowings from './Components/ListBorrowings';
+import DayChart from './Components/daydonut';
+import Expenses from './Components/expenses';
 
 function App() {
   const { user } = useAuthContext()
@@ -53,20 +53,20 @@ function App() {
               element={!user ? <Login /> : <Navigate to="/" />}
             />
 
-              <Route
+            <Route
               path="/landing"
               element={<div>
-            <Navbar />
-            <Hero />
+                <LNavbar />
+                <Hero />
 
-            <Analytics />
-            <MonthSummary />
-            <Cards />
-            <Footer />
-            </div> }
-                  />
-                       
-                       
+                <Analytics />
+                <MonthSummary />
+                <Cards />
+                <Footer />
+              </div>}
+            />
+
+
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
