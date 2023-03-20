@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import Calendar from 'react-calendar'
 import './calendarYear.css';
 import "./borrowings.css";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import DuesForm from "../Components/DuesForm";
+import DuesDetailsForShopkeeper from "../Components/DuesDetailsForShopkeeper";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useDuesContext } from "../hooks/useDuesContext";
+
 
 
 const CalendarYear = () => {
   const [date, setDate] = useState(new Date());
+  const { Dues, dispatch: dispatchd } = useDuesContext();
+  const { user } = useAuthContext;
+
 
   const onChange = date => {
     setDate(date)
@@ -26,65 +35,51 @@ const CalendarYear = () => {
   console.log(date2);
   //console.log(typeof date2);
 
-  //const {user} = useAuthContext;
-  const names = [
-    {
-      id: "123",
-      description: "f",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "May 6 2023",
-      Money: "78",
-      Paid: "True"
-    },
-    {
-      id: "345",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-      Paid: "False"
-    },
-    {
-      id: "234",
-      description: "fffffffffffffff fffffffffffffffffff fffffffffffffffff f fffffffffffffff fffffffffff fffffffffff ffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: "78",
-      Paid: "True"
-    },
-    {
-      id: "3645",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-      Paid: "False"
-    },
-    {
-      id: "3456",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-      Paid: "False"
-    },
-    {
-      id: "3465",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-      Paid: "True"
+  var borrowings_data = [];
+  console.log(Dues);
+  for (let i = 0; i < Dues.length; i++) {
+    if (Dues[i].RollNo) {
+      borrowings_data.push(Dues[i]);
     }
-  ];
+  }
 
-  const namesdate = names.filter(function (el) {
+
+  useEffect(() => {
+    const fetchDues = async () => {
+      const response = await fetch(`/api/dues/${user.shopName}`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
+      const json = await response.json();
+
+      if (response.ok) {
+        console.log(" dues coming up ");
+        // console.log(json[0])
+        // setBorrows(json);
+        // console.log(borrows[0].RollNo);
+        // console.log(borrows);
+        dispatchd({ type: "SET_DUESS", payload: json });
+        // console.log(Dues)
+      }
+      // json?.forEach(function(due){
+      //   // console.log(due)
+      //   setCustomers(pre => pre + [(due.RollNo)])
+      // }
+      // )
+      // function onlyUnique(value, index, self) {
+      //   return self.indexOf(value) === index;
+      // }
+      // setCustomers(pre => pre.filter(onlyUnique));
+      // console.log(customers);
+    };
+    if (user) {
+      fetchDues();
+      console.log(user);
+    }
+    console.log(Dues);
+  }, [dispatchd, user]);
+
+  const namesdate = borrowings_data.filter(function (el) {
     // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 7) == date2;
   });
@@ -96,22 +91,20 @@ const CalendarYear = () => {
       <div class="hi1">
 
         <div class="listdetails1">
-          <div class="listname1">{name.name}</div>
-          <div class="listmoney1">{name.Money}</div>
-          <div class="listdate1">{name.Date}</div>
-
-
-
+          <div class="listname1">{name.Item}</div>
+          <div class="listmoney1">{name.MoneySpent}</div>
+          <div class="listdate1">{name.Date.substring(0, 10)}</div>
           <a
             class="btn btn-primary listcollapsebutton1"
             data-bs-toggle="collapse"
-            href={`#collapseExample${name.id}`}
+            href={`#collapseExample${name._id}`}
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
           >
             <span class="textv">
-              v</span>
+              <KeyboardArrowDownIcon />
+            </span>
           </a>
 
 
@@ -121,8 +114,8 @@ const CalendarYear = () => {
 
 
         </div>
-        <div class="collapse listdescription1" id={`collapseExample${name.id}`}>
-          <div class=" listdesc1">{name.description}</div>
+        <div class="collapse listdescription1" id={`collapseExample${name._id}`}>
+          <div class=" listdesc1">{name.Description}</div>
         </div></div>
 
     ));
@@ -130,14 +123,22 @@ const CalendarYear = () => {
 
 
   return (
-    <div class="everything-b">
-      <div class="calendaryear-comp">
-        <Calendar onChange={onChange} value={date} maxDetail='year' minDetail="year" defaultView="year" />  </div>
-      <h1 class="monthlyborrowings">Monthly Borrowings</h1>
-      <div class="borrowings-comp">
-        <ul>{renderListOfUserNames(namesdate)}</ul>
+    <>
+
+      <div class="everything-b">
+        <div class="calendaryear-comp">
+          <Calendar onChange={onChange} value={date} maxDetail='year' minDetail="year" defaultView="year" />
+        </div>
+        <div className="right">
+          <h1 class="monthlyborrowings">Monthly Borrowings</h1>
+          <div class="borrowings-comp">
+            <ul>{renderListOfUserNames(namesdate)}</ul>
+          </div>
+        </div>
       </div>
-    </div>
+
+
+    </>
   );
 };
 
