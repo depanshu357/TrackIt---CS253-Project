@@ -81,7 +81,7 @@ const Login = () => {
         {error && <div className="error">{error}</div>}
       </form> */}
       {/* </div> */}
-      <section class="ftco-section">
+      <section class="ftco-section" style={{overflowX:"hidden"}}>
       <div class="container1">
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-10">
@@ -114,7 +114,7 @@ const Login = () => {
                     value={password}/>
                   </div>
                   <div class="form-group">
-                    <button disabled={isLoading} class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                    <button disabled={isLoading} class="form-control btn btn-primary rounded submit px-3" >Sign In</button>
                   </div>
                   <div class="form-group d-md-flex">
                     {/* <div class="w-50 text-left">

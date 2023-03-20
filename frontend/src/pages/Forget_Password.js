@@ -132,7 +132,7 @@ return (
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet"></link>
     <link rel="stylesheet" href="./style.css"></link>
-    <section class="ftco-section">
+    <section class="ftco-section" style={{overflowX:"hidden"}}>
       <div class="container1">
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-10">
