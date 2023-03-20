@@ -1,0 +1,112 @@
+.MuiPaper-root {
+    background-color: #191c24;
+    color: #fff;
+
+}
+
+.MuiSvgIcon-root {
+    color: #fff
+}
+
+.navbar-home-icon {
+    margin: 0;
+    padding: 0;
+}
+
+.expenses-icon {
+    color: #8F5FE8 !important;
+}
+
+.dashboard-icon {
+    color: #00D25B;
+}
+
+.borrowings-icon {
+    color: #F8A91A;
+}
+
+.navbar-logo {
+    /* height: 50px; */
+    width: 100px;
+}
+
+.uncollapse {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: 2vw;
+}
+
+.navbar-text {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.navbar-logout-btn {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #1f1818;
+    background-color: #018EE6;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #1f1818;
+    font-size: 1rem;
+}
+
+.side-bar-email {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .side-bar-email {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .side-bar-email button {
+        margin-top: 10px;
+    }
+
+    .upper-hide {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .side-bar-email {
+        display: none !important;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .side-bar-email button {
+        margin-top: 10px;
+    }
+
+    .upper-hide {
+        display: block;
+    }
+}
+
+.MuiBox-root {
+    padding-bottom: 0;
+    height: 100%;
+    padding-right: 0px;
+}

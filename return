@@ -1,0 +1,194 @@
+[33mcommit f88522041d92de158f89671b17219135cf2e1ff7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 23:57:04 2023 +0530
+
+    made code good looking
+
+[33mcommit 225b4d30ec59829a79968403fbd9677d808bda9b[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 21:37:45 2023 +0530
+
+    signup and login page style added
+
+[33mcommit de6e65485761b602c57e9a46e65713d10cacbe20[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 18:45:27 2023 +0530
+
+    bug fixed
+
+[33mcommit d696df162865d4240938eceeb94bf33366dd5021[m
+Merge: d4aa584 168ecb0
+Author: shrilakshmisk <103820441+shrilakshmisk@users.noreply.github.com>
+Date:   Tue Mar 7 16:05:36 2023 +0530
+
+    Merge pull request #3 from shrilakshmisk/master
+    
+    comment
+
+[33mcommit 168ecb0d2f5b5587288b99066a2cc23d2bc3a479[m
+Author: Shrilakshmi S K <professional131989@gmail.com>
+Date:   Tue Mar 7 16:03:23 2023 +0530
+
+    comment
+
+[33mcommit d4aa584d0324b071a4c738e8c478fee7a242cf74[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 15:37:46 2023 +0530
+
+    live reloading on shopkeeper side done
+
+[33mcommit 169e00ca69b9b1993cdbfd97c79199e399adee0e[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 14:34:28 2023 +0530
+
+    bug removed
+
+[33mcommit 5cd6ef033c46c743798c17b8d2094ea9d6aebb86[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 14:26:29 2023 +0530
+
+    bug found
+
+[33mcommit b9ada7f1707d796faeb2d0c5b717a2a6d7a255cf[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 00:28:52 2023 +0530
+
+    ok
+
+[33mcommit 977faa2689729a8b64b51f92a8c64311f9285330[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Mar 7 00:22:57 2023 +0530
+
+    unneccessary things deleted
+
+[33mcommit ea1811f0dfce54bc30478af56889c9c8b60b6301[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Mar 6 15:03:35 2023 +0530
+
+    ok
+
+[33mcommit df846738c0425f6c9b293d76332ea9d1f125306c[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Sat Mar 4 13:42:31 2023 +0530
+
+    backend integartion of data between user and shopkeeper done
+
+[33mcommit f8bae252d6446e3f72932e556ccac14a8506bb50[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Sat Mar 4 11:41:30 2023 +0530
+
+    integration of user and shopkkerp data
+
+[33mcommit 7f2f4aeb0907e1168f5ecff9f63753a8c52aaa84[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Feb 27 15:50:47 2023 +0530
+
+    shopkeeperdb somewhat created
+
+[33mcommit c859c17c9b8dc1d75bcadcc49d6951c1a51e1d69[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Feb 27 13:55:19 2023 +0530
+
+    env file public
+
+[33mcommit 638a3ed463a9eb4d6338767900bf778984968ebe[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Feb 27 10:29:57 2023 +0530
+
+    user interface
+
+[33mcommit ea32eb24d9e29fbaf527a78958c185862892da5f[m
+Merge: 51d7afb 5770916
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Sat Feb 4 19:50:10 2023 +0530
+
+    Merge https://github.com/depanshu357/TrackIt---CS253-Project
+
+[33mcommit 51d7afb53c0e27287161edf5d3eadf624846afa1[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Sat Feb 4 19:49:41 2023 +0530
+
+    fixed page routes bug
+
+[33mcommit 5770916e6addff864940a972719a6cbab9683d71[m
+Author: Depanshu Sahu <depanshusahu057@gmail.com>
+Date:   Tue Jan 24 10:24:48 2023 +0530
+
+    Update README.md
+
+[33mcommit 9fe0390b26b3205b693fb8eeb1ff28189a952fda[m
+Merge: 373bf78 e0781ed
+Author: Aryan Maurya <105905350+aryanmaurya383@users.noreply.github.com>
+Date:   Tue Jan 24 10:06:08 2023 +0530
+
+    Merge pull request #2 from aryanmaurya383/main
+    
+    Readme Updated
+
+[33mcommit e0781edc3b6630dde5926be9f7f7d7c5bd1f3864[m
+Author: Aryan M <aryanms21@iitk.ac.in>
+Date:   Tue Jan 24 10:04:30 2023 +0530
+
+    Readme Updated
+
+[33mcommit c3494714456074c6b3cbb72ee16df357df157e79[m
+Merge: 491e18f 373bf78
+Author: Aryan M <aryanms21@iitk.ac.in>
+Date:   Tue Jan 24 09:32:32 2023 +0530
+
+    Merge branch 'main' of https://github.com/aryanmaurya383/TrackIt---CS253-Project
+
+[33mcommit 491e18fc47670327c4798568e59f6fa6c2bf4cc4[m
+Author: Aryan M <aryanms21@iitk.ac.in>
+Date:   Tue Jan 24 09:32:26 2023 +0530
+
+    No changes
+
+[33mcommit 373bf78cbff933846707f1b6237b48688e229635[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Tue Jan 24 09:28:09 2023 +0530
+
+    made backend,singup,authentication and token
+
+[33mcommit c40b50bd798b4ba0fd59018948744113cb2b26fa[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Wed Jan 18 14:28:35 2023 +0530
+
+    small changes
+
+[33mcommit ffd856909ba7728bfb8db25547a5b0fba3094cb4[m
+Merge: 401b5cc 7964147
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Wed Jan 18 14:27:30 2023 +0530
+
+    Merge https://github.com/depanshu357/TrackIt---CS253-Project
+
+[33mcommit 401b5cce71c831513c940c318201d64960ccd31c[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Wed Jan 18 14:27:02 2023 +0530
+
+    added backend
+
+[33mcommit 7964147595066f292abd4f5611bd09706b1e06c0[m
+Author: Depanshu Sahu <depanshusahu057@gmail.com>
+Date:   Mon Jan 16 22:23:35 2023 +0530
+
+    Update README.md
+
+[33mcommit 1a6301e4dcc4c0a12388bb862fd985681a5dd9c2[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Jan 16 21:42:19 2023 +0530
+
+    added instructions in reademe
+
+[33mcommit 7d467aed9c3acf24534d1bd4c685e1c6c0277dbd[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Jan 16 20:49:20 2023 +0530
+
+    basic framework
+
+[33mcommit a87a52c9b4a10543414cd90216ccd797ae0ff81b[m
+Author: Depanshu <depanshusahu057@gmail.com>
+Date:   Mon Jan 16 16:34:02 2023 +0530
+
+    Initialize project using Create React App

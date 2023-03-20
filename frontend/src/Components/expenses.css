@@ -1,0 +1,146 @@
+.hi {
+    background-color: grey;
+    border-radius: 25px;
+    margin-bottom: 2%;
+    /* padding-bottom: 3%; */
+}
+
+.listdetails {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.listimage {
+    width: 10%;
+}
+
+.listname {
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    bottom: 50%;
+
+}
+
+.listdate {
+
+    font-size: 1.1rem;
+    bottom: 5%;
+}
+
+.list-type {
+
+    bottom: 5%;
+    font-size: 1.1rem;
+    left: 50%;
+}
+
+.listmoney {
+
+    font-size: 1.5rem;
+    right: 10%;
+    bottom: 50%;
+
+}
+
+.listdescription {
+    /* background-color: gold; */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding-bottom: 2%;
+    /* padding-top: 2%; */
+    width: 100%;
+}
+
+.listdesc {
+    margin: 0;
+    border: 0;
+    /* background-color:blueviolet; */
+    padding: 0;
+    font-size: 1rem;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.listcollapsebutton {
+
+    top: 40%;
+    right: 10%;
+    width: 7%;
+    height: 50%;
+    font-size: vw;
+    background-color: gray;
+    border-color: black;
+    margin: 2% auto 2% auto;
+
+}
+
+
+.everything {
+    position: relative;
+}
+
+/* .calendar-comp{
+position: absolute;
+top: 2%;
+
+}
+
+.monthsummary-comp{
+
+    top: 50%;
+}
+
+.expenses-comp{
+
+    top:10%;
+    left:30%;
+    right:30%;
+    width:40%
+}
+
+.dailysummary-comp{
+
+    right:0%;
+    width: 100%;
+} */
+
+
+.monthsummary-comp {
+
+    top: 72%;
+    left: 2%;
+    width: 27%;
+}
+
+.dailytransactions {
+    margin-top: 0 !important;
+    font-size: 3.5vw;
+    font-weight: bolder;
+
+}
+
+.expenses-comp {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dailysummary-comp {
+    position: relative;
+    left: 93%;
+    width: 6%;
+    height: 80%;
+
+}
+
+.content-upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-lower {
+    display: flex;
+    justify-content: space-between;
+}
