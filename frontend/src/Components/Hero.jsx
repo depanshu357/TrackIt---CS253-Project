@@ -26,7 +26,7 @@ const Hero = () => {
         <p className='md:text-2xl text-xl font-bold text-gray-500'> Control your spending, achieve your financial goals - with our expense tracker app</p>
         <br />
         <div className='flex  justify-center space-x-16'>
-          <button className='-m-2 bg-[#00df9a] w-[200px] rounded-md font-medium my-6  py-3 text-black '>Sign Up</button>
+           <button className='-m-2 bg-black w-[200px] border border-[#00df9a]-800 rounded-md font-medium my-6  py-3 text-[#00df9a] '>Sign Up</button>
 
         <button className='-m-2 bg-black w-[200px] border border-[#00df9a]-800 rounded-md font-medium my-6  py-3 text-[#00df9a] '>Sign In</button>
         </div>
