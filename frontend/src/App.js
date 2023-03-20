@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
-import Expenses from "./Components/Expenses";
+//import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 import CalendarMonth from "./Components/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
@@ -28,6 +28,17 @@ import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
 import Navbar from './Components/Navbar/Navbar.js';
 
+import Analytics from './components/Analytics';
+import Cards from './components/Cards';
+import lFooter from './components/lFooter';
+import Hero from './components/Hero';
+import lNavbar from './components/lNavbar';
+import Calendarm from './components/calendar';
+import ListExpenses from './components/ListExpenses';
+import ListBorrowings from './components/ListBorrowings';
+import DayChart from './components/daydonut';
+import Expenses from './components/expenses';
+
 function App() {
   const { user } = useAuthContext()
 
@@ -41,6 +52,21 @@ function App() {
               path="/login"
               element={!user ? <Login /> : <Navigate to="/" />}
             />
+
+              <Route
+              path="/landing"
+              element={<div>
+            <Navbar />
+            <Hero />
+
+            <Analytics />
+            <MonthSummary />
+            <Cards />
+            <Footer />
+            </div> }
+                  />
+                       
+                       
             <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
