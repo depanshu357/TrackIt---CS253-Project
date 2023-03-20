@@ -59,7 +59,7 @@ const ExpenseForm = ({d,setD}) => {
   return (
     <form className="create-dues" onSubmit={handleSubmit}>
       <div className="cross-delete-button" onClick={handleDelete}></div>
-      <h3>Add a New Borrowing</h3>
+      <h3 style={{color: "white"}}>Add a New Borrowing</h3>
 
       {/* <label>Item:</label> */}
       <input 
