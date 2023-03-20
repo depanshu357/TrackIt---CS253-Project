@@ -26,7 +26,7 @@
 }
 
 .navbar-logo {
-    height: 50px;
+    /* height: 50px; */
     width: 100px;
 }
 
@@ -103,4 +103,10 @@ a:hover {
     .upper-hide {
         display: block;
     }
+}
+
+.MuiBox-root {
+    padding-bottom: 0;
+    height: 100%;
+    padding-right: 0px;
 }

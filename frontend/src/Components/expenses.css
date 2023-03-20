@@ -1,91 +1,74 @@
-.listelement{
-    
-        
-        padding-top: 2%;
-        padding-left: 3%;
-        
-        padding-bottom: 2%;
-       
-        
-        display: flex; 
-        
-    
-    /* flex:50%; */
-    
-}
-
-.hi{
+.hi {
     background-color: grey;
     border-radius: 25px;
     margin-bottom: 2%;
-    width:100%;
     /* padding-bottom: 3%; */
 }
-.listdetails{
-   position: relative;
-    width: 90%;
+
+.listdetails {
     padding-left: 3%;
+    padding-right: 3%;
 }
 
-.listimage{
-    width:10%;
+.listimage {
+    width: 10%;
 }
 
-.listname{
-    position: absolute;
-    font-size: 3vw;
+.listname {
+
+    font-size: 1.5rem;
     font-weight: 600;
     bottom: 50%;
 
 }
-.listdate{
-    position: absolute;
-    font-size: 2vw;
+
+.listdate {
+
+    font-size: 1.1rem;
     bottom: 5%;
 }
 
-.listtype{
-    position: absolute;
-    bottom: 5%;
-    font-size: 2vw;
+.list-type {
 
+    bottom: 5%;
+    font-size: 1.1rem;
     left: 50%;
 }
 
-.listmoney{
-    position: absolute;
-    font-size: 3vw;
-    right:10%;
+.listmoney {
+
+    font-size: 1.5rem;
+    right: 10%;
     bottom: 50%;
-    
+
 }
 
-.listdescription{
+.listdescription {
     /* background-color: gold; */
-    margin:0;
+    margin: 0;
     padding: 0;
-    border:0;
+    border: 0;
     padding-bottom: 2%;
     /* padding-top: 2%; */
     width: 100%;
 }
 
-.listdesc{
-    margin:0;
-    border:0;
+.listdesc {
+    margin: 0;
+    border: 0;
     /* background-color:blueviolet; */
     padding: 0;
-font-size: 3vw;
-    width:100%;
+    font-size: 1rem;
+    width: 100%;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.listcollapsebutton{
-    position: absolute;
+.listcollapsebutton {
+
     top: 40%;
-    right:10%;
-    width:7%;
+    right: 10%;
+    width: 7%;
     height: 50%;
     font-size: vw;
     background-color: gray;
@@ -95,8 +78,8 @@ font-size: 3vw;
 }
 
 
-.everything{
-position: relative;
+.everything {
+    position: relative;
 }
 
 /* .calendar-comp{
@@ -106,12 +89,12 @@ top: 2%;
 }
 
 .monthsummary-comp{
-    position: absolute;
+
     top: 50%;
 }
 
 .expenses-comp{
-    position: absolute;
+
     top:10%;
     left:30%;
     right:30%;
@@ -119,51 +102,45 @@ top: 2%;
 }
 
 .dailysummary-comp{
-    position: absolute;
+
     right:0%;
     width: 100%;
 } */
-.calendar-comp{
-    position: absolute;
-    top: -90px;
-   /* // bottom:15%; */
-    left:1%;
-    width:30%;
-    height: 80% ;
 
-     
-    }
 
-    .monthsummary-comp{
-        position: absolute;
-        top: 72%;
-        left:2%;
-        width: 27%;
-    }
-.dailytransactions{
-    position: absolute;
-    top:-3%;
-    left:30%;
-    padding-left: 5%;
-    font-size: 3.5vw;
-    font-weight:bolder;
-    
+.monthsummary-comp {
+
+    top: 72%;
+    left: 2%;
+    width: 27%;
 }
-    .expenses-comp{
-        position: absolute;
-        top:10%;
-        left:30%;
-        bottom:1%;
-        right:7%;
-        width:62%;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
 
-    .dailysummary-comp{
+.dailytransactions {
+    margin-top: 0 !important;
+    font-size: 3.5vw;
+    font-weight: bolder;
+
+}
+
+.expenses-comp {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dailysummary-comp {
     position: relative;
-    left:93%;
-    width:6%;
+    left: 93%;
+    width: 6%;
     height: 80%;
-    
-} 
+
+}
+
+.content-upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-lower {
+    display: flex;
+    justify-content: space-between;
+}
