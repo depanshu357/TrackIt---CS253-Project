@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 code {
@@ -18,18 +19,39 @@ code {
     monospace;
 }
 
+
+
 .react-calendar {
   width: 400px;
   height: 400px;
   max-width: 100%;
-  background: white;
+  background: #191c24 !important;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
-  margin-top: 100px;
-  margin-left: 20px;
+  margin-top: 0 !important;
+  justify-content: center;
+  margin-left: 0 !important;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
+}
+
+.calendar-comp {
+  position: inherit !important;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: white;
+  /* box-shadow: 2px 2px rgba(1, 1, 1, 1); */
+  box-shadow: rgb(0, 0, 0) 0px 7px 29px 0px;
+}
+
+abbr {
+  color: white;
+}
+
+.react-calendar__navigation__label__labelText {
+  color: white;
 }
 
 .react-calendar--doubleView {
@@ -80,7 +102,19 @@ code {
 }
 
 .react-calendar__navigation button:enabled {
-  background-color: #f0f0f0;
+  background-color: #191c24 !important;
+}
+
+.react-calendar__navigation__arrow {
+  color: white !important;
+}
+
+.react-calendar__navigation__prev2-button {
+  color: white !important;
+}
+
+.react-calendar__navigation__next2-button {
+  color: white !important;
 }
 
 .react-calendar__navigation button:enabled:hover,
@@ -140,7 +174,7 @@ code {
   background: none;
   text-align: center;
   line-height: 16px;
-  border-radius: 500px;
+  border-radius: 5px;
   height: 60px;
   width: 80px;
   font-size: 1em;
@@ -176,7 +210,7 @@ code {
 }
 
 .react-calendar__tile--active {
-  background: #32c5de;
+  background: #0e98af;
   color: black;
 }
 
@@ -192,7 +226,6 @@ code {
 
 
 .add-expense-popup {
-  position: absolute;
   top: 15vh;
   left: 36vw;
   /* display: flex; */
@@ -262,4 +295,98 @@ code {
   align-items: center;
   justify-content: center;
   border: 2px solid black;
+}
+
+.everything {
+  display: flex;
+  background-color: #000;
+  padding-top: 10px;
+  height: 100%;
+  /* margin-bottom: 10px; */
+}
+
+.expenses-comp ul .hi {
+  background-color: #191c24;
+  color: white;
+}
+
+.btn.btn-primary {
+  background: rgb(248, 169, 26) !important;
+  border: 1px solid #e3b04b !important;
+  color: #fff !important;
+}
+
+.dailytransactions {
+  color: white;
+  margin-top: 10px;
+  align-items: center;
+  position: relative !important;
+}
+
+.image {
+  height: 100px;
+  display: block;
+  width: 100px;
+}
+
+.left-block {
+  width: 30vw;
+  margin-left: 15px;
+}
+
+.bigboxm {
+  background-color: #191c24;
+  border-radius: 10px;
+  display: flex !important;
+  align-items: center;
+}
+
+.smallboxm {
+  position: inherit;
+  background-color: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  margin: 0 !important;
+}
+
+.expenses-comp ul {
+  padding-left: 0px;
+
+}
+
+.middle-block {
+  margin-left: 15px;
+  width: 46vw;
+}
+
+.hi {
+  border-radius: 10px;
+}
+
+.listelement {
+  width: 100%;
+
+}
+
+.content-lower {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-lower a {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.expenses-comp {
+  font-size: 10rem;
 }
