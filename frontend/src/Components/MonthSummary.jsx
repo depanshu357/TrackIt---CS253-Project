@@ -17,71 +17,71 @@ const MonthSummary = () => {
     // <div>
     //   <div>
     <div >
-<div class="span2">
-        <span class = "bigboxm dgreen">
-          <div class="image">
+      <div className="span2">
+        <span className="bigboxm dgreen">
+          <div className="image">
             <img src={stethoscope} alt="" />
           </div>
-          <div class = "smallboxm lgreen">
-            <span class="text">546</span>
+          <div className="smallboxm lgreen">
+            <span className="text">546</span>
           </div>
         </span>
-        <span class = "bigboxm dred bigm">
-        <div class="image">
-          <img src={stethoscope} alt=""  />
-        </div>
-        <div class = "smallboxm lred smallm">
-          <span class="text">546</span>
-        </div>
-      </span>
-      </div>
-      <div class="span2">
-        <span class = "bigboxm dyellow bigm">
-          <div class="image">
-            <img src={stethoscope} alt=""  />
-          </div>
-          <div class = "smallboxm lyellow smallm">
-            <span class="text">546</span>
-          </div>
-        </span>
-        <span class = "bigboxm dblue bigm">
-        <div class="image">
-          <img src={stethoscope} alt=""  />
-        </div>
-        <div class = "smallboxm lblue smallm">
-          <span class="text">546</span>
-        </div>
-      </span>
-      </div>
-  </div>
-        /* <div class = "bigboxm" >
-          <div  class="image">
+        <span className="bigboxm dred bigm">
+          <div className="image">
             <img src={stethoscope} alt="" />
           </div>
-          <div class = "smallboxm">
-            320
+          <div className="smallboxm lred smallm">
+            <span className="text">546</span>
           </div>
-        </div>
+        </span>
       </div>
-      <div>
-      <div class = "bigboxm" >
-        <div  class="image">
-          <img src={stethoscope} alt="" />
-        </div>
-        <div class = "smallboxm">
-          534
-        </div>
-      </div>
-      <div class = "bigboxm" >
-        <div  class="image">
-          <img src={stethoscope} alt="" />
-        </div>
-        <div class = "smallboxm">
-          312
-        </div>
+      <div className="span2">
+        <span className="bigboxm dyellow bigm">
+          <div className="image">
+            <img src={stethoscope} alt="" />
+          </div>
+          <div className="smallboxm lyellow smallm">
+            <span className="text">546</span>
+          </div>
+        </span>
+        <span className="bigboxm dblue bigm">
+          <div className="image">
+            <img src={stethoscope} alt="" />
+          </div>
+          <div className="smallboxm lblue smallm">
+            <span className="text">546</span>
+          </div>
+        </span>
       </div>
     </div>
-  </div> */
+    /* <div className = "bigboxm" >
+      <div  className="image">
+        <img src={stethoscope} alt="" />
+      </div>
+      <div className = "smallboxm">
+        320
+      </div>
+    </div>
+  </div>
+  <div>
+  <div className = "bigboxm" >
+    <div  className="image">
+      <img src={stethoscope} alt="" />
+    </div>
+    <div className = "smallboxm">
+      534
+    </div>
+  </div>
+  <div className = "bigboxm" >
+    <div  className="image">
+      <img src={stethoscope} alt="" />
+    </div>
+    <div className = "smallboxm">
+      312
+    </div>
+  </div>
+</div>
+</div> */
   );
 };
 

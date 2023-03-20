@@ -19,7 +19,7 @@ const Analytics = () => {
         </div>
       </div>
       <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
-        
+
         <div className='flex flex-col justify-center'>
           <p className='text-[#00df9a] font-bold '>DATA ANALYTICS DASHBOARD</p>
           <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold text-white py-2'>Manage Data Analytics Centrally</h1>
@@ -33,7 +33,7 @@ const Analytics = () => {
         </div>
         <img className='w-[500px] mx-auto my-4' src={Laptop} alt='/' />
       </div>
-      <hr className=' h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700'/>
+      <hr className=' h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700' />
     </div>
   );
 };
