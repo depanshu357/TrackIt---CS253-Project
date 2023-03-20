@@ -265,14 +265,6 @@ const Customer = () => {
   return (
     <div className="home-customer">
       <div className="home-customer-top-boxes">
-        {/* <div className="home-customer-top-box ">
-          <span>&#8377; {total_data[todays_month].value}</span>
-          <span>Total Expenses</span>
-          <span>
-            {" "}
-            <PaymentsIcon />{" "}
-          </span>
-        </div> */}
         <div className="home-customer-top-box ">
           <span>&#8377; {Food}</span>
           <span>Food Expenses</span>
@@ -392,19 +384,6 @@ const Customer = () => {
             })}
         </div>
       </div>
-      {/* <div style={{ display: "flex", flexDirection: "column" }}>
-          {Dues &&
-            Dues.map((borrow) => {
-              // console.log(borrow.RollNo)
-                if(user.rollNo == borrow.RollNo)
-                return (
-                  <div>
-                  <DuesDetailsForCustomer key={borrow._id} due={borrow} />
-                </div>
-              );
-
-            })}
-        </div> */}
     </div>
   );
 };

@@ -129,16 +129,11 @@ const Dashboard = () => {
         last_ten_days_data.push({ name: last_ten_days_name[i], value: last_ten_days_value[i] });
     }
 
-    // bar_graph_progress = (bar_graph_progress * 100) / total_budget;
-    // bar_graph_progress = bar_graph_progress > 100 ? 100 : Math.round(bar_graph_progress);
-
-
     piechart_data.push({ name: "Food", value: Food });
     piechart_data.push({ name: "Health", value: Health });
     piechart_data.push({ name: "Shopping", value: Shopping });
     piechart_data.push({ name: "Other", value: Others });
 
-    // console.log(bar_graph_progress, "Hello");
 
     console.log(expense);
     const data = [
@@ -215,10 +210,8 @@ const Dashboard = () => {
 
                 <BarChart
                     width={window.innerWidth * 0.90}
-                    // width={1300}
                     height={300}
                     data={data_to_show ? data_to_show : total_data}
-                    // data={data}
 
                     barSize={20}
                 >

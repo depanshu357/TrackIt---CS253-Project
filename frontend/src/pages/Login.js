@@ -18,69 +18,6 @@ const Login = () => {
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet"></link>
       <link rel="stylesheet" href="./style.css"></link>
-      {/* <div className="login-page-background">
-        <div className="container">
-          <div className="design">
-            <div className="pill-1 rotate-45" />
-            <div className="pill-2 rotate-45" />
-            <div className="pill-3 rotate-45" />
-            <div className="pill-4 rotate-45" />
-          </div>
-          <form className="login" onSubmit={handleSubmit}>
-            <h3 className="title">User Login</h3>
-            <div className="text-input">
-              <i className="ri-user-fill" />
-              <input
-                type="email"
-                placeholder="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-            </div>
-            <div className="text-input">
-              <i className="ri-lock-fill" />
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
-            </div>
-            <button className="login-btn" disabled={isLoading}>
-              LOGIN
-            </button>
-            <a href="/Forget_Password" className="forgot">
-              Forgot Password?
-            </a>
-              {error && <div className="error">{error}</div>}
-            <div className="create">
-              <a href="./signup"> Register</a>
-              {/* <i className="ri-arrow-right-fill" />*/}
-            {/*</div>
-          </form>
-        </div> */}
-        {/* <form className="login" onSubmit={handleSubmit}>
-        <h3>Log In</h3>
-        
-        <label>Email address:</label>
-        <input
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-        />
-        <label>Password:</label>
-        <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-        />
-        <button disabled={isLoading}>Log in</button>
-        <p>
-        New User? <a href="/signup">Register Here</a>
-        </p>
-        {error && <div className="error">{error}</div>}
-      </form> */}
-      {/* </div> */}
       <section class="ftco-section" style={{overflowX:"hidden"}}>
       <div class="container1">
       <div class="row justify-content-center">
@@ -117,12 +54,6 @@ const Login = () => {
                     <button disabled={isLoading} class="form-control btn btn-primary rounded submit px-3" >Sign In</button>
                   </div>
                   <div class="form-group d-md-flex">
-                    {/* <div class="w-50 text-left">
-                      <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-                      <input type="checkbox" checked>
-                      <span class="checkmark"></span>
-                      </label>
-                    </div> */}
                     <div class="w-50 text-md-center">
                     <a href="/Forget_Password" className="forgot">
                       Forgot Password?

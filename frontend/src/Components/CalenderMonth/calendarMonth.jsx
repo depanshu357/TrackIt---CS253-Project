@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useExpenseContext } from "../hooks/useExpenseContext";
-import stethoscope from "../images/stethoscope.png";
-import "./monthSummary.css"
-import "./expenses.css";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useExpenseContext } from "../../hooks/useExpenseContext";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// components
-// import ExpenseDetails from "./ExpenseDetails";
-// import ExpenseForm from "./ExpenseForm";
 
-import { render } from "react-dom";
 import Calendar from 'react-calendar'
 import './calendarMonth.css';
-// import Features from "./Features";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import AddExpense from './AddExpense.js';
+import AddExpense from '../AddExpense.js';
 import { pink, lightGreen, blue } from "@mui/material/colors";
 
 

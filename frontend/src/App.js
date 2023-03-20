@@ -7,7 +7,8 @@ import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
 //import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
-import CalendarMonth from "./Components/calendarMonth";
+// import CalendarMonth from "./Components/CalenderMonth.css/calendarMonth";
+import CalendarMonth from './Components/CalenderMonth/calendarMonth';
 import CalendarYear from "./Components/calendarYear";
 // import Seller from "./Components/Seller";
 
@@ -33,11 +34,7 @@ import Cards from './Components/Cards';
 import Footer from './Components/Footer';
 import Hero from './Components/Hero';
 import LNavbar from './Components/Navbar';
-import Calendarm from './Components/calendar';
-import ListExpenses from './Components/ListExpenses';
-import ListBorrowings from './Components/ListBorrowings';
-import DayChart from './Components/daydonut';
-import Expenses from './Components/expenses';
+
 
 function App() {
   const { user } = useAuthContext()

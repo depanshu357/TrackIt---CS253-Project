@@ -66,10 +66,8 @@ const signupUser = async (req, res) => {
 }
 
 const getOtp = async (req, res) => {
-  // console.log(req.body)
   const { otp, email } = req.body
   console.log(otp);
-  // console.log(email);
 
   try {
 
@@ -80,13 +78,13 @@ const getOtp = async (req, res) => {
       html: `Hello,<br> Please find below your requested OTP: <br> <h1>${otp}</h1><br>regards <br> Customer Care,<br>TrackIT`
     };
 
-    // transporter.sendMail(mailOptions, function (error) {
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log('Email sent to: ' + email);
-    //   }
-    // });
+    transporter.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent to: ' + email);
+      }
+    });
 
     res.status(200).json("OK")
   } catch (error) {

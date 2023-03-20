@@ -1,17 +1,17 @@
 const Dues = require('../models/duesModel')
 const mongoose = require('mongoose')
 
-// var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
 
-// var transporter = nodemailer.createTransport({
-//   host: 'smtp.gmail.com',
-//   port: 465,
-//   secure: true,
-//   auth: {
-//     user: 'noreplytrackit98@gmail.com',
-//     pass: 'nfkyirhkalqckdop'
-//   }
-// });
+var transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'noreplytrackit98@gmail.com',
+    pass: 'nfkyirhkalqckdop'
+  }
+});
 
 // get all Duess
 const getDuess = async (req, res) => {
@@ -88,20 +88,20 @@ const createDues = async (req, res) => {
     const dues = await Dues.create({Item, Amount, Description,RollNo,Date,shopName,Category})
     res.status(200).json(dues)
 
-  //   var mailOptions = {
-  //     from: 'noreplytrackit98@gmail.com',
-  //     to: `depanshus21@iitk.ac.in`,
-  //     subject: `Dues`,
-  //     text: `An amount of ${Amount} is added to your dues for item ${Item}`
-  //   };
+    var mailOptions = {
+      from: 'noreplytrackit98@gmail.com',
+      to: user.mail,
+      subject: `Dues`,
+      text: `An amount of ${Amount} is added to your dues for item ${Item}`
+    };
 
-  //   transporter.sendMail(mailOptions, function (error, info) {
-  //     if (error) {
-  //       console.log(error);
-  //     } else {
-  //       console.log('Email sent: ' + info.response + ` ${RollNo}@iitk.ac.in`);
-  //     }
-  //   });
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response + ` ${RollNo}@iitk.ac.in`);
+      }
+    });
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
