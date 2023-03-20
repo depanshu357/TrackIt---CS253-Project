@@ -60,7 +60,7 @@ const ExpenseForm = () => {
           type="text"
           onChange={(e) => setItem(e.target.value)}
           value={Item}
-          className={emptyFields.includes("Item") ? "error" : ""}
+        // className={emptyFields?.includes("Item") ? "error" : ""}
         />
       </div>
       <div>
@@ -69,7 +69,7 @@ const ExpenseForm = () => {
           type="number"
           onChange={(e) => setMoneySpent(e.target.value)}
           value={MoneySpent}
-          className={emptyFields.includes("MoneySpent") ? "error" : ""}
+        // className={emptyFields.includes("MoneySpent") ? "error" : ""}
         />
       </div>
       <div>
@@ -78,7 +78,7 @@ const ExpenseForm = () => {
           type="text"
           onChange={(e) => setDescription(e.target.value)}
           value={Description}
-          className={emptyFields.includes("Description") ? "error" : ""}
+        // className={emptyFields.includes("Description") ? "error" : ""}
         />
       </div>
       <div>
@@ -87,7 +87,7 @@ const ExpenseForm = () => {
           type="date"
           onChange={(e) => setDate(e.target.value)}
           value={Date}
-          className={emptyFields.includes("Date") ? "error" : ""}
+        // className={emptyFields.includes("Date") ? "error" : ""}
         />
       </div>
       <div>
@@ -104,10 +104,10 @@ const ExpenseForm = () => {
         onChange={e => setCategory(e.target.value)}
         className={emptyFields.includes('Category') ? 'error' : ''}
       /> */}
-      <div style={{flexDirection:"row-reverse"}}>
+      <div style={{ flexDirection: "row-reverse" }}>
 
-      <button className="add-expense-form" >Add To List</button>
-      {error && <div className="error" color="red">{error}</div>}
+        <button className="add-expense-form" >Add To List</button>
+        {error && <div className="error" color="red">{error}</div>}
       </div>
     </form>
   );

@@ -103,58 +103,6 @@ const CalendarMonth = () => {
 
 
 
-  //const {user} = useAuthContext;
-  const names = [
-    {
-      id: "123",
-      description: "f",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "May 6 2023",
-      Money: "78",
-    },
-    {
-      id: "345",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-    },
-    {
-      id: "234",
-      description: "fffffffffffffff fffffffffffffffffff fffffffffffffffff f fffffffffffffff fffffffffff fffffffffff ffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: "78",
-    },
-    {
-      id: "3645",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-    },
-    {
-      id: "3456",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-    },
-    {
-      id: "3465",
-      description: "fffffffffffffff ffffffffffffffffff ffffffff  ffffffffffffff ffffffffffffffffffff ffffffffffffffffffff fffffffffffffffffffff",
-      name: "Hall 1 Canteen",
-      type: "Food",
-      Date: "2023-03-12",
-      Money: 68,
-    }
-  ];
-
   const namesdate = expense !== null && expense.filter(function (el) {
     // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 10) == date2;
@@ -204,53 +152,10 @@ const CalendarMonth = () => {
 
   return (
     <div className="everything" >
-
-
-
-
-
       {showPopup && (<div style={{ width: '100vw', height: '80vh', position: 'absolute', zIndex: '5' }}>
         <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
       </div>)
       }
-      {/* <div className="add-expense-popup" style={{ display: showPopup ? 'block' : 'none' }}>
-        <div className="add-expense-date">
-          <h6>
-            Date:
-          </h6>
-          <input type="date" id="date1" name="date" />
-        </div>
-        <div className="add-expense-item">
-          <h6>Item:</h6>
-          <input type="text" id="add-expense-item" name="item" />
-        </div>
-        <div className="add-expense-amount">
-          <h6>
-            Amount:
-          </h6>
-          <input type="number" id="add-expense-amount" name="amount" />
-        </div>
-        <div className="add-expense-category">
-          <h6>
-            Category:
-          </h6>
-          <select name="cat" id="cat">
-            <option value="Food">Food</option>
-            <option value="Health">Health</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Others">Others</option>
-          </select>
-        </div>
-        <div className="add-expense-description">
-          <h6>
-            Description:
-          </h6>
-          <input type="text" id="add-expense-description" name="description" />
-        </div>
-        <div className="add-expense-submit">
-          <button type="submit" ><h1>+</h1></button>
-        </div>
-      </div> */}
 
 
 
