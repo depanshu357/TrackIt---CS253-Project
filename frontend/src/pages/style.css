@@ -8396,3 +8396,24 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #e3b04b;
         color: #fff; }
+
+.ftco-section{
+  background-color: black;
+}
+
+.wrap{
+  background-color: #191c24;
+  color: white;
+}
+
+.mb-4{
+  color: white;
+}
+
+.label[for=name]{
+  color: white;
+}
+
+.label[for=password]{
+  color: white;
+}
