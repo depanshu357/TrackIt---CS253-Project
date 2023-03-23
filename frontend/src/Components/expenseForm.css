@@ -1,11 +1,12 @@
 .create-expense-form{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     height: 100%;
     width: 100%;
     /* margin: 8px; */
     background-color: #191c24;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 7px;
 }
 .create-expense-form div{

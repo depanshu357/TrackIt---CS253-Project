@@ -50,7 +50,7 @@ function AddExpense({ setShowPopup, showPopup }) {
                 <input type="text" id="add-expense-description" name="description" />
             </div>
             <div className="add-expense-submit">
-                <button type="submit" ><h1>+</h1></button>
+                <button type="submit" ><span style={{transform:"scale( 2 )"}}>+</span></button>
             </div>
         </div>
 

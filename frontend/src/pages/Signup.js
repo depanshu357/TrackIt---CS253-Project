@@ -12,6 +12,7 @@ const Signup = () => {
   const [rollNo, setRollNo] = useState(null);
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
+  const [disabled,setDisabled] = useState(false)
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
 
@@ -23,12 +24,13 @@ const Signup = () => {
 
     otp = Math.floor(100000 + Math.random() * 900000);
     console.log(otp);
+    setDisabled(true)
     const otp_email = { otp, email };
 
 
     const fetchOtp = async () => {
       const response = await fetch("/api/user/signup/otp", {
-        method: "PATCH",
+        method: "POST",
         body: JSON.stringify(otp_email),
         headers: { 'Content-Type': 'application/json', }
       })
@@ -51,23 +53,10 @@ const Signup = () => {
     }
   };
 
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
   const onOptionChangeHandler = (e) => {
     console.log(e.target.value);
     setUserType(e.target.value);
   };
-
-  function generateString(length) {
-    let result = " ";
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    return result;
-  }
 
   return (
     <>
@@ -96,7 +85,9 @@ const Signup = () => {
                       placeholder="Email"
                       class="form-control"
                       onChange={(e) => setEmail(e.target.value)}
-                      value={email}/>
+                      value={email}
+                      disabled = {disabled}
+                      />
                       <button className="form-control btn btn-primary rounded submit px-3" onClick={sendEmail}>Verify</button>
                     </div>
                     <div class="form-group mb-3">

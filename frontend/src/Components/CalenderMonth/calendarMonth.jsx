@@ -143,22 +143,10 @@ const CalendarMonth = () => {
 
   return (
     <div className="everything" >
-      {showPopup && (<div style={{ width: '100vw', height: '80vh', position: 'absolute', zIndex: '5' }}>
+      {/* {showPopup && (<div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: '5' }}>
         <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
       </div>)
-      }
-
-
-
-
-
-
-
-
-
-
-
-
+      } */}
       <div clasName="big-container" style={{ filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
         <div className="left-block">
           <div className="calendar-comp">

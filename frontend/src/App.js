@@ -1,6 +1,7 @@
 // import { Routes } from "react-router-dom";
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import  from 'react'
+import { useState } from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import MonthSummary from "./Components/MonthSummary";
@@ -8,10 +9,9 @@ import DailySummary from "./Components/DailySummary";
 //import Expenses from "./Components/Expenses";
 import Borrowings from "./Components/Borrowings";
 // import CalendarMonth from "./Components/CalenderMonth.css/calendarMonth";
-import CalendarMonth from './Components/CalenderMonth/calendarMonth';
+import CalendarMonth from "./Components/CalenderMonth/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
 // import Seller from "./Components/Seller";
-
 
 import History from "./Components/History";
 import Profile from "./Components/Profile";
@@ -27,23 +27,40 @@ import Forget_Password from "./pages/Forget_Password";
 // import MonthSummary from "./pages/MonthSummary"
 import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
-import Navbar from './Components/Navbar/Navbar.js';
+import Navbar from "./Components/Navbar/Navbar.js";
 
-import Analytics from './Components/Analytics';
-import Cards from './Components/Cards';
-import Footer from './Components/Footer';
-import Hero from './Components/Hero';
-import LNavbar from './Components/Navbar';
-
+import Analytics from "./Components/Analytics";
+import Cards from "./Components/Cards";
+import Footer from "./Components/Footer";
+import Hero from "./Components/Hero";
+import LNavbar from "./Components/Navbar";
+import AddExpense from "./Components/AddExpense";
 
 function App() {
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
+  const [showPopup, setShowPopup] = useState(false);
+  const handlePopup = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setShowPopup(!showPopup);
+  };
 
   return (
     <div className="App">
       <BrowserRouter>
-
         <div className="pages">
+          {showPopup && (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                zIndex: "5",
+              }}
+            >
+              <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
+            </div>
+          )}
           <Routes>
             <Route
               path="/login"
@@ -52,17 +69,18 @@ function App() {
 
             <Route
               path="/landing"
-              element={<div>
-                <LNavbar />
-                <Hero />
+              element={
+                <div>
+                  <LNavbar  />
+                  <Hero />
 
-                <Analytics />
-                <MonthSummary />
-                <Cards />
-                <Footer />
-              </div>}
+                  <Analytics />
+                  <MonthSummary />
+                  <Cards />
+                  <Footer />
+                </div>
+              }
             />
-
 
             <Route
               path="/signup"
@@ -74,7 +92,13 @@ function App() {
             />
             <Route
               path="/expenses"
-              element={user ? <Navbar Display={CalendarMonth} /> : <Navigate to="/login" />}
+              element={
+                user ? (
+                  <Navbar Display={CalendarMonth} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
             {/* <Route
               path="/seller"
@@ -82,7 +106,9 @@ function App() {
             /> */}
             <Route
               path="/"
-              element={user ? <Navbar Display={Home} /> : <Navigate to="/login" />}
+              element={
+                user ? <Navbar Display={Home} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
+              }
             />
             {/* <Route
               path="/outside-home"
@@ -91,41 +117,65 @@ function App() {
 
             <Route
               path="/monthSummary"
-              element={user ? <Navbar Display={MonthSummary} /> : <Navigate to="/login" />}
+              element={
+                user ? (
+                  <Navbar Display={MonthSummary} showPopup={showPopup} setShowPopup={setShowPopup} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
             <Route
               path="/borrowings"
-              element={user ? <Navbar Display={CalendarYear} /> : <Navigate to="/login" />}
+              element={
+                user ? (
+                  <Navbar Display={CalendarYear} showPopup={showPopup} setShowPopup={setShowPopup} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
 
             <Route
               path="/dailySummary"
-              element={user ? <Navbar Display={DailySummary} /> : <Navigate to="/login" />}
-
+              element={
+                user ? (
+                  <Navbar Display={DailySummary} showPopup={showPopup} setShowPopup={setShowPopup} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
             <Route
               path="/dashboard"
-              element={user ? <Navbar Display={Dashboard} /> : <Navigate to={"/login"} />}
+              element={
+                user ? (
+                  <Navbar Display={Dashboard} showPopup={showPopup} setShowPopup={setShowPopup} />
+                ) : (
+                  <Navigate to={"/login"} />
+                )
+              }
             />
             <Route
               path="/profile"
-              element={user ? <Navbar Display={Profile} /> : <Navigate to="/login" />}
+              element={
+                user ? <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
+              }
             />
             <Route
               path="/history"
-              element={user ? <Navbar Display={History} /> : <Navigate to="/login" />}
+              element={
+                user ? <Navbar Display={History} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
+              }
             />
 
-            <Route
-              path="/add-expense"
-              element={<CurrentMonth />}
-            />
-            <Route path="/temp" element={<Navbar Display={CalendarMonth} />} />
+            <Route path="/add-expense" element={<CurrentMonth />} />
+            <Route path="/temp" element={<Navbar Display={CalendarMonth} showPopup={showPopup} setShowPopup={setShowPopup} />} />
           </Routes>
         </div>
         {/* <Footer /> */}
-      </BrowserRouter >
-    </div >
+      </BrowserRouter>
+    </div>
   );
 }
 
