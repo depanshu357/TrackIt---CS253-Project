@@ -94,7 +94,7 @@ function App() {
               path="/expenses"
               element={
                 user ? (
-                  <Navbar Display={CalendarMonth} />
+                  <Navbar Display={CalendarMonth} showPopup={showPopup} setShowPopup={setShowPopup} />
                 ) : (
                   <Navigate to="/login" />
                 )

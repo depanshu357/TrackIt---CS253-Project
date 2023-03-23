@@ -148,10 +148,18 @@ export default function Navbar({ Display,showPopup,setShowPopup }) {
                 </div>
               )}
 
-              {user && (
+              {user.userType=="Customer" && (
                 <span className="navbar-user-email upper-hide"  >
 
-            <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
+            <button className="add-expense-popup-button" onClick={handlePopup}>+ Add Expense</button>
+                  <span>{user.email}</span>
+                  <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
+                </span>
+              )
+              }
+              {user.userType=="Shopkeeper" && (
+                <span className="navbar-user-email upper-hide"  >
+
                   <span>{user.email}</span>
                   <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
                 </span>
