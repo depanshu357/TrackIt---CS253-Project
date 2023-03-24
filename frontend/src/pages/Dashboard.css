@@ -60,11 +60,11 @@
     flex-direction: column;
 }
 
-.dashboard-upper-left-top h3 {
+.dashboard-upper-left-top h6 {
     color: #fff;
 }
 
-.dashboard-upper-left-bottom h3 {
+.dashboard-upper-left-bottom h6 {
     color: #fff;
     justify-content: center;
     margin-bottom: 0px;
@@ -80,13 +80,14 @@
 .dashboard-upper-right {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
-.dashboard-lower h3 {
+.dashboard-lower h6 {
     color: #fff;
 }
 
-.dashboard-upper-right h3 {
+.dashboard-upper-right h6 {
     display: flex;
     justify-content: center;
     color: #fff;

@@ -14,7 +14,7 @@ const Progress_bar = ({ bgcolor, progress, total, height }) => {
 
     const Childdiv = {
         height: '40px',
-        width: `${(progress * 100) / total}%`,
+        width: progress / total > 1 ? '100%' : `${progress / total}%`,
         backgroundColor: bgcolor,
         borderRadius: 10,
         textAlign: 'right',
@@ -24,7 +24,7 @@ const Progress_bar = ({ bgcolor, progress, total, height }) => {
     const progresstext = {
         padding: 10,
         position: 'relative',
-        left: '8%',
+        left: '0%',
         color: 'black',
         fontWeight: 900
     }

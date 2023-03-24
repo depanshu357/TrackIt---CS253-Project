@@ -4,7 +4,6 @@ import Progressbar from './Progress_bar';
 import { PieChart, Pie } from 'recharts';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, } from 'recharts';
 import { LineChart, Line } from 'recharts';
-
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useExpenseContext } from "../hooks/useExpenseContext";
@@ -23,7 +22,6 @@ const Dashboard = () => {
         isPageSmall = true;
         isPageBig = false;
     }
-    console.log(isPageBig);
     const [dimensions, setDimensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -42,8 +40,8 @@ const Dashboard = () => {
         }
     })
     const { expense, dispatch } = useExpenseContext();
-    const { user } = useAuthContext();
     const [checked, setChecked] = useState(false);
+    const { user } = useAuthContext();
 
 
 
@@ -61,7 +59,6 @@ const Dashboard = () => {
 
         if (user) {
             fetchExpense();
-            console.log(user.rollNo);
         }
     }, [dispatch, user]);
 
@@ -84,7 +81,6 @@ const Dashboard = () => {
         const date2 = year + "-" + month + "-" + date1;
         return date2;
     }
-    // console.log(getDaysAgoData(5), "heklo");
 
     let Food = 0;
     let Health = 0;
@@ -100,11 +96,10 @@ const Dashboard = () => {
     var last_fifteen_days_data = [];
     var piechart_data = [];
     var bar_graph_progress = 0;
-    var total_budget = 500000;
+    var total_budget = user.budget ? user.budget : 15000;
     for (let i = 1; i <= 12; i++) {
         let temp = 0;
         for (let j = 0; expense !== null && j < expense.length; j++) {
-            // console.log(expense[j].Date[5] + expense[j].Date[6], current_month);
             if (expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
                 bar_graph_progress += expense[j].MoneySpent;
             }
@@ -189,7 +184,6 @@ const Dashboard = () => {
     piechart_data.push({ name: "Other", value: Others });
 
 
-    console.log(expense);
     const data = [
         { name: 'Jan', value: 400 },
         { name: 'Feb', value: 300 },
@@ -215,14 +209,13 @@ const Dashboard = () => {
         flag = 1;
     }
 
-    console.log(data_to_show, "jelp");
     return (
         <div className='dashboard-outer'>
             <div className='dashboard-upper'>
 
                 <div className='dashboard-upper-left'>
                     <div className="linegraph dashboard-upper-left-top">
-                        <h3 className='monthly-spending'>Monthly Spending</h3>
+                        <h6 className='monthly-spending'>Monthly Spending</h6>
 
                         <LineChart
                             width={isPageBig ? window.innerWidth * 0.52 : window.innerWidth * 0.70}
@@ -244,7 +237,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="progressbar dashboard-upper-left-bottom">
-                        <h3>Spent this month</h3>
+                        <h6>Spent this month</h6>
                         <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={total_budget} height={10} />
 
                     </div>
@@ -252,7 +245,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className="piechart dashboard-upper-right">
-                    <h3>Spending in Each </h3><h3> Category</h3>
+                    <h6>Spending in Each Category</h6>
                     <PieChart width={isPageBig ? window.innerWidth * 0.25 : window.innerWidth * 0.70} height={300}>
                         <Pie
                             dataKey="value"
@@ -270,7 +263,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="bargraph dashboard-lower">
-                <h3>Spending in Last {checked ? '7' : '10'} days</h3>
+                <h6>Spending in Last {checked ? '7' : '10'} days</h6>
 
                 <BarChart
                     width={window.innerWidth * 0.70}
