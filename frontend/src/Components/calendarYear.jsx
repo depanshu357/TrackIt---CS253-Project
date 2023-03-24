@@ -91,11 +91,18 @@ const CalendarYear = () => {
       <div className="hi1">
 
         <div className="listdetails1">
-          <div className="listname1">{name.Item}</div>
-
-          <div className="listmoney1">₹{name.Amount}</div>
-          <div className="listdate1">{name.Date.substring(0, 10)}</div>
-          <div className="listdate1" style={{ color: name.Paid ? 'green' : 'red' }} >{name.Paid ? 'Paid' : 'Unpaid'}</div>
+          <span className="listname1-span">
+            <div className="listname1">{name.Item}</div>
+          </span>
+          <span className="listmoney1-span">
+            <div className="listmoney1">₹{name.Amount}</div>
+          </span>
+          <span className="listdate1-span">
+            <div className="listdate1">{name.Date.substring(0, 10)}</div>
+          </span>
+          <span className="listpaid1-span">
+            <div className="listdate1" style={{ color: name.Paid ? 'green' : 'red' }} >{name.Paid ? 'Paid' : 'Unpaid'}</div>
+          </span>
 
 
           <a
