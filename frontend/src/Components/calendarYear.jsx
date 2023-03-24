@@ -92,7 +92,7 @@ const CalendarYear = () => {
 
         <div className="listdetails1">
           <span className="listname1-span">
-            <div className="listname1">{name.Item}</div>
+            <div className="listname1">{name.shopName}</div>
           </span>
           <span className="listmoney1-span">
             <div className="listmoney1">₹{name.Amount}</div>
@@ -101,7 +101,14 @@ const CalendarYear = () => {
             <div className="listdate1">{name.Date.substring(0, 10)}</div>
           </span>
           <span className="listpaid1-span">
-            <div className="listdate1" style={{ color: name.Paid ? 'green' : 'red' }} >{name.Paid ? 'Paid' : 'Unpaid'}</div>
+            {/* <div className="listdate1" style={{ color: name.Paid ? 'green' : 'red' }} >{name.Paid ? 'Paid' : 'Unpaid'}</div> */}
+            {name.Paid ? <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+              <span class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
+              Paid
+            </span> : <span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+              <span class="w-2 h-2 mr-1 bg-red-500 rounded-full"></span>
+              Unpaid
+            </span>}
           </span>
 
 
@@ -126,7 +133,7 @@ const CalendarYear = () => {
 
         </div>
         <div className="collapse listdescription1" id={`collapseExample${name._id}`}>
-          <div className=" listdesc1">{name.Description}</div>
+          <div className=" listdesc1">{name.Item}</div>
         </div></div>
 
     ));

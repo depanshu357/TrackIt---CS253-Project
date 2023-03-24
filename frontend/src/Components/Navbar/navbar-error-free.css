@@ -73,7 +73,7 @@ a:hover {
     display: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
     .side-bar-email {
         display: flex;
         flex-direction: column !important;
@@ -91,7 +91,7 @@ a:hover {
     }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
     .side-bar-email {
         display: none !important;
         flex-direction: column !important;
