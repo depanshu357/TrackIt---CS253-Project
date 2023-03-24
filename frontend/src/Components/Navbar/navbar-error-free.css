@@ -110,3 +110,12 @@ a:hover {
     height: 100%;
     padding-right: 0px;
 }
+.add-expense-popup-button{
+    background-color: #00d25b;
+    border-radius: 5px;
+    margin: 2px 5px ;
+    color: white;
+    padding: 5px;
+    outline:none;
+    border: 0;
+}

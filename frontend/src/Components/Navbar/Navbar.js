@@ -95,7 +95,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function Navbar({ Display }) {
+export default function Navbar({ Display,showPopup,setShowPopup }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const { logout } = useLogout();
@@ -112,6 +112,11 @@ export default function Navbar({ Display }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handlePopup = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setShowPopup(!showPopup);
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -143,7 +148,16 @@ export default function Navbar({ Display }) {
                 </div>
               )}
 
-              {user && (
+              {user.userType=="Customer" && (
+                <span className="navbar-user-email upper-hide"  >
+
+            <button className="add-expense-popup-button" onClick={handlePopup}>+ Add Expense</button>
+                  <span>{user.email}</span>
+                  <button onClick={handleClick} className="navbar-logout-btn">Log out</button>
+                </span>
+              )
+              }
+              {user.userType=="Shopkeeper" && (
                 <span className="navbar-user-email upper-hide"  >
 
                   <span>{user.email}</span>
@@ -187,6 +201,7 @@ export default function Navbar({ Display }) {
                     : (index === 2 ? <Link to="/dashboard" className="navbar-home-icon  "> <ExploreIcon className='dashboard-icon' /></Link>
                       : <Link to="/borrowings" className="navbar-home-icon  "> <PeopleAltIcon className='borrowings-icon' /></Link>)}
                 </ListItemIcon>
+         
 
 
                 <ListItemText primary={<Link className='navbar-text' to={index === 0 ? "/expenses" : index == 2 ? "/dashboard" : "/borrowings"}>{text}</Link>} sx={{ opacity: open ? 1 : 0 }} style={{ color: index === 0 ? '#8F5FE8' : (index === 2 ? '#00D25B' : '#F8A91A') }} />

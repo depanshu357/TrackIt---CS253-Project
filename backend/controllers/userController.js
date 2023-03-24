@@ -66,10 +66,8 @@ const signupUser = async (req, res) => {
 }
 
 const getOtp = async (req, res) => {
-  // console.log(req.body)
   const { otp, email } = req.body
   console.log(otp);
-  // console.log(email);
 
   try {
 

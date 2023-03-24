@@ -28,7 +28,7 @@
     border-radius: 10px;
     /* width: 30vw; */
     padding: 10px;
-    background-color: #06C9A1;
+    background-color: #191c24;
     z-index: 10;
 }
 
@@ -37,7 +37,7 @@
 .add-expense-amount,
 .add-expense-category,
 .add-expense-description {
-    background-color: #84e2cf;
+    background-color: #12151e;
     margin-top: 10px;
     padding: 5px 3px 3px 10px;
     border-radius: 10px;

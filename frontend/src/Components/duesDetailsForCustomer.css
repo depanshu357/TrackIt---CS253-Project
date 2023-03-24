@@ -3,9 +3,13 @@
     flex-direction: row;
     border-radius: 6px;
     background-color: #191c24;
-    padding: 10px;
-    margin: 5px;
+    /* padding: 10px; */
+    margin: 4px 1px;
     justify-content: space-between;
+}
+.due-details-for-customer span{
+    background-color: #12151e;
+    padding: 10px 5px;
 }
 .due-details-for-customer > span:nth-child(1){
     width: 50%;
