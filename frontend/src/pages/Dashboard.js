@@ -13,8 +13,8 @@ import { useDuesContext } from "../hooks/useDuesContext";
 // components
 
 let month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-let data_to_show;
-
+let data_to_show = [];
+let flag = 0;
 
 const Dashboard = () => {
     var isPageBig = true;
@@ -64,15 +64,40 @@ const Dashboard = () => {
             console.log(user.rollNo);
         }
     }, [dispatch, user]);
+
+    function getDaysAgoData(daysAgo) {
+        // Get current date
+        let t = new Date();
+        // Create UTC date for daysAgo
+        let d = new Date(Date.UTC(t.getFullYear(), t.getMonth(), t.getDate() - daysAgo));
+        // Filter and sort data
+        var month = '' + (d.getMonth() + 1);
+        var date1 = '' + d.getDate();
+        var year = '' + d.getFullYear();
+        if (month.length < 2) {
+            month = '0' + month;
+        }
+        if (date1.length < 2) {
+            date1 = '0' + date1;
+        }
+
+        const date2 = year + "-" + month + "-" + date1;
+        return date2;
+    }
+    // console.log(getDaysAgoData(5), "heklo");
+
     let Food = 0;
     let Health = 0;
     let Shopping = 0;
     let Others = 0;
     var date = new Date(); var current_month = date.getMonth(); var todays_date = date.getDate(); var current_year = date.getFullYear();
     var total_data = [];
-    var last_ten_days_name = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",];
-    var last_ten_days_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    var last_ten_days_data = [];
+    var last_fifteen_days_name = [];
+    for (let i = 0; i < 15; i++) {
+        last_fifteen_days_name.push(getDaysAgoData(i));
+    }
+    var last_fifteen_days_value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var last_fifteen_days_data = [];
     var piechart_data = [];
     var bar_graph_progress = 0;
     var total_budget = 500000;
@@ -87,38 +112,38 @@ const Dashboard = () => {
                 temp += expense[j].MoneySpent;
 
 
-                if (todays_date >= 11) {
+                if (todays_date >= 16) {
                     if (expense[j].Date.substring(0, 4) == current_year && expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
-                        if (Number(todays_date) - Number(expense[j].Date.substring(8, 10)) <= 10 && Number(todays_date) - Number(expense[j].Date.substring(8, 10)) > 0) {
-                            last_ten_days_name[10 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] = expense[j].Date.substring(0, 10);
-                            last_ten_days_value[10 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] += expense[j].MoneySpent;
+                        if (Number(todays_date) - Number(expense[j].Date.substring(8, 10)) <= 15 && Number(todays_date) - Number(expense[j].Date.substring(8, 10)) > 0) {
+                            // last_fifteen_days_name[15 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] = expense[j].Date.substring(0, 10);
+                            last_fifteen_days_value[15 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] += expense[j].MoneySpent;
                         }
                     }
                 }
                 else {
                     if (expense[j].Date.substring(0, 4) == current_year && expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
-                        if (Number(todays_date) - Number(expense[j].Date.substring(8, 10)) <= 10 && Number(todays_date) - Number(expense[j].Date.substring(8, 10)) > 0) {
-                            last_ten_days_name[10 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] = expense[j].Date.substring(0, 10);
-                            last_ten_days_value[10 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] += expense[j].MoneySpent;
+                        if (Number(todays_date) - Number(expense[j].Date.substring(8, 10)) <= 15 && Number(todays_date) - Number(expense[j].Date.substring(8, 10)) > 0) {
+                            // last_fifteen_days_name[15 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] = expense[j].Date.substring(0, 10);
+                            last_fifteen_days_value[15 - (Number(todays_date) - Number(expense[j].Date.substring(8, 10)))] += expense[j].MoneySpent;
                         }
                     }
                     else if (expense[j].Date.substring(0, 4) == current_year && expense[j].Date[5] + expense[j].Date[6] == current_month) {
                         if (current_month == 2 || current_month == 4 || current_month == 6 || current_month == 7 || current_month == 9 || current_month == 11) {
                             if (current_month == 2) {
-                                if (Number(expense[j].Date.substring(8, 10)) > 28 - (10 - todays_date + 1)) {
-                                    last_ten_days_name[28 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
-                                    last_ten_days_value[28 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
+                                if (Number(expense[j].Date.substring(8, 10)) > 28 - (15 - todays_date + 1)) {
+                                    // last_fifteen_days_name[28 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
+                                    last_fifteen_days_value[28 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
                                 }
                             } else {
-                                if (Number(expense[j].Date.substring(8, 10)) > 30 - (10 - todays_date + 1)) {
-                                    last_ten_days_name[30 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
-                                    last_ten_days_value[30 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
+                                if (Number(expense[j].Date.substring(8, 10)) > 30 - (15 - todays_date + 1)) {
+                                    // last_fifteen_days_name[30 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
+                                    last_fifteen_days_value[30 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
                                 }
                             }
                         } else {
-                            if (Number(expense[j].Date.substring(8, 10)) > 31 - (10 - todays_date + 1)) {
-                                last_ten_days_name[31 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
-                                last_ten_days_value[31 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
+                            if (Number(expense[j].Date.substring(8, 10)) > 31 - (15 - todays_date + 1)) {
+                                // last_fifteen_days_name[31 - Number(expense[j].Date.substring(8, 10)) - 2] = expense[j].Date.substring(0, 10);
+                                last_fifteen_days_value[31 - Number(expense[j].Date.substring(8, 10)) - 2] += expense[j].MoneySpent;
                             }
                         }
                     }
@@ -144,9 +169,18 @@ const Dashboard = () => {
         }
         total_data.push({ name: month[i - 1], value: temp });
     }
+    let last_ten_days_data = [];
 
-    for (let i = 0; i < 10; i++) {
-        last_ten_days_data.push({ name: last_ten_days_name[i], value: last_ten_days_value[i] });
+    if (checked) {
+        for (let i = 0; i < 10; i++) {
+            last_fifteen_days_data.push({ name: last_fifteen_days_name[10 - i], value: last_fifteen_days_value[14 - i] });
+        }
+    }
+    else {
+
+        for (let i = 0; i < 7; i++) {
+            last_ten_days_data.push({ name: last_fifteen_days_name[7 - i], value: last_fifteen_days_value[14 - i] });
+        }
     }
 
     piechart_data.push({ name: "Food", value: Food });
@@ -172,23 +206,29 @@ const Dashboard = () => {
             data_to_show = last_ten_days_data;
         }
         else {
-            data_to_show = total_data;
+            data_to_show = last_fifteen_days_data;
 
         }
     }
+    if (flag == 0) {
+        setBarGraphdata();
+        flag = 1;
+    }
 
+    console.log(data_to_show, "jelp");
     return (
         <div className='dashboard-outer'>
             <div className='dashboard-upper'>
 
                 <div className='dashboard-upper-left'>
                     <div className="linegraph dashboard-upper-left-top">
+                        <h3 className='monthly-spending'>Monthly Spending</h3>
 
                         <LineChart
                             width={isPageBig ? window.innerWidth * 0.52 : window.innerWidth * 0.70}
                             // width={100}
                             height={300}
-                            data={data_to_show ? data_to_show : total_data}
+                            data={total_data}
                         >
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name"
@@ -204,12 +244,15 @@ const Dashboard = () => {
                     </div>
 
                     <div className="progressbar dashboard-upper-left-bottom">
-                        <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={user.budget?user.budget:total_budget} height={10} />
+                        <h3>Spent this month</h3>
+                        <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={total_budget} height={10} />
+
                     </div>
 
 
                 </div>
                 <div className="piechart dashboard-upper-right">
+                    <h3>Spending in Each </h3><h3> Category</h3>
                     <PieChart width={isPageBig ? window.innerWidth * 0.25 : window.innerWidth * 0.70} height={300}>
                         <Pie
                             dataKey="value"
@@ -227,11 +270,12 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="bargraph dashboard-lower">
+                <h3>Spending in Last {checked ? '7' : '10'} days</h3>
 
                 <BarChart
                     width={window.innerWidth * 0.70}
                     height={300}
-                    data={data_to_show ? data_to_show : total_data}
+                    data={data_to_show}
 
                     barSize={20}
                 >
@@ -246,10 +290,10 @@ const Dashboard = () => {
                 </BarChart>
                 <label className='bargraph-show-last'>
                     <input type="checkbox" checked={checked} onChange={setBarGraphdata} />
-                    Show Last 10 days
+                    Show Last 7 days
                 </label>
             </div>
-        </div>
+        </div >
 
     );
 };
