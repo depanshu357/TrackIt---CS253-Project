@@ -302,15 +302,17 @@ const Customer = () => {
               <div className="color-indicator">Food</div>
               <div className="color-indicator">Shopping</div>
               <div className="color-indicator">Health</div>
+              <div className="color-indicator">Others</div>
             </div>
             <PieChart
-              width={240}
+              width={300}
               height={350}
-              style={{ position: "", left: "10px", top: "10px" }}
+              style={{ position: "", top: "10px" }}
+              viewBox="0 0 300 350"
             >
               <Pie
                 data={piechart_data}
-                cx="50%"
+                cx="55%"
                 cy="30%"
                 innerRadius={80}
                 outerRadius={100}
