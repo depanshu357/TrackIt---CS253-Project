@@ -27,7 +27,7 @@ const Analytics = () => {
           </p>
           <div className="flex justify-end">
             <a href="#signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+              <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
             </a>
@@ -48,7 +48,7 @@ const Analytics = () => {
             stay on top of your cash flow.
           </p>
           <a href="#signup">
-            <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
           </a>
@@ -79,7 +79,7 @@ const Analytics = () => {
 
           <div className="flex justify-end">
             <a href="#signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
             </a>
@@ -100,7 +100,7 @@ const Analytics = () => {
             progressing towards your goals, you can stay motivated and on track.
           </p>
           <a href="#signup">
-            <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
           </a>

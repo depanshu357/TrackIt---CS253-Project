@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="flex justify-center items-center">
           <p className="md:text-4xl sm:text-3xl text-xl font-bold py-4">
             Fast, flexible webapp to
-          </p>
+          
           <Typed
             className="md:text-4xl sm:text-3xl text-xl font-bold md:pl-4 pl-2"
             strings={["track expenses", "view analytics"]}
@@ -23,6 +23,7 @@ const Hero = () => {
             backSpeed={140}
             loop
           />
+          </p>
         </div>
         <p className="md:text-2xl text-xl font-bold text-gray-500">
           {" "}
@@ -32,12 +33,12 @@ const Hero = () => {
         <br />
         <div className="flex  justify-center space-x-16">
           <Link to="/signup">
-            <button className="-m-2  w-[200px] text-black border-black bg-[#3A98B9] hover:border hover:border-[#3A98B9] rounded-md font-medium my-6  py-3 hover:bg-black hover:text-[#3A98B9]  ">
+            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black ">
               Sign Up
             </button>
           </Link>
           <Link to="/login">
-            <button className="-m-2  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Sign In
             </button>
           </Link>
