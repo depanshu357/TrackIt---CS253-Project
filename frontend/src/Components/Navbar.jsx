@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import Footer from './Footer';
 import Hero from './Hero';
-import Analytics from './Analytics';
+
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const LNavbar = () => {

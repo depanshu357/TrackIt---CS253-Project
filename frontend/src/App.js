@@ -29,7 +29,7 @@ import CurrentMonth from "./pages/CurrentMonth";
 import ExpenseForm from "./Components/ExpenseForm";
 import Navbar from "./Components/Navbar/Navbar.js";
 
-import Analytics from "./Components/Analytics";
+import Features from "./Components/Features";
 import Cards from "./Components/Cards";
 import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
@@ -75,7 +75,7 @@ function App() {
                   <LNavbar  />
                   <Hero />
 
-                  <Analytics />
+                  <Features />
                  
                   <Cards />
                   <Footer />
