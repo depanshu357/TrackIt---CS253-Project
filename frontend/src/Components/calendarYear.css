@@ -200,6 +200,7 @@ code {
   padding-top: 15px;
   background: #000;
   flex-wrap: wrap;
+  height: 95vh;
 }
 
 .react-calendar__year-view .react-calendar__tile {

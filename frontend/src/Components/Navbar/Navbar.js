@@ -274,6 +274,12 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
               className="navbar-user-email  side-bar-email"
               style={{ display: open ? "flex" : "none" }}
             >
+              <button
+                className="add-expense-popup-button"
+                onClick={handlePopup}
+              >
+                + Add Expense
+              </button>
               <span>{user.email}</span>
               <button onClick={handleClick} className="navbar-logout-btn">
                 Log out
