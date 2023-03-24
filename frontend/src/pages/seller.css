@@ -263,7 +263,7 @@ code {
 .home-shopkeeper{
       display: flex;
       align-items: flex-start;
-      height: fit-content;
+      min-height: 100vh;
       justify-content: space-around;
       flex-direction: row;
       flex-wrap: wrap;

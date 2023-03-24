@@ -70,7 +70,6 @@ const Signup = () => {
           <div class="col-md-12 col-lg-10">
             <div class="wrap d-md-flex">
               <div class="img" 
-              // style ="background: url(IMG_20220816_095445457 (2).jpg"
               >
                 <img src="https://i.postimg.cc/L5nT4GV8/Screenshot-2023-03-12-153044.png" style={{height:"50%",widht:"100%"}}/>
                 <img src="https://i.postimg.cc/qqSGNQmX/Screenshot-2023-03-12-153600.png" style={{height:"50%",widht:"100%"}}/>

@@ -159,8 +159,8 @@ function App() {
             <Route path="/temp" element={<Navbar Display={CalendarMonth} showPopup={showPopup} setShowPopup={setShowPopup} />} />
           </Routes>
         </div>
-        {/* <Footer /> */}
       </BrowserRouter>
+
     </div>
   );
 }
