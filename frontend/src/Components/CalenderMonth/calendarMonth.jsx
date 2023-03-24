@@ -168,7 +168,7 @@ const CalendarMonth = () => {
         <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
       </div>)
       } */}
-      <div clasName="big-container-expenses" style={{ width: '100%', alignItems: window.innerWidth <= 1120 ? 'center' : 'inherit', flexDirection: window.innerWidth <= 1120 ? 'column' : 'row', filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
+      <div clasName="big-container-expenses" style={{ width: '100%', alignItems: window.innerWidth <= 1320 ? 'center' : 'inherit', flexDirection: window.innerWidth <= 1320 ? 'column' : 'row', filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
         <div className="left-block">
           <div className="calendar-comp">
             <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />

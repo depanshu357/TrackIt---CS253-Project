@@ -27,6 +27,8 @@ code {
 
 }
 
+
+
 .react-calendar--doubleView {
   width: 700px;
 }
@@ -192,14 +194,12 @@ code {
   background-color: #e6e6e6;
 }
 
-
-
-
 .everything-b {
   display: flex;
   padding-left: 10px;
   padding-top: 15px;
   background: #000;
+  flex-wrap: wrap;
 }
 
 .react-calendar__year-view .react-calendar__tile {
@@ -219,21 +219,19 @@ code {
 
 .listname1 {
   display: flex;
-  justify-content: center;
+
   align-items: center;
   margin-right: 10px;
 }
 
 .listdate1 {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-right: 10px;
 }
 
 .listmoney1 {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -268,4 +266,45 @@ ul {
   background-color: #191c24;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.listname1 {}
+
+.listname1-span {
+  width: 30%;
+}
+
+.listdate1-span {
+  width: 25%;
+}
+
+.listmoney1-span {
+  width: 10%;
+}
+
+.listpaid1-span {
+  width: 11%;
+}
+
+@media screen and (max-width:1355px) {
+  .hi1 {
+    min-width: 680px;
+    width: 100%;
+  }
+
+  .everything-b {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+  .monthlyborrowings {
+    display: flex;
+    justify-content: center;
+  }
+
+  .right {
+    width: 100%;
+  }
 }
