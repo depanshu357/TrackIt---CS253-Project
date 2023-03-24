@@ -64,7 +64,7 @@ const signupUser = async (req, res) => {
     res.status(400).json({ error: error.message })
   }
 }
-
+ 
 const getOtp = async (req, res) => {
   const { otp, email } = req.body
   console.log(otp);
