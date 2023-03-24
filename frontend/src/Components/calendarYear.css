@@ -272,7 +272,7 @@ ul {
   margin-bottom: 10px;
 }
 
-.listname1 {}
+
 
 .listname1-span {
   width: 30%;
@@ -283,11 +283,11 @@ ul {
 }
 
 .listmoney1-span {
-  width: 10%;
+  width: 12%;
 }
 
 .listpaid1-span {
-  width: 11%;
+  width: 9%;
 }
 
 @media screen and (max-width:1355px) {
