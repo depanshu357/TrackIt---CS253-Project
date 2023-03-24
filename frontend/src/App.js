@@ -14,7 +14,7 @@ import CalendarYear from "./Components/calendarYear";
 // import Seller from "./Components/Seller";
 
 import History from "./Components/History";
-import Profile from "./Components/Profile";
+// import Profile from "./Components/Profile";
 // import Login from "./Components/Login";
 // import SignUp from "./Components/SignUp";
 import { useAuthContext } from "./hooks/useAuthContext";
@@ -35,6 +35,7 @@ import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import LNavbar from "./Components/Navbar";
 import AddExpense from "./Components/AddExpense";
+import Profile from "./pages/Profile";
 
 function App() {
   const { user } = useAuthContext();
@@ -124,6 +125,16 @@ function App() {
                   <Navigate to="/login" />
                 )
               }
+            />
+            <Route 
+            path="/profile"
+            element={
+              1 ? (
+                <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
             />
             <Route
               path="/borrowings"

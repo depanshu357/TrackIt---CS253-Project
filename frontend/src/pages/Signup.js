@@ -12,6 +12,7 @@ const Signup = () => {
   const [rollNo, setRollNo] = useState(null);
   const [userType, setUserType] = useState("Customer");
   const [shopName, setShopName] = useState("");
+  const [budget,setBudget] = useState(null);
   const [disabled,setDisabled] = useState(false)
   const { signup, error, isLoading } = useSignup();
   const options = ["Customer", "Shopkeeper"];
@@ -49,7 +50,7 @@ const Signup = () => {
     else {
       console.log("correct otp");
       setNewError(null);
-      await signup(email, password, userType, rollNo, shopName);
+      await signup(email, password, userType, rollNo, shopName,budget);
     }
   };
 
@@ -125,6 +126,18 @@ const Signup = () => {
                             class ="form-control"
                             onChange={(e) => setRollNo(e.target.value)}
                             placeholder="IITK RollNo"
+                          />
+                        </div>
+                      )}
+                      <br />
+                      {userType === "Customer" && (
+                        <div>
+                          <input
+                            type="number"
+                            value={budget}
+                            class ="form-control"
+                            onChange={(e) => setBudget(e.target.value)}
+                            placeholder="Budget"
                           />
                         </div>
                       )}

@@ -51,7 +51,7 @@ const loginUser = async (req, res) => {
 
 // signup a user
 const signupUser = async (req, res) => {
-  const { email, password, userType, rollNo, shopName } = req.body
+  const { email, password, userType, rollNo, shopName,budget } = req.body
 
   try {
     const user = await User.signup(email, password, userType, rollNo, shopName)
@@ -59,7 +59,7 @@ const signupUser = async (req, res) => {
     // create a token
     const token = createToken(user._id)
 
-    res.status(200).json({ email, token, userType, rollNo, shopName })
+    res.status(200).json({ email, token, userType, rollNo, shopName,budget })
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
@@ -112,5 +112,26 @@ const updatePassword = async (req, res) => {
   }
 
 }
+//setBudget
+const setBudget = async (req, res) => {
+  const { email, password, budget } = req.body;
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(password, salt)
+  const opts = { new: true };
+  try {
 
-module.exports = { signupUser, loginUser, getOtp, updatePassword }
+    const user = await User.findOneAndUpdate({ email: email }, {
+      budget: budget,
+    }, opts)
+    user;
+    res.status(200).json("OK")
+    // console.log(user)
+    // cons
+  }
+  catch (error) {
+    res.status.json({ error: error.message })
+  }
+
+}
+
+module.exports = { signupUser, loginUser, getOtp, updatePassword,setBudget }

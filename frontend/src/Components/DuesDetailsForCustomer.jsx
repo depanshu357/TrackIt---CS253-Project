@@ -1,52 +1,26 @@
-import React from 'react'
-import "./duesDetailsForCustomer.css" 
-// import { useDuesContext } from '../hooks/useDuesContext'
-// import { useAuthContext } from '../hooks/useAuthContext'
-
-// date fns
-// import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import React from "react";
+import "./duesDetailsForCustomer.css";
+import Button from "@mui/material/Button";
 
 const DuesDetailsForCustomer = (props) => {
-    // const {dispatch} = useDuesContext();
-    // const {user} = useAuthContext();
-
-    // const handleClick = async () => {
-    //     if (!user) {
-    //       return
-    //     }
-    
-    //     const response = await fetch('/api/dues/' + props.due._id, {
-    //       method: 'DELETE',
-    //       headers: {
-    //         'Authorization': `Bearer ${user.token}`
-    //       }
-    //     })
-    //     const json = await response.json()
-    
-    //     if (response.ok) {
-    //       dispatch({type: 'DELETE_DUES', payload: json})
-    //     }
-    //   }
-    // console.log(props)
-
   return (
-    <div className='due-details-for-customer' >
+    <div className="due-details-for-customer">
+      <span>{props.due.Item}</span>
+      <span>{props.due.Amount}</span>
       <span>
-         {props.due.Item} 
-        </span>
-           <span>
-                 {props.due.Amount} 
-            </span>
-                {/* RollNo - {props.due.RollNo} <br></br> */}
-                {/* Description - {props.due.Description} <br /> */}
-                {/* shopName - {props.due.shopName} <br /> */}
-           <span>
-                  {props.due.Paid ? "Paid" : "Not Paid"} <br />
-            </span>
-      {/* <span className="material-symbols-outlined" onClick={handleClick} style={{cursor:"pointer"}}>delete</span> */}
-
+        {props.due.Paid ? (
+          <div style={{border:"1px solid #00d25b",padding:"5px",borderRadius:"5px",color:"#00d25b"}}>
+            Approved
+          </div>
+        ) : (
+          <div style={{border:"1px solid red",padding:"5px",borderRadius:"5px",color:"red"}}>
+            Pending
+          </div>
+        )}{" "}
+        <br />
+      </span>
     </div>
-  )
-}
+  );
+};
 
-export default DuesDetailsForCustomer
+export default DuesDetailsForCustomer;
