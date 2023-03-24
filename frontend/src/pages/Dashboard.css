@@ -57,14 +57,40 @@
     padding-top: 10px;
     padding-left: 5px;
     width: 100%;
+    flex-direction: column;
+}
+
+.dashboard-upper-left-top h3 {
+    color: #fff;
+}
+
+.dashboard-upper-left-bottom h3 {
+    color: #fff;
+    justify-content: center;
+    margin-bottom: 0px;
+    display: flex;
 }
 
 .dashboard-upper-left-bottom {
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 5px;
 }
 
+.dashboard-upper-right {
+    display: flex;
+    flex-direction: column;
+}
 
+.dashboard-lower h3 {
+    color: #fff;
+}
+
+.dashboard-upper-right h3 {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
 
 
 

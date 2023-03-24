@@ -226,7 +226,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           <AccountBalanceWalletIcon className="expenses-icon" />
                         </Link>
                       ) : index === 2 ? (
-                        <Link to="/dashboard" className="navbar-home-icon  ">
+                        <Link to="/analytics" className="navbar-home-icon  ">
                           {" "}
                           <ExploreIcon className="dashboard-icon" />
                         </Link>
@@ -246,7 +246,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                             index === 0
                               ? "/expenses"
                               : index == 2
-                                ? "/dashboard"
+                                ? "/analytics"
                                 : "/borrowings"
 
                           }
@@ -302,7 +302,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                         <AccountBalanceWalletIcon className="expenses-icon" />
                       </Link>
                     ) : index === 2 ? (
-                      <Link to="/dashboard" className="navbar-home-icon  ">
+                      <Link to="/analytics" className="navbar-home-icon  ">
                         {" "}
                         <ExploreIcon className="dashboard-icon" />
                       </Link>
@@ -322,7 +322,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           index === 0
                             ? "/expenses"
                             : index == 2
-                              ? "/dashboard"
+                              ? "/analytics"
                               : "/borrowings"
                         }
                       >
