@@ -8,8 +8,7 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import Calendar from 'react-calendar'
-import AddExpense from '../AddExpense.js';
-import { pink, lightGreen, blue } from "@mui/material/colors";
+import { pink, lightGreen} from "@mui/material/colors";
 import './calendarMonth.css';
 
 
@@ -107,15 +106,8 @@ const CalendarMonth = () => {
         daily_category[3] += expense[i].MoneySpent;
       }
     }
-
-
-
   }
-
-
-
   const namesdate = expense !== null && expense.filter(function (el) {
-    // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 10) == date2;
   });
   console.log(namesdate);
@@ -144,15 +136,7 @@ const CalendarMonth = () => {
                 <KeyboardArrowDownIcon />
               </a>
             </div>
-
-
-
-
-
-
           </div>
-
-
         </div>
         <div className="collapse listdescription" id={`collapseExample${name._id}`}>
           <div className=" listdesc">{name.Description}</div>
@@ -164,10 +148,6 @@ const CalendarMonth = () => {
 
   return (
     <div className="everything" >
-      {/* {showPopup && (<div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: '5' }}>
-        <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
-      </div>)
-      } */}
       <div clasName="big-container-expenses" style={{ width: '100%', alignItems: window.innerWidth <= 1320 ? 'center' : 'inherit', flexDirection: window.innerWidth <= 1320 ? 'column' : 'row', filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
         <div className="left-block">
           <div className="calendar-comp">
@@ -210,21 +190,10 @@ const CalendarMonth = () => {
             <ul>{renderListOfUserNames(namesdate)}</ul>
           </div>
         </div>
-
-
-
       </div >
     </div >
   );
-
-
 };
-
-
-
-
-
-
 
 export default CalendarMonth;
 

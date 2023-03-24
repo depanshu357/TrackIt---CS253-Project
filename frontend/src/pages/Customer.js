@@ -230,7 +230,7 @@ const Customer = () => {
   piechart_data.push({ name: "Other", value: Others });
   piechart_data.push({
     name: "remaining",
-    value: total_budget - Food - Health - Shopping,
+    value: user.budget?user.budget:total_budget - Food - Health - Shopping,
   });
   const date_dep = new Date();
   const todays_month = date_dep.getMonth();

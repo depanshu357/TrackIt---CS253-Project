@@ -204,7 +204,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="progressbar dashboard-upper-left-bottom">
-                        <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={total_budget} height={10} />
+                        <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={user.budget?user.budget:total_budget} height={10} />
                     </div>
 
 
