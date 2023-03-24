@@ -88,25 +88,25 @@ const CalendarYear = () => {
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate.map((name) => (
-      <div class="hi1">
+      <div className="hi1">
 
-        <div class="listdetails1">
-          <div class="listname1">{name.Item}</div>
+        <div className="listdetails1">
+          <div className="listname1">{name.Item}</div>
 
-          <div class="listmoney1">₹{name.Amount}</div>
-          <div class="listdate1">{name.Date.substring(0, 10)}</div>
-          <div class="listdate1">{name.Paid ? 'Paid' : 'Unpaid'}</div>
+          <div className="listmoney1">₹{name.Amount}</div>
+          <div className="listdate1">{name.Date.substring(0, 10)}</div>
+          <div className="listdate1" style={{ color: name.Paid ? 'green' : 'red' }} >{name.Paid ? 'Paid' : 'Unpaid'}</div>
 
 
           <a
-            class="btn btn-primary listcollapsebutton1"
+            className="btn btn-primary listcollapsebutton1"
             data-bs-toggle="collapse"
             href={`#collapseExample${name._id}`}
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            <span class="textv">
+            <span className="textv">
               <KeyboardArrowDownIcon />
             </span>
           </a>
@@ -118,8 +118,8 @@ const CalendarYear = () => {
 
 
         </div>
-        <div class="collapse listdescription1" id={`collapseExample${name._id}`}>
-          <div class=" listdesc1">{name.Description}</div>
+        <div className="collapse listdescription1" id={`collapseExample${name._id}`}>
+          <div className=" listdesc1">{name.Description}</div>
         </div></div>
 
     ));
@@ -129,13 +129,13 @@ const CalendarYear = () => {
   return (
     <>
 
-      <div class="everything-b">
-        <div class="calendaryear-comp">
+      <div className="everything-b">
+        <div className="calendaryear-comp">
           <Calendar onChange={onChange} value={date} maxDetail='year' minDetail="year" defaultView="year" />
         </div>
         <div className="right">
-          <h1 class="monthlyborrowings">Monthly Borrowings</h1>
-          <div class="borrowings-comp">
+          <h1 className="monthlyborrowings">Monthly Borrowings</h1>
+          <div className="borrowings-comp">
             <ul>{renderListOfUserNames(namesdate)}</ul>
           </div>
         </div>
