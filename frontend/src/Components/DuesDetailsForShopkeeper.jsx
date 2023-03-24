@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./borrowings.css";
 import "./DueDetails.css"
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 // date fns
 const { format } = require("date-fns");
@@ -18,14 +19,6 @@ const DuesDetailsForShopkeeper = (props) => {
     console.log(e.target);
     setPaid(!props.due.Paid);
     const due = { Paid: `${!props.due.Paid}` };
-    // const due ={...(props.due),Paid:`${!(props.due.Paid)}`}
-    // if(!props.due.Paid){
-    //   e.target.style.backgroundColor = "green"
-    // }else{
-    //   e.target.style.backgroundColor = "red"
-    // }
-    // console.log(due);
-    // console.log(props.due.Paid)
     console.log(due);
     const response = await fetch("/api/dues/" + props.due._id, {
       method: "PATCH",
@@ -80,13 +73,19 @@ const DuesDetailsForShopkeeper = (props) => {
           onClick={handleChange}
           style={
             props.due.Paid
-              ? { backgroundColor: "lightgreen", borderRadius: "5px" }
-              : { backgroundColor: "tomato", borderRadius: "5px" }
+              ? { backgroundColor: "#4ce353", borderRadius: "5px",padding:"0 5px" }
+              : { backgroundColor: "#ff4c2b", borderRadius: "5px",padding:"0 5px" }
           }
         >
           {props.due.Paid ? "Paid" : "Paid"}
         </button>
-        <div>
+        <span
+          className="material-symbols-outlined delete-button" 
+          onClick={handleClick}
+          style={{ cursor: "pointer"}}
+        > 
+        </span>
+        {/* <div>
           <a
             class="btn btn-primary"
             data-bs-toggle="collapse"
@@ -98,18 +97,18 @@ const DuesDetailsForShopkeeper = (props) => {
           >
             v
           </a>
-        </div>
+        </div> */}
         </div>
 
       </div>
       <div class="collapse dep-collapse-box" id={"collapseExample" + props.due._id} >
-        <div class="collapse-inside">Description - {props.due.Description} </div>
+        <div class="collapse-inside">Description - {props.due.Description} 
+        </div>
         <span
-          className="material-symbols-outlined delete-button"
+          className="material-symbols-outlined delete-button" 
           onClick={handleClick}
           style={{ cursor: "pointer"}}
-        >
-          
+        > 
         </span>
       </div>
     </div>

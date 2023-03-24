@@ -59,12 +59,14 @@
     padding: 10px;
     font-size: 20px;
     border-radius: 10px;
-    background-color: #12151e;
+    background-color: black;
+    border: 0;
+
 }
 .create-dues button{
     padding: 5px;
     border-radius: 5px;
-    background-color: #57c95c;
+    background-color: lightgreen;
 }
 .create-dues button:hover{
     background-color: rgb(149, 216, 149);

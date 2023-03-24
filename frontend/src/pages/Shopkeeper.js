@@ -11,11 +11,7 @@ import DuesDetailsForShopkeeper from "../Components/DuesDetailsForShopkeeper";
 const Shopkeeper = () => {
   const { Dues, dispatch: dispatchd } = useDuesContext();
   const { user } = useAuthContext();
-  // const [borrows, setBorrows] = useState(null);
   const [d, setD] = useState("none");
-  // const [customers,setCustomers] = useState([]);
-  const [dataUniue, setDataUnique] = useState([]);
-  var [index, setIndex] = useState(0);
   var total = 0;
   var customers = [];
 
@@ -29,23 +25,9 @@ const Shopkeeper = () => {
 
       if (response.ok) {
         console.log(" dues coming up ");
-        // console.log(json[0])
-        // setBorrows(json);
-        // console.log(borrows[0].RollNo);
-        // console.log(borrows);
         dispatchd({ type: "SET_DUESS", payload: json });
         // console.log(Dues)
       }
-      // json?.forEach(function(due){
-      //   // console.log(due)
-      //   setCustomers(pre => pre + [(due.RollNo)])
-      // }
-      // )
-      // function onlyUnique(value, index, self) {
-      //   return self.indexOf(value) === index;
-      // }
-      // setCustomers(pre => pre.filter(onlyUnique));
-      // console.log(customers);
     };
     if (user) {
       fetchDues();
@@ -68,48 +50,6 @@ const Shopkeeper = () => {
   const handlePlusButton = () => {
     setD("block")
   }
-  // useEffect(() => {
-  //   // customers = [];
-  //   Dues?.forEach(function (due) {
-  //     // console.log(due)
-  //     customers.push(due);
-  //   });
-  //   function onlyUnique(value, index, self) {
-  //     return self.indexOf(value) === index;
-  //   }
-  //   customers = customers.filter(onlyUnique);
-  //   console.log(customers);
-  // }, [dispatchd, user]);
-
-  const names = [
-    {
-      Description: "f",
-      Date: "May 6 2023",
-      Money: "78",
-    },
-    {
-      Description: "ff",
-      Date: "May 6 2023",
-      Money: "78",
-    },
-    {
-      Description: "fff",
-      Date: "Aug 6 2023",
-      Money: "78",
-    },
-  ];
-
-  const renderListOfUserNames = (names) => {
-    return names.map((name) => (
-      <div>
-        <div className="entry-display">
-          <div className="date">{name.Date}</div>
-          <div className="Description">{name.Description}</div>
-          <div className="amount">{name.Money}</div>
-        </div>
-      </div>
-    ));
-  };
 
   return (
     <div className="home-shopkeeper">
@@ -138,7 +78,6 @@ const Shopkeeper = () => {
                   })}
               </div>
               <div className="card-footer">
-                {/* <button className="footbutton">Edit</button> */}
                 <div className="foottotal">Total: </div>
                 <div className="footvalue">{total}</div>
               </div>

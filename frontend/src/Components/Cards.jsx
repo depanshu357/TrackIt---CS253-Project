@@ -9,7 +9,7 @@ const Cards = () => {
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8">
         <div className="w-full shadow-xl bg-gray-100 flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
           <img className="w-20 mx-auto mt-[-3rem] bg-white" src={boy} alt="/" />
-          <h2 className="text-2xl font-bold text-center py-8">Depanshu Sahu</h2>
+          <h2 className="text-2xl font-bold text-center py-8">Elon Musk</h2>
           <div className="text-center font-medium">
             <p className="py-2 border-b mx-8 mt-8">
               This app has revolutionized the way i manage my finances!The

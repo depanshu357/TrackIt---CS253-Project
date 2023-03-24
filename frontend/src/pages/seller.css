@@ -282,6 +282,8 @@ code {
 .pop-up-card-dues{
   background-color: #191c24;
   color: white;
-  border-color: white;
+  border: 0;
+  /* border-color: white; */
   border-radius: 10px;
+  box-shadow: 2px 2px 5px 0px #5c5c5c87;
 }
