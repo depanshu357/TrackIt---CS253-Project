@@ -19,13 +19,33 @@ let data_to_show;
 const Dashboard = () => {
     var isPageBig = true;
     var isPageSmall;
-    if(window.innerWidth <= 920){
-         isPageSmall = true;
+    if (window.innerWidth <= 1100) {
+        isPageSmall = true;
         isPageBig = false;
     }
+    console.log(isPageBig);
+    const [dimensions, setDimensions] = useState({
+        height: window.innerHeight,
+        width: window.innerWidth
+    })
+
+    useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
     const { expense, dispatch } = useExpenseContext();
     const { user } = useAuthContext();
     const [checked, setChecked] = useState(false);
+
+
 
     useEffect(() => {
         const fetchExpense = async () => {
@@ -58,7 +78,7 @@ const Dashboard = () => {
     var total_budget = 500000;
     for (let i = 1; i <= 12; i++) {
         let temp = 0;
-        for (let j = 0;expense!==null && j < expense.length; j++) {
+        for (let j = 0; expense !== null && j < expense.length; j++) {
             // console.log(expense[j].Date[5] + expense[j].Date[6], current_month);
             if (expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
                 bar_graph_progress += expense[j].MoneySpent;
@@ -165,15 +185,15 @@ const Dashboard = () => {
                     <div className="linegraph dashboard-upper-left-top">
 
                         <LineChart
-                            width={isPageBig? window.innerWidth * 0.68: window.innerWidth * 0.80}
+                            width={isPageBig ? window.innerWidth * 0.52 : window.innerWidth * 0.70}
                             // width={100}
                             height={300}
                             data={data_to_show ? data_to_show : total_data}
                         >
                             <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="name" 
-                            width={200}
-                            
+                            <XAxis dataKey="name"
+                                width={200}
+
                             />
                             <YAxis />
                             <Tooltip />
@@ -190,7 +210,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className="piechart dashboard-upper-right">
-                    <PieChart width={isPageBig? window.innerWidth * 0.32: window.innerWidth * 0.70} height={300}>
+                    <PieChart width={isPageBig ? window.innerWidth * 0.25 : window.innerWidth * 0.70} height={300}>
                         <Pie
                             dataKey="value"
                             startAngle={360}
@@ -209,14 +229,14 @@ const Dashboard = () => {
             <div className="bargraph dashboard-lower">
 
                 <BarChart
-                    width={window.innerWidth * 0.90}
+                    width={window.innerWidth * 0.70}
                     height={300}
                     data={data_to_show ? data_to_show : total_data}
 
                     barSize={20}
                 >
-                    <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} 
-                    
+                    <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }}
+
                     />
                     <YAxis />
                     <Tooltip />
