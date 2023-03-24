@@ -246,6 +246,7 @@ const Dashboard = () => {
                     <div className="progressbar dashboard-upper-left-bottom">
                         <h3>Spent this month</h3>
                         <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={total_budget} height={10} />
+
                     </div>
 
 

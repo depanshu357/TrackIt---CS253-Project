@@ -280,6 +280,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
               </button>
             </span>
           )}
+
           {user.userType == "Shopkeeper" &&
             ["Dashboard"].map((text, index) => (
               <ListItem key={text} disablePadding sx={{ display: "block" }}>
@@ -343,6 +344,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                 </ListItemButton>
               </ListItem>
             ))}
+
         </List>
         <Divider />
       </Drawer>

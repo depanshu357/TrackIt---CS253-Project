@@ -78,7 +78,7 @@ function App() {
                   <Analytics />
 
                   <Cards />
-                  <Footer />
+                  {/* <Footer /> */}
                 </div>
               }
             />
