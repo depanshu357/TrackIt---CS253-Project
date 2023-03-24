@@ -5,14 +5,11 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentsIcon from "@mui/icons-material/Payments";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import Calendar from 'react-calendar'
-import { pink, lightGreen} from "@mui/material/colors";
-import './calendarMonth.css';
-
-
-
+import Calendar from "react-calendar";
+import { pink, lightGreen } from "@mui/material/colors";
+import "./calendarMonth.css";
 
 const CalendarMonth = () => {
   const { expense, dispatch } = useExpenseContext();
@@ -22,72 +19,61 @@ const CalendarMonth = () => {
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
-    width: window.innerWidth
-  })
+    width: window.innerWidth,
+  });
 
   useEffect(() => {
     function handleResize() {
       setDimensions({
         height: window.innerHeight,
-        width: window.innerWidth
-      })
+        width: window.innerWidth,
+      });
     }
-    window.addEventListener('resize', handleResize)
-    return _ => {
-      window.removeEventListener('resize', handleResize)
-    }
-  })
-
+    window.addEventListener("resize", handleResize);
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const [showPopup, setShowPopup] = useState(false);
   const handlePopup = (e) => {
     e.preventDefault();
     console.log(e);
     setShowPopup(!showPopup);
-  }
-
-
-
-
+  };
 
   console.log(expense);
 
-  const onChange = date => {
-    setDate(date)
-  }
+  const onChange = (date) => {
+    setDate(date);
+  };
   var d = date;
-  var month = '' + (d.getMonth() + 1);
-  var date1 = '' + d.getDate();
-  var year = '' + d.getFullYear();
+  var month = "" + (d.getMonth() + 1);
+  var date1 = "" + d.getDate();
+  var year = "" + d.getFullYear();
   if (month.length < 2) {
-    month = '0' + month;
+    month = "0" + month;
   }
   if (date1.length < 2) {
-    date1 = '0' + date1;
+    date1 = "0" + date1;
   }
 
   const date2 = year + "-" + month + "-" + date1;
   console.log(date2);
   //console.log(typeof date2);
 
-
   var daily_category = [0, 0, 0, 0];
   var monthly_category = [0, 0, 0, 0];
 
-
   for (let i = 0; expense !== null && i < expense.length; i++) {
-
     if (expense[i].Date.substring(5, 7) == month) {
       if (expense[i].Category == "Food") {
         monthly_category[0] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Health") {
+      } else if (expense[i].Category == "Health") {
         monthly_category[1] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Shopping") {
+      } else if (expense[i].Category == "Shopping") {
         monthly_category[2] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Others") {
+      } else if (expense[i].Category == "Others") {
         monthly_category[3] += expense[i].MoneySpent;
       }
     }
@@ -95,63 +81,82 @@ const CalendarMonth = () => {
     if (expense[i].Date.substring(0, 10) == date2) {
       if (expense[i].Category == "Food") {
         daily_category[0] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Health") {
+      } else if (expense[i].Category == "Health") {
         daily_category[1] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Shopping") {
+      } else if (expense[i].Category == "Shopping") {
         daily_category[2] += expense[i].MoneySpent;
-      }
-      else if (expense[i].Category == "Others") {
+      } else if (expense[i].Category == "Others") {
         daily_category[3] += expense[i].MoneySpent;
       }
     }
   }
-  const namesdate = expense !== null && expense.filter(function (el) {
-    return el.Date.substring(0, 10) == date2;
-  });
+  const namesdate =
+    expense !== null &&
+    expense.filter(function (el) {
+      return el.Date.substring(0, 10) == date2;
+    });
   console.log(namesdate);
 
   const renderListOfUserNames = (namesdate) => {
-
-    return namesdate && namesdate.map((name) => (
-      <div className="hi">
-        <div className="listelement">
-          <div className="listdetails">
-            <div className="content-upper">
-              <div className="listname">{name.Item}</div>
-              <div className="listmoney">₹{name.MoneySpent}</div>
-            </div>
-            <div className="content-lower">
-              <div className="listdate">{name.Date.substring(0, 10)}</div>
-              <div className="list-type">{name.Category}</div>
-              <a
-                className="btn btn-custom listcollapsebutton"
-                data-bs-toggle="collapse"
-                href={`#collapseExample${name._id}`}
-                role="button"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                <KeyboardArrowDownIcon />
-              </a>
+    return (
+      namesdate &&
+      namesdate.map((name) => (
+        <div className="hi">
+          <div className="listelement">
+            <div className="listdetails">
+              <div className="content-upper">
+                <div className="listname">{name.Item}</div>
+                <div className="listmoney">₹{name.MoneySpent}</div>
+              </div>
+              <div className="content-lower">
+                <div className="listdate">{name.Date.substring(0, 10)}</div>
+                <div className="list-type">{name.Category}</div>
+                <a
+                  className="btn btn-custom listcollapsebutton"
+                  data-toggle="collapse"
+                  href={`#collapseExample${name._id}`}
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  <KeyboardArrowDownIcon />
+                </a>
+              </div>
             </div>
           </div>
+          <div
+            className="collapse listdescription"
+            id={`collapseExample${name._id}`}
+          >
+            <div className=" listdesc">{name.Description}</div>
+          </div>
         </div>
-        <div className="collapse listdescription" id={`collapseExample${name._id}`}>
-          <div className=" listdesc">{name.Description}</div>
-        </div></div>
-
-    ));
+      ))
+    );
   };
 
-
   return (
-    <div className="everything" >
-      <div clasName="big-container-expenses" style={{ width: '100%', alignItems: window.innerWidth <= 1320 ? 'center' : 'inherit', flexDirection: window.innerWidth <= 1320 ? 'column' : 'row', filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
+    <div className="everything">
+      <div
+        clasName="big-container-expenses"
+        style={{
+          width: "100%",
+          alignItems: window.innerWidth <= 1320 ? "center" : "inherit",
+          flexDirection: window.innerWidth <= 1320 ? "column" : "row",
+          filter: showPopup ? "blur(5px)" : "none",
+          disabled: showPopup ? true : false,
+          display: "flex",
+        }}
+      >
         <div className="left-block">
           <div className="calendar-comp">
-            <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
+            <Calendar
+              onChange={onChange}
+              value={date}
+              maxDetail="month"
+              minDetail="month"
+              defaultView="month"
+            />
           </div>
           <div className="span2">
             <span className="bigboxm">
@@ -181,7 +186,6 @@ const CalendarMonth = () => {
               </div>
             </span>
           </div>
-
         </div>
 
         <div className="middle-block">
@@ -190,11 +194,9 @@ const CalendarMonth = () => {
             <ul>{renderListOfUserNames(namesdate)}</ul>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 
 export default CalendarMonth;
-
-

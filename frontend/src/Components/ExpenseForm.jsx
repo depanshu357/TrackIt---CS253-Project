@@ -92,10 +92,10 @@ const ExpenseForm = () => {
       </div>
       <div>
         <label>Category:</label>
-        <select onChange={(e) => setCategory(e.target.value)}>
-          <option>Please Select a Category</option>
+        <select onChange={(e) => setCategory(e.target.value)} style={{backgroundColor:"black",color:"white"}}>
+          <option style={{backgroundColor:"black",color:"white"}}>Please Select a Category</option>
           {options.map((option, index) => {
-            return <option key={index}>{option}</option>;
+            return <option key={index} style={{backgroundColor:"black",color:"white"}}>{option}</option>;
           })}
         </select>
       </div>

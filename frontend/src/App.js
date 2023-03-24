@@ -1,22 +1,14 @@
 // import { Routes } from "react-router-dom";
 // import  from 'react'
 import { useState } from "react";
-import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import MonthSummary from "./Components/MonthSummary";
 import DailySummary from "./Components/DailySummary";
-//import Expenses from "./Components/Expenses";
-import Borrowings from "./Components/Borrowings";
-// import CalendarMonth from "./Components/CalenderMonth.css/calendarMonth";
 import CalendarMonth from "./Components/CalenderMonth/calendarMonth";
 import CalendarYear from "./Components/calendarYear";
-// import Seller from "./Components/Seller";
 
 import History from "./Components/History";
-// import Profile from "./Components/Profile";
-// import Login from "./Components/Login";
-// import SignUp from "./Components/SignUp";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 import Home from "./pages/Home";
@@ -24,14 +16,11 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Forget_Password from "./pages/Forget_Password";
-// import MonthSummary from "./pages/MonthSummary"
-import CurrentMonth from "./pages/CurrentMonth";
-import ExpenseForm from "./Components/ExpenseForm";
+// import CurrentMonth from "./pages/CurrentMonth";
 import Navbar from "./Components/Navbar/Navbar.js";
 
 import Analytics from "./Components/Analytics";
 import Cards from "./Components/Cards";
-import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import LNavbar from "./Components/Navbar";
 import AddExpense from "./Components/AddExpense";
@@ -71,6 +60,7 @@ function App() {
             <Route
               path="/landing"
               element={
+                !user ?
                 <div>
                   <LNavbar  />
                   <Hero />
@@ -79,7 +69,8 @@ function App() {
                  
                   <Cards />
                   {/* <Footer /> */}
-                </div>
+                </div> :
+                <Navigate to="/" />
               }
             />
 
@@ -101,20 +92,12 @@ function App() {
                 )
               }
             />
-            {/* <Route
-              path="/seller"
-              element={<Seller />}
-            /> */}
             <Route
               path="/"
               element={
-                user ? <Navbar Display={Home} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
+                user ? <Navbar Display={Home} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/landing" />
               }
             />
-            {/* <Route
-              path="/outside-home"
-              element={<div><Navbar2/> <Hero/><Analytics/> </div>}
-            /> */}
 
             <Route
               path="/monthSummary"
@@ -168,19 +151,11 @@ function App() {
               }
             />
             <Route
-              path="/profile"
-              element={
-                user ? <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
-              }
-            />
-            <Route
               path="/history"
               element={
                 user ? <Navbar Display={History} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
               }
             />
-
-            <Route path="/add-expense" element={<CurrentMonth />} />
             <Route path="/temp" element={<Navbar Display={CalendarMonth} showPopup={showPopup} setShowPopup={setShowPopup} />} />
           </Routes>
         </div>

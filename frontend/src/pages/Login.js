@@ -24,7 +24,7 @@ const Login = () => {
         rel="stylesheet"
       ></link>
       <link rel="stylesheet" href="./style.css"></link>
-      <section class="ftco-section" style={{ overflowX: "hidden" }}>
+      <section class="ftco-section" style={{ overflowX: "hidden" ,height:"100vh"}}>
         <div class="container1">
           <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">

@@ -85,19 +85,6 @@ const DuesDetailsForShopkeeper = (props) => {
           style={{ cursor: "pointer"}}
         > 
         </span>
-        {/* <div>
-          <a
-            class="btn btn-primary"
-            data-bs-toggle="collapse"
-            href={"#collapseExample" + props.due._id}
-            role="button"
-            aria-expanded="false"
-            aria-controls={"collapseExample" + props.due._id}
-            style={{ margin: "0", padding: "0", width: "20px" }}
-          >
-            v
-          </a>
-        </div> */}
         </div>
 
       </div>
