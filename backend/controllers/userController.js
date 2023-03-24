@@ -75,18 +75,18 @@ const getOtp = async (req, res) => {
 
     var mailOptions = {
       from: 'noreplytrackit98@gmail.com',
-      to: email, 
+      to: email,
       subject: "Validation OTP from TrackIT",
       html: `Hello,<br> Please find below your requested OTP: <br> <h1>${otp}</h1><br>regards <br> Customer Care,<br>TrackIT`
     };
 
-    // transporter.sendMail(mailOptions, function (error) {
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log('Email sent to: ' + email);
-    //   }
-    // });
+    transporter.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent to: ' + email);
+      }
+    });
 
     res.status(200).json("OK")
   } catch (error) {
@@ -95,24 +95,24 @@ const getOtp = async (req, res) => {
 }
 
 //updatePassword
-const updatePassword = async(req,res) => {
-  const {email,password} = req.body;
+const updatePassword = async (req, res) => {
+  const { email, password } = req.body;
   const salt = await bcrypt.genSalt(10)
-  const hash = await bcrypt.hash(password,salt)
+  const hash = await bcrypt.hash(password, salt)
   const opts = { new: true };
-  try{
+  try {
 
-    const user = await User.findOneAndUpdate({email:email},{
+    const user = await User.findOneAndUpdate({ email: email }, {
       password: hash,
-    },opts)
-      res.status(200).json("OK")
-      // console.log(user)
+    }, opts)
+    res.status(200).json("OK")
+    // console.log(user)
     // cons
   }
-  catch(error){
-     res.status.json({error: error.message})
+  catch (error) {
+    res.status.json({ error: error.message })
   }
 
 }
 
-module.exports = { signupUser, loginUser, getOtp , updatePassword}
+module.exports = { signupUser, loginUser, getOtp, updatePassword }
