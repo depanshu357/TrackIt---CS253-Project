@@ -5,7 +5,7 @@ import dashboard from "../assets/dashboard.jpg";
 import seller from "../assets/seller.png";
 import borrowing from "../assets/borrowing.jpg";
 import expense from '../assets/expense.jpg';
-
+import { Link } from "react-router-dom";
 import Cards from "./Cards";
 const Features = () => {
   return (
@@ -26,11 +26,11 @@ const Features = () => {
             various groups.  
           </p>
           <div className="flex justify-end">
-            <a href="#signup">
+          <Link to="/signup">
               <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -48,11 +48,11 @@ const Features = () => {
             keep track of your expenses and monitor your spending habits over
             time
           </p>
-          <a href="#signup">
+          <Link to="/signup">
             <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
-          </a>
+          </Link>
         </div>
         <img
           className="w-[500px] mx-auto my-4 hover:scale-105 duration-300"
@@ -79,11 +79,11 @@ const Features = () => {
           </p>
 
           <div className="flex justify-end">
-            <a href="#signup">
+          <Link to="/signup">
               <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -100,11 +100,11 @@ const Features = () => {
             can track your spending against your goals. By seeing how you're
             progressing towards your goals, you can stay motivated and on track.
           </p>
-          <a href="#signup">
+          <Link to="/signup">
             <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
-          </a>
+          </Link>
         </div>
         <img
           className="w-[500px] mx-auto my-4 hover:scale-105 duration-300"
@@ -132,11 +132,11 @@ const Features = () => {
           </p>
 
           <div className="flex justify-end">
-            <a href="#signup">
+          <Link to="/signup">
               <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

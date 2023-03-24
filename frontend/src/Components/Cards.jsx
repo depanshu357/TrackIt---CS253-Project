@@ -40,7 +40,7 @@ const Cards = () => {
           <img className="w-20 mx-auto mt-[-3rem] bg-white" src={boy} alt="/" />
           <h2 className="text-2xl font-bold text-center py-8">
             {" "}
-            Maurya Aryan Swaminathn
+            Maurya Aryan Swaminathan
           </h2>
 
           <div className="text-center font-medium">
