@@ -76,7 +76,7 @@ function App() {
                   <Hero />
 
                   <Analytics />
-                  <MonthSummary />
+                 
                   <Cards />
                   <Footer />
                 </div>
