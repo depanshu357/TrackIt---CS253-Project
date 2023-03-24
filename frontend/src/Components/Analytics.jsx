@@ -14,10 +14,10 @@ const Analytics = () => {
           src={homepage}
           alt="/"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">HOMEPAGE</p>
 
-          <p className="text-white">
+          <p className="text-white ">
             Homepage features a user-friendly calendar that allows you to
             quickly select any date and see list of all transactions made on
             that day, including the date, amount, shop or vendor, and category
@@ -36,11 +36,11 @@ const Analytics = () => {
       </div>
       <br></br>
       <br></br>
-      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-        <div className="flex flex-col justify-center">
+      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 ">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">SELLER'S PAGE</p>
 
-          <p className="text-white">
+          <p className="text-white ">
             Our seller's page is designed user-friendly to help shopkeepers
             track outstanding debts. It allows you to easily input customer
             information,borrowing date and track whether or not customers have
@@ -67,7 +67,7 @@ const Analytics = () => {
           src={borrowing}
           alt="/"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">BORROWING PAGE</p>
 
           <p className="text-white">
@@ -88,7 +88,7 @@ const Analytics = () => {
       </div>
 
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">DATA ANALYTICS DASHBOARD</p>
 
           <p className="text-white">
