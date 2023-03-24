@@ -12,7 +12,7 @@ const Cards = () => {
           <h2 className="text-2xl font-bold text-center py-8">Elon Musk</h2>
           <div className="text-center font-medium">
             <p className="py-2 border-b mx-8 mt-8">
-              This app has revolutionized the way i manage my finances!The
+              This app has revolutionized the way I manage my finances! The
               Calendar feature is a game changer and has helped me stay on top
               of my spending like never before{" "}
             </p>
@@ -25,7 +25,7 @@ const Cards = () => {
             alt="/"
           />
           <h2 className="text-2xl font-bold text-center py-8">
-            Shrilakshmi S K
+            Aishwarya Singh
           </h2>
 
           <div className="text-center font-medium">
@@ -40,12 +40,12 @@ const Cards = () => {
           <img className="w-20 mx-auto mt-[-3rem] bg-white" src={boy} alt="/" />
           <h2 className="text-2xl font-bold text-center py-8">
             {" "}
-            Maurya Aryan Swaminathn
+            Maurya Aryan Swaminathan
           </h2>
 
           <div className="text-center font-medium">
             <p className="py-2 border-b mx-8 mt-8">
-              I love the data analytics dashboard being able to see my spending
+              I love the data analytics dashboard. Being able to see my spending
               habits in easy to understand graphs and charts has really helped
               me make better financial decisions
             </p>

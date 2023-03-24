@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="text-white bg-black" >
+
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <p className="text-[#3A98B9] font-bold p-2">
           MASTER YOUR SPENDING GOALS
@@ -15,14 +16,14 @@ const Hero = () => {
         <div className="flex justify-center items-center">
           <p className="md:text-4xl sm:text-3xl text-xl font-bold py-4">
             Fast, flexible webapp to
-          
-          <Typed
-            className="md:text-4xl sm:text-3xl text-xl font-bold md:pl-4 pl-2"
-            strings={["track expenses", "view analytics"]}
-            typeSpeed={120}
-            backSpeed={140}
-            loop
-          />
+
+            <Typed
+              className="md:text-4xl sm:text-3xl text-xl font-bold md:pl-4 pl-2"
+              strings={["track expenses", "view analytics"]}
+              typeSpeed={120}
+              backSpeed={140}
+              loop
+            />
           </p>
         </div>
         <p className="md:text-2xl text-xl font-bold text-gray-500">
