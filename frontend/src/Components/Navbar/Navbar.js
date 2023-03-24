@@ -226,7 +226,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           <AccountBalanceWalletIcon className="expenses-icon" />
                         </Link>
                       ) : index === 2 ? (
-                        <Link to="/dashboard" className="navbar-home-icon  ">
+                        <Link to="/analytics" className="navbar-home-icon  ">
                           {" "}
                           <ExploreIcon className="dashboard-icon" />
                         </Link>
@@ -246,7 +246,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                             index === 0
                               ? "/expenses"
                               : index == 2
-                                ? "/dashboard"
+                                ? "/analytics"
                                 : "/borrowings"
 
                           }
@@ -280,6 +280,71 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
               </button>
             </span>
           )}
+
+          {user.userType == "Shopkeeper" &&
+            ["Dashboard"].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {index === 0 ? (
+                      <Link to="/expenses" className="navbar-home-icon  ">
+                        <AccountBalanceWalletIcon className="expenses-icon" />
+                      </Link>
+                    ) : index === 2 ? (
+                      <Link to="/analytics" className="navbar-home-icon  ">
+                        {" "}
+                        <ExploreIcon className="dashboard-icon" />
+                      </Link>
+                    ) : (
+                      <Link to="/borrowings" className="navbar-home-icon  ">
+                        {" "}
+                        <CreditCardIcon className="borrowings-icon" />
+                      </Link>
+                    )}
+                  </ListItemIcon>
+
+                  <ListItemText
+                    primary={
+                      <Link
+                        className="navbar-text"
+                        to={
+                          index === 0
+                            ? "/expenses"
+                            : index == 2
+                              ? "/analytics"
+                              : "/borrowings"
+                        }
+                      >
+                        {text}
+                      </Link>
+                    }
+                    sx={{ opacity: open ? 1 : 0 }}
+                    style={{
+                      color:
+                        index === 0
+                          ? "#8F5FE8"
+                          : index === 2
+                            ? "#00D25B"
+                            : index == 3 ? "#6cbbe3"
+                              : "#F8A91A",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+
         </List>
         <Divider />
       </Drawer>

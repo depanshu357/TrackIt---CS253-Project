@@ -72,11 +72,11 @@ function App() {
               path="/landing"
               element={
                 <div>
-                  <LNavbar  />
+                  <LNavbar />
                   <Hero />
 
                   <Analytics />
-                 
+
                   <Cards />
                   {/* <Footer /> */}
                 </div>
@@ -126,15 +126,15 @@ function App() {
                 )
               }
             />
-            <Route 
-            path="/profile"
-            element={
-              1 ? (
-                <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
+            <Route
+              path="/profile"
+              element={
+                1 ? (
+                  <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
             <Route
               path="/borrowings"
@@ -158,7 +158,7 @@ function App() {
               }
             />
             <Route
-              path="/dashboard"
+              path="/analytics"
               element={
                 user ? (
                   <Navbar Display={Dashboard} showPopup={showPopup} setShowPopup={setShowPopup} />
