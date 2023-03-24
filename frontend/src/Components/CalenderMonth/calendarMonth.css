@@ -246,7 +246,7 @@ abbr {
   border-radius: 10px;
   /* width: 30vw; */
   padding: 10px;
-  background-color: #06C9A1;
+  background-color: #83959b;
   z-index: 10;
 }
 
@@ -643,4 +643,8 @@ abbr {
     justify-content: center;
   }
 
+}
+
+.btn-custom {
+  background-color: #3A98B9 !important;
 }

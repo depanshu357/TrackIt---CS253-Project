@@ -102,7 +102,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
-  const handleClick = (req,res) => {
+  const handleClick = (req, res) => {
     logout();
 
   };
@@ -204,7 +204,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
         <Divider />
         <List>
           {user.userType == "Customer" &&
-            ["Expenses", "Borrowings", "Dashboard", "Profile"].map(
+            ["Expenses", "Borrowings", "Analytics"].map(
               (text, index) => (
                 <ListItem key={text} disablePadding sx={{ display: "block" }}>
                   <ListItemButton
@@ -230,17 +230,12 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           {" "}
                           <ExploreIcon className="dashboard-icon" />
                         </Link>
-                      ) : index === 1 ? (
+                      ) :
                         <Link to="/borrowings" className="navbar-home-icon  ">
                           {" "}
                           <CreditCardIcon className="borrowings-icon" />
                         </Link>
-                      ) : (
-                        <Link to="/profile" className="navbar-home-icon  ">
-                          {" "}
-                          <PeopleAltIcon className="profile-icon" />
-                        </Link>
-                      )}
+                      }
                     </ListItemIcon>
 
                     <ListItemText
@@ -251,9 +246,9 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                             index === 0
                               ? "/expenses"
                               : index == 2
-                              ? "/dashboard"
-                              : index ==1 ?"/borrowings"
-                              : "/profile"
+                                ? "/dashboard"
+                                : "/borrowings"
+
                           }
                         >
                           {text}
@@ -265,8 +260,9 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           index === 0
                             ? "#8F5FE8"
                             : index === 2
-                            ? "#00D25B"
-                            : "#F8A91A",
+                              ? "#00D25B"
+                              : index == 3 ? "#6cbbe3"
+                                : "#F8A91A",
                       }}
                     />
                   </ListItemButton>
@@ -310,15 +306,10 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                         {" "}
                         <ExploreIcon className="dashboard-icon" />
                       </Link>
-                    ) : index === 1 ? (
+                    ) : (
                       <Link to="/borrowings" className="navbar-home-icon  ">
                         {" "}
                         <CreditCardIcon className="borrowings-icon" />
-                      </Link>
-                    ) : (
-                      <Link to="/profile" className="navbar-home-icon  ">
-                        {" "}
-                        <PeopleAltIcon className="profile-icon" />
                       </Link>
                     )}
                   </ListItemIcon>
@@ -331,10 +322,8 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                           index === 0
                             ? "/expenses"
                             : index == 2
-                            ? "/dashboard"
-                            : index == 1
-                            ? "/borrowings"
-                            : "/profile"
+                              ? "/dashboard"
+                              : "/borrowings"
                         }
                       >
                         {text}
@@ -346,8 +335,9 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
                         index === 0
                           ? "#8F5FE8"
                           : index === 2
-                          ? "#00D25B"
-                          : "#F8A91A",
+                            ? "#00D25B"
+                            : index == 3 ? "#6cbbe3"
+                              : "#F8A91A",
                     }}
                   />
                 </ListItemButton>
@@ -363,6 +353,6 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
       >
         <Display></Display>
       </Box>
-    </Box>
+    </Box >
   );
 }

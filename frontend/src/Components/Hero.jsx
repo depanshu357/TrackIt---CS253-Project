@@ -1,9 +1,10 @@
 import React from "react";
 import Typed from "react-typed";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="text-white">
+    <div className="text-white" >
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <p className="text-[#3A98B9] font-bold p-2">
           MASTER YOUR SPENDING GOALS
@@ -30,19 +31,19 @@ const Hero = () => {
         </p>
         <br />
         <div className="flex  justify-center space-x-16">
-          <a href="#signup">
-            <button className="-m-2   w-[200px] border  hover:border-[#3A98B9] rounded-md font-medium my-6  py-3 hover:text-[#3A98B9] hover:bg-black text-black border-black bg-[#3A98B9]">
+          <Link to="/signup">
+            <button className="-m-2 hover:bg-[#018ee6]   w-[200px] border  hover:border-[#3A98B9] rounded-md font-medium my-6  py-3 hover:text-[#3A98B9] hover:bg-black text-black border-black bg-[#3A98B9]">
               Sign Up
             </button>
-          </a>
-          <a href="#signin">
-            <button className="-m-2 hover:bg-[#3A98B9]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+          </Link>
+          <Link to="/login">
+            <button className="-m-2 hover:bg-[#018ee6]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Sign In
             </button>
-          </a>
+          </Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
