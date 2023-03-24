@@ -8,9 +8,9 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import Calendar from 'react-calendar'
-import './calendarMonth.css';
 import AddExpense from '../AddExpense.js';
 import { pink, lightGreen, blue } from "@mui/material/colors";
+import './calendarMonth.css';
 
 
 
@@ -21,6 +21,23 @@ const CalendarMonth = () => {
   const [borrows, setBorrows] = useState(null);
   const [date, setDate] = useState(new Date());
 
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  })
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    }
+    window.addEventListener('resize', handleResize)
+    return _ => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
 
 
   const [showPopup, setShowPopup] = useState(false);
@@ -29,6 +46,9 @@ const CalendarMonth = () => {
     console.log(e);
     setShowPopup(!showPopup);
   }
+
+
+
 
 
   console.log(expense);
@@ -103,36 +123,37 @@ const CalendarMonth = () => {
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate && namesdate.map((name) => (
-      <div className="hi"><div className="listelement">
-        <div className="listdetails">
-          <div className="content-upper">
-            <div className="listname">{name.Item}</div>
-            <div className="listmoney">₹{name.MoneySpent}</div>
+      <div className="hi">
+        <div className="listelement">
+          <div className="listdetails">
+            <div className="content-upper">
+              <div className="listname">{name.Item}</div>
+              <div className="listmoney">₹{name.MoneySpent}</div>
+            </div>
+            <div className="content-lower">
+              <div className="listdate">{name.Date.substring(0, 10)}</div>
+              <div className="list-type">{name.Category}</div>
+              <a
+                className="btn btn-primary listcollapsebutton"
+                data-bs-toggle="collapse"
+                href={`#collapseExample${name._id}`}
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <KeyboardArrowDownIcon />
+              </a>
+            </div>
+
+
+
+
+
+
           </div>
-          <div className="content-lower">
-            <div className="listdate">{name.Date.substring(0, 10)}</div>
-            <div className="list-type">{name.Category}</div>
-            <a
-              className="btn btn-primary listcollapsebutton"
-              data-bs-toggle="collapse"
-              href={`#collapseExample${name._id}`}
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              <KeyboardArrowDownIcon />
-            </a>
-          </div>
-
-
-
-
 
 
         </div>
-
-
-      </div>
         <div className="collapse listdescription" id={`collapseExample${name._id}`}>
           <div className=" listdesc">{name.Description}</div>
         </div></div>
@@ -147,7 +168,7 @@ const CalendarMonth = () => {
         <AddExpense setShowPopup={setShowPopup} showPopup={showPopup} />
       </div>)
       } */}
-      <div clasName="big-container" style={{ filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
+      <div clasName="big-container-expenses" style={{ width: '100%', alignItems: window.innerWidth <= 1120 ? 'center' : 'inherit', flexDirection: window.innerWidth <= 1120 ? 'column' : 'row', filter: showPopup ? 'blur(5px)' : 'none', disabled: showPopup ? true : false, display: 'flex' }}>
         <div className="left-block">
           <div className="calendar-comp">
             <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
@@ -180,9 +201,7 @@ const CalendarMonth = () => {
               </div>
             </span>
           </div>
-          <div className="monthsummary-comp">
-            <button className="add-expense-popup-button" onClick={handlePopup}>Add Expense</button>
-          </div>
+
         </div>
 
         <div className="middle-block">

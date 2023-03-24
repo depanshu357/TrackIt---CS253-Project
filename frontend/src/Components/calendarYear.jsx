@@ -92,18 +92,12 @@ const CalendarYear = () => {
 
         <div class="listdetails1">
           <div class="listname1">{name.Item}</div>
-<<<<<<< HEAD
+
           <div class="listmoney1">₹{name.Amount}</div>
           <div class="listdate1">{name.Date.substring(0, 10)}</div>
           <div class="listdate1">{name.Paid ? 'Paid' : 'Unpaid'}</div>
 
-=======
-          {/* <div class="listmoney1">{name.MoneySpent}</div> */}
-          {/* <div class="listdate1">{name.Date.substring(0, 10)}</div> */}
-          <div class="listmoney1">₹{name.Amount}</div>
-          <div class="listdate1">{name.Date.substring(0, 10)}</div>
-          <div class="listdate1">{name.Paid ? 'Paid' : 'Unpaid'}</div>
->>>>>>> 4748b02b839b6ffa9f51556c08f5e05a4f69db26
+
           <a
             class="btn btn-primary listcollapsebutton1"
             data-bs-toggle="collapse"
