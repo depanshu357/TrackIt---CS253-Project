@@ -14,10 +14,10 @@ const Analytics = () => {
           src={homepage}
           alt="/"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">HOMEPAGE</p>
 
-          <p className="text-white">
+          <p className="text-white ">
             Homepage features a user-friendly calendar that allows you to
             quickly select any date and see list of all transactions made on
             that day, including the date, amount, shop or vendor, and category
@@ -27,7 +27,7 @@ const Analytics = () => {
           </p>
           <div className="flex justify-end">
             <a href="#signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+              <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
             </a>
@@ -36,11 +36,11 @@ const Analytics = () => {
       </div>
       <br></br>
       <br></br>
-      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-        <div className="flex flex-col justify-center">
+      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 ">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">SELLER'S PAGE</p>
 
-          <p className="text-white">
+          <p className="text-white ">
             Our seller's page is designed user-friendly to help shopkeepers
             track outstanding debts. It allows you to easily input customer
             information,borrowing date and track whether or not customers have
@@ -48,7 +48,7 @@ const Analytics = () => {
             stay on top of your cash flow.
           </p>
           <a href="#signup">
-            <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
           </a>
@@ -67,7 +67,7 @@ const Analytics = () => {
           src={borrowing}
           alt="/"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">BORROWING PAGE</p>
 
           <p className="text-white">
@@ -79,7 +79,7 @@ const Analytics = () => {
 
           <div className="flex justify-end">
             <a href="#signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
                 Get Started
               </button>
             </a>
@@ -88,7 +88,7 @@ const Analytics = () => {
       </div>
 
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center px-4">
           <p className="text-[#3A98B9] font-bold ">DATA ANALYTICS DASHBOARD</p>
 
           <p className="text-white">
@@ -100,7 +100,7 @@ const Analytics = () => {
             progressing towards your goals, you can stay motivated and on track.
           </p>
           <a href="#signup">
-            <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
               Get Started
             </button>
           </a>
