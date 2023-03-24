@@ -1,39 +1,46 @@
-import React from 'react';
-import Typed from 'react-typed';
+import React from "react";
+import Typed from "react-typed";
 
 const Hero = () => {
   return (
-    <div className='text-white'>
-      <div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
-        <p className='text-[#00df9a] font-bold p-2'>
-        MASTER YOUR SPENDING GOALS
+    <div className="text-white">
+      <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
+        <p className="text-[#3A98B9] font-bold p-2">
+          MASTER YOUR SPENDING GOALS
         </p>
-        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>
-        Insights for your finances
+        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+          Insights for your finances
         </h1>
-        <div className='flex justify-center items-center'>
-          <p className='md:text-4xl sm:text-3xl text-xl font-bold py-4'>
+        <div className="flex justify-center items-center">
+          <p className="md:text-4xl sm:text-3xl text-xl font-bold py-4">
             Fast, flexible webapp to
           </p>
           <Typed
-          className='md:text-4xl sm:text-3xl text-xl font-bold md:pl-4 pl-2'
-            strings={['track expenses', 'view analytics']}
+            className="md:text-4xl sm:text-3xl text-xl font-bold md:pl-4 pl-2"
+            strings={["track expenses", "view analytics"]}
             typeSpeed={120}
             backSpeed={140}
             loop
           />
         </div>
-        <p className='md:text-2xl text-xl font-bold text-gray-500'> Control your spending, achieve your financial goals - with our expense tracker app</p>
+        <p className="md:text-2xl text-xl font-bold text-gray-500">
+          {" "}
+          Control your spending, achieve your financial goals - with our expense
+          tracker app
+        </p>
         <br />
-        <div className='flex  justify-center space-x-16'>
-           <button className='-m-2 bg-black w-[200px] border border-[#00df9a]-800 rounded-md font-medium my-6  py-3 text-[#00df9a] '>Sign Up</button>
-
-        <button className='-m-2 bg-black w-[200px] border border-[#00df9a]-800 rounded-md font-medium my-6  py-3 text-[#00df9a] '>Sign In</button>
+        <div className="flex  justify-center space-x-16">
+          <a href="#signup">
+            <button className="-m-2   w-[200px] border  hover:border-[#3A98B9] rounded-md font-medium my-6  py-3 hover:text-[#3A98B9] hover:bg-black text-black border-black bg-[#3A98B9]">
+              Sign Up
+            </button>
+          </a>
+          <a href="#signin">
+            <button className="-m-2 hover:bg-[#3A98B9]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+              Sign In
+            </button>
+          </a>
         </div>
-        {/* <div class="flex justify-center">
-        <button className='-m-2 bg-[#00df9a] w-[200px] rounded-md font-medium my-6  py-3 text-black '>Sign In</button>
-  <button class="px-4 py-2 bg-green-500 text-white">Button 2</button>
-</div> */}
       </div>
     </div>
   );
