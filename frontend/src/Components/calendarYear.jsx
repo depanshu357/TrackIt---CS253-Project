@@ -106,7 +106,7 @@ const CalendarYear = () => {
 
 
           <a
-            className="btn btn-primary listcollapsebutton1"
+            className="btn btn-custom listcollapsebutton1"
             data-bs-toggle="collapse"
             href={`#collapseExample${name._id}`}
             role="button"

@@ -237,7 +237,11 @@ code {
 
 .borrowings-comp {
   overflow-y: scroll;
-  height: 86vh;
+  height: 80vh;
+}
+
+.btn-custom {
+  background-color: #3A98B9;
 }
 
 ul {

@@ -126,7 +126,7 @@ const CalendarMonth = () => {
               <div className="listdate">{name.Date.substring(0, 10)}</div>
               <div className="list-type">{name.Category}</div>
               <a
-                className="btn btn-primary listcollapsebutton"
+                className="btn btn-custom listcollapsebutton"
                 data-bs-toggle="collapse"
                 href={`#collapseExample${name._id}`}
                 role="button"
@@ -155,7 +155,7 @@ const CalendarMonth = () => {
           </div>
           <div className="span2">
             <span className="bigboxm">
-              <ShoppingCartIcon color="primary" />
+              <FastfoodIcon color="primary" />
               <div className="smallboxm ">
                 <span className="text">{monthly_category[0]}</span>
               </div>
@@ -169,13 +169,13 @@ const CalendarMonth = () => {
           </div>
           <div className="span2">
             <span className="bigboxm">
-              <PaymentsIcon />
+              <ShoppingCartIcon />
               <div className="smallboxm">
                 <span className="text">{monthly_category[2]}</span>
               </div>
             </span>
             <span className="bigboxm">
-              <FastfoodIcon sx={{ color: lightGreen }} />
+              <PaymentsIcon sx={{ color: lightGreen }} />
               <div className="smallboxm">
                 <span className="text">{monthly_category[3]}</span>
               </div>

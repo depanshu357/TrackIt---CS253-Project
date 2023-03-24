@@ -67,7 +67,7 @@ function AddExpense({ setShowPopup, showPopup }) {
       >
         <h3>
           Add a New Purchase
-          <span className="add-expense-close-popup" style={{width:"fit-content",position:"absolute",top:"23px",right:"10px",transform:"scale( 1.5 )"}}>
+          <span className="add-expense-close-popup" style={{ width: "fit-content", position: "absolute", top: "-5px", right: "-15px", transform: "scale( 1.5 )" }}>
             <img
               src="/images/cross.png"
               alt="close"
@@ -82,7 +82,7 @@ function AddExpense({ setShowPopup, showPopup }) {
             type="text"
             onChange={(e) => setItem(e.target.value)}
             value={Item}
-            // className={emptyFields?.includes("Item") ? "error" : ""}
+          // className={emptyFields?.includes("Item") ? "error" : ""}
           />
         </div>
         <div>
@@ -91,7 +91,7 @@ function AddExpense({ setShowPopup, showPopup }) {
             type="number"
             onChange={(e) => setMoneySpent(e.target.value)}
             value={MoneySpent}
-            // className={emptyFields.includes("MoneySpent") ? "error" : ""}
+          // className={emptyFields.includes("MoneySpent") ? "error" : ""}
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ function AddExpense({ setShowPopup, showPopup }) {
             type="text"
             onChange={(e) => setDescription(e.target.value)}
             value={Description}
-            // className={emptyFields.includes("Description") ? "error" : ""}
+          // className={emptyFields.includes("Description") ? "error" : ""}
           />
         </div>
         <div>
@@ -109,7 +109,7 @@ function AddExpense({ setShowPopup, showPopup }) {
             type="date"
             onChange={(e) => setDate(e.target.value)}
             value={Date}
-            // className={emptyFields.includes("Date") ? "error" : ""}
+          // className={emptyFields.includes("Date") ? "error" : ""}
           />
         </div>
         <div>

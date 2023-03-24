@@ -8,6 +8,10 @@
     color: #fff
 }
 
+.profile-icon {
+    color: #6CBBE3;
+}
+
 .navbar-home-icon {
     margin: 0;
     padding: 0;
@@ -110,12 +114,13 @@ a:hover {
     height: 100%;
     padding-right: 0px;
 }
-.add-expense-popup-button{
+
+.add-expense-popup-button {
     background-color: #00d25b;
     border-radius: 5px;
-    margin: 2px 5px ;
+    margin: 2px 5px;
     color: white;
     padding: 5px;
-    outline:none;
+    outline: none;
     border: 0;
 }
