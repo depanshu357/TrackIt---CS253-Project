@@ -19,7 +19,7 @@ import Forget_Password from "./pages/Forget_Password";
 // import CurrentMonth from "./pages/CurrentMonth";
 import Navbar from "./Components/Navbar/Navbar.js";
 
-import Analytics from "./Components/Analytics";
+import Features from "./Components/Features";
 import Cards from "./Components/Cards";
 import Hero from "./Components/Hero";
 import LNavbar from "./Components/Navbar";
@@ -61,16 +61,14 @@ function App() {
               path="/landing"
               element={
                 !user ?
-                <div>
-                  <LNavbar />
-                  <Hero />
-
-                  <Analytics />
-
-                  <Cards />
-                  {/* <Footer /> */}
-                </div> :
-                <Navigate to="/" />
+                  <div>
+                    {/* <LNavbar /> */}
+                    <Hero />
+                    <Features />
+                    <Cards />
+                    {/* <Footer /> */}
+                  </div> :
+                  <Navigate to="/" />
               }
             />
 
