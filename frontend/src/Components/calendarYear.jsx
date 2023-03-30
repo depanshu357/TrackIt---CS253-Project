@@ -125,12 +125,6 @@ const CalendarYear = () => {
             </span>
           </a>
 
-
-
-
-
-
-
         </div>
         <div className="collapse listdescription1" id={`collapseExample${name._id}`}>
           <div className=" listdesc1">{name.Item}</div>
@@ -161,10 +155,6 @@ const CalendarYear = () => {
   );
 };
 
-// render(
-// <CalendarYear />, document.querySelector("#root")
-
-// );
 
 export default CalendarYear;
 
