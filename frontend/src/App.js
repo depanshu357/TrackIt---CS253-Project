@@ -61,8 +61,8 @@ function App() {
               path="/landing"
               element={
                 !user ?
-                  <div>
-                    {/* <LNavbar /> */}
+                  <div style={{ backgroundColor: 'black' }}>
+                    <LNavbar />
                     <Hero />
                     <Features />
                     <Cards />

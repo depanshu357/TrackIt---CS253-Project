@@ -48,6 +48,24 @@ const CalendarMonth = () => {
 
 
 
+  const handleClick = async () => {
+    console.log("delete clicked");
+    if (!user) {
+      return
+    }
+
+    const response = await fetch('/api/expense/' + expensee._id, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    const json = await response.json()
+
+    if (response.ok) {
+      dispatch({ type: 'DELETE_EXPENSE', payload: json })
+    }
+  }
 
 
   console.log(expense);
@@ -132,7 +150,9 @@ const CalendarMonth = () => {
             <div className="content-lower">
               <div className="listdate">{name.Date.substring(0, 10)}</div>
               <div className="list-type">{name.Category}</div>
-              <a
+              <button className="delete-btn" onClick={handleClick} >delete</button>
+
+              {/* <a
                 className="btn btn-custom listcollapsebutton"
                 data-bs-toggle="collapse"
                 href={`#collapseExample${name._id}`}
@@ -141,21 +161,18 @@ const CalendarMonth = () => {
                 aria-controls="collapseExample"
               >
                 <KeyboardArrowDownIcon />
-              </a>
+              </a> */}
             </div>
-
-
-
-
-
+            <div className=" listdesc"><span style={{ color: 'gray' }}>Description: </span>{name.Description}</div>
 
           </div>
 
 
         </div>
-        <div className="collapse listdescription" id={`collapseExample${name._id}`}>
+        {/* <div className="collapse listdescription" id={`collapseExample${name._id}`}>
           <div className=" listdesc">{name.Description}</div>
-        </div></div>
+        </div> */}
+      </div >
 
     ));
   };

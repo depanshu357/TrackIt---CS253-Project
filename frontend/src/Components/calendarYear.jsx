@@ -17,6 +17,26 @@ const CalendarYear = () => {
   const { user } = useAuthContext;
 
 
+  const handleClick = async () => {
+    console.log("delete clicked");
+    if (!user) {
+      return
+    }
+
+    const response = await fetch('/api/expense/' + expensee._id, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+    const json = await response.json()
+
+    if (response.ok) {
+      dispatch({ type: 'DELETE_EXPENSE', payload: json })
+    }
+  }
+
+
   const onChange = date => {
     setDate(date)
   }
@@ -73,8 +93,8 @@ const CalendarYear = () => {
       // console.log(customers);
     };
     if (user) {
-      fetchDues();
-      console.log(user);
+      console.log("userrrrr");
+      // fetchDues();
     }
     console.log(Dues);
   }, [dispatchd, user]);
@@ -83,7 +103,7 @@ const CalendarYear = () => {
     // console.log(el.Date, date2, el.Date == date2);
     return el.Date.substring(0, 7) == date2;
   });
-  console.log(namesdate);
+  // console.log(namesdate);
 
   const renderListOfUserNames = (namesdate) => {
 
@@ -110,9 +130,10 @@ const CalendarYear = () => {
               Unpaid
             </span>}
           </span>
+          {/* <button className="delete-btn" onClick={handleClick} >delete</button> */}
 
 
-          <a
+          {/* <a
             className="btn btn-custom listcollapsebutton1"
             data-bs-toggle="collapse"
             href={`#collapseExample${name._id}`}
@@ -123,12 +144,14 @@ const CalendarYear = () => {
             <span className="textv">
               <KeyboardArrowDownIcon />
             </span>
-          </a>
+          </a> */}
 
         </div>
-        <div className="collapse listdescription1" id={`collapseExample${name._id}`}>
+        <div className=" listdesc1"><span style={{ color: 'gray' }}>Description: </span>{name.Description}</div>
+
+        {/* <div className="collapse listdescription1" id={`collapseExample${name._id}`}>
           <div className=" listdesc1">{name.Item}</div>
-        </div>
+        </div> */}
       </div>
 
     ));

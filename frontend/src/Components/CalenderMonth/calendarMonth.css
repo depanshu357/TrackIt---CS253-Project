@@ -488,6 +488,10 @@ abbr {
   padding-right: 3%;
 }
 
+.listdesc {
+  padding: 0 !important;
+}
+
 .listimage {
   width: 10%;
 }
@@ -587,6 +591,14 @@ abbr {
   left: 93%;
   width: 6%;
   height: 80%;
+
+}
+
+.delete-btn {
+  font-size: 1rem;
+  background-color: #3A98B9;
+  padding: 2px 5px;
+  border-radius: 5px;
 
 }
 
