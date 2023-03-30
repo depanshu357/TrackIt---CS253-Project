@@ -39,11 +39,12 @@ const loginUser = async (req, res) => {
     let userType = user.userType;
     let rollNo = user.rollNo;
     let shopName = user.shopName;
+    let budget = user.budget;
 
     // create a token
     const token = createToken(user._id)
 
-    res.status(200).json({ email, token, userType, rollNo, shopName ,budget})
+    res.status(200).json({ email, token, userType, rollNo, shopName, budget })
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
@@ -51,20 +52,20 @@ const loginUser = async (req, res) => {
 
 // signup a user
 const signupUser = async (req, res) => {
-  const { email, password, userType, rollNo, shopName,budget } = req.body
+  const { email, password, userType, rollNo, shopName, budget } = req.body
 
   try {
-    const user = await User.signup(email, password, userType, rollNo, shopName,budget)
+    const user = await User.signup(email, password, userType, rollNo, shopName, budget)
 
     // create a token
     const token = createToken(user._id)
 
-    res.status(200).json({ email, token, userType, rollNo, shopName,budget })
+    res.status(200).json({ email, token, userType, rollNo, shopName, budget })
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
 }
- 
+
 const getOtp = async (req, res) => {
   const { otp, email } = req.body
   console.log(otp);
@@ -134,4 +135,4 @@ const setBudget = async (req, res) => {
 
 }
 
-module.exports = { signupUser, loginUser, getOtp, updatePassword,setBudget }
+module.exports = { signupUser, loginUser, getOtp, updatePassword, setBudget }

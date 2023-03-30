@@ -203,6 +203,18 @@ code {
   height: 95vh;
 }
 
+.listdesc1 {
+  padding: 0 10px !important;
+}
+
+/* .delete-btn {
+  font-size: 1rem;
+  background-color: #3A98B9;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: white;
+} */
+
 .react-calendar__year-view .react-calendar__tile {
 
   border-radius: 10px;
@@ -280,15 +292,15 @@ ul {
 }
 
 .listdate1-span {
-  width: 25%;
+  width: 30%;
 }
 
 .listmoney1-span {
-  width: 12%;
+  width: 20%;
 }
 
 .listpaid1-span {
-  width: 9%;
+  width: 12%;
 }
 
 @media screen and (max-width:1355px) {
