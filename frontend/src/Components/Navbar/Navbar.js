@@ -288,7 +288,7 @@ export default function Navbar({ Display, showPopup, setShowPopup }) {
           )}
 
           {user.userType == "Shopkeeper" &&
-            ["Dashboard"].map((text, index) => (
+            [].map((text, index) => (
               <ListItem key={text} disablePadding sx={{ display: "block" }}>
                 <ListItemButton
                   sx={{

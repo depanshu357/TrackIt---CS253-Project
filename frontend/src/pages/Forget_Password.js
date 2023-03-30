@@ -8,14 +8,15 @@ const Forget_Password = () => {
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [lock,setLock] = useState(false)
   const [message, setMessage] = useState(null);
   const [temp,setTemp] = useState(null)
 
   var otp = null;
   const sendEmail = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
+ 
+    setLock(true)
     otp = Math.floor(100000 + Math.random() * 900000);
     console.log(otp);
     setTemp(otp);
@@ -35,6 +36,7 @@ const Forget_Password = () => {
   const handleSubmit = async (e) => {
     // e.preventDefault();
     const updatePassword = { email, password };
+    setIsLoading(true);
     console.log(temp ,Otp)
     if ((temp.toString()) !== Otp) {
       setMessage("Wrong OTP");
@@ -58,6 +60,7 @@ const Forget_Password = () => {
             }
         }
         fetchUpdatePassword();
+        setIsLoading(false)
     }
   };
 
@@ -91,7 +94,7 @@ return (
                       disabled={isLoading}
                       value={email}
                     />
-                    <button className="form-control btn btn-primary rounded submit px-3" onClick={sendEmail}>Send OTP</button>
+                    <button className="form-control btn btn-primary rounded submit px-3" onClick={sendEmail} disabled={lock}>Send OTP</button>
                   </div>
                   <div class="form-group mb-3">
                     <label class="label" for="password">OTP:</label>
@@ -139,168 +142,6 @@ return (
       </div>
       </div>
     </section>
-    {/* <div className="singup-page-background">
-      <div className="container">
-        <div className="design">
-          <div className="pill-1 rotate-45" />
-          <div className="pill-2 rotate-45" />
-          <div className="pill-3 rotate-45" />
-          <div className="pill-4 rotate-45" />
-        </div>
-        <form className="login signup" onSubmit={handleSubmit}>
-          <h3 className="title">Register</h3> */}
-          {/* <div className="text-input">
-          <i className="ri-user-fill" />
-          <input type="text" placeholder="First Name" />
-        </div>
-        <div className="text-input">
-          <i className="ri-user-fill" />
-          <input type="text" placeholder="Last Name" />
-        </div> */}
-
-          {/* <div className="text-input email-verify">
-            <i className="ri-user-fill" />
-            <input
-              placeholder="Email id"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <button className="verify-btn" onClick={sendEmail}>Verify</button>
-          </div>
-
-
-
-          <div className="text-input">
-            <i className="ri-user-fill" />
-            <label>OTP:</label>
-            <input type="number"
-              onChange={(e) => setOTP(e.target.value)}
-              value={OTP}
-            />
-          </div>
-
-
-          <div className="text-input">
-            <i className="ri-lock-fill" />
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </div>
-          <select className="text-input" onChange={onOptionChangeHandler}>
-            <i className="ri-user-fill" /> */}
-            {/* <input
-          placeholder="Email id"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email} /> */}
-            {/* <option>Please choose one option</option>
-            {options.map((option, index) => {
-              return <option key={index}>{option}</option>;
-            })}
-          </select>
-          <div className="text-input">
-            <i className="ri-user-fill" /> */}
-            {/* <input
-          placeholder="Email id"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email} /> */}
-            {/* {userType === "Customer" && (
-              <div>
-                <input
-                  type="number"
-                  value={rollNo}
-                  onChange={(e) => setRollNo(e.target.value)}
-                  placeholder="IITK RollNo"
-                />
-              </div>
-            )}
-
-            {userType === "Shopkeeper" && (
-              <div>
-                <input
-                  type="text"
-                  value={shopName}
-                  onChange={(e) => setShopName(e.target.value)}
-                  placeholder="ShopName"
-                />
-              </div>
-            )}
-          </div>
-          <button className="login-btn" disabled={isLoading}>
-            SUBMIT
-          </button>
-          {error && <div className="error">{error}</div>}
-          <div className="create">
-            <a href="/login"> Registered Already? Log in</a>
-            <i className="ri-arrow-right-fill" />
-          </div>
-        </form>
-      </div> */}
-
-      {/* <form className="signup" onSubmit={handleSubmit}>
-    <h3>Sign Up</h3>
-
-    <label>Email address:</label>
-    <input
-      type="email"
-      onChange={(e) => setEmail(e.target.value)}
-      value={email}
-      />
-    <label>Password:</label>
-    <input
-      type="password"
-      onChange={(e) => setPassword(e.target.value)}
-      value={password}
-      /> */}
-      {/* <label> IITK Roll Number</label>
-    <input
-    type="text"
-    onChange={(e) => setRollNo(e.target.value)}
-    value={rollNo}
-  /> */}
-
-      {/* <select onChange={onOptionChangeHandler}>
-      <option>Please choose one option</option>
-      {options.map((option, index) => {
-        return <option key={index}>{option}</option>;
-      })}
-    </select>
-
-    {
-      (userType==="Customer") && <div>
-        <label >IITK RollNo: </label>
-        <input
-         type="number"
-         value={rollNo}
-         onChange={(e)=>setRollNo(e.target.value)}
-         placeholder="IITK RollNo"
-         />
-      </div>
-    }
-
-    {(userType==="Shopkeeper") && 
-      <div>
-        <label >Shop Name:</label>
-        <input 
-        type="text"
-        value={shopName}
-        onChange={e => setShopName(e.target.value)}
-        />
-      </div>
-    }
-
-    <button disabled={isLoading}>Sign up</button>
-    <p>
-      Already a user!! <a href="/login">Login Here</a>
-    </p>
-    {error && <div className="error">{error}</div>}
-  </form> */}
-    {/* </div> */}
   </>
 );
 

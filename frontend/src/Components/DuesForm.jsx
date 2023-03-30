@@ -24,7 +24,9 @@ const ExpenseForm = ({d,setD}) => {
     }
     console.log(user.shopName)
     var shopName = user.shopName;
-    const due = {Item, Amount, Description,Date,RollNo,shopName}
+    var email = user.email;
+    // console.log(email)
+    const due = {Item, Amount, Description,Date,RollNo,shopName,email}
 
     const response = await fetch('/api/dues', {
       method: 'POST',
@@ -66,7 +68,7 @@ const ExpenseForm = ({d,setD}) => {
         type="text"
         onChange={(e) => setItem(e.target.value)}
         value={Item}
-        className={emptyFields.includes('Item') ? 'error' : ''}
+        className=''
         placeholder="Item"
       />
 
@@ -83,7 +85,7 @@ const ExpenseForm = ({d,setD}) => {
         type="number"
         onChange={(e) => setAmount(e.target.value)}
         value={Amount}
-        className={emptyFields.includes('Amount') ? 'error' : ''}
+        className=''
         placeholder="Amount"
       />
 
@@ -92,7 +94,7 @@ const ExpenseForm = ({d,setD}) => {
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={Description}
-        className={emptyFields.includes('Description') ? 'error' : ''}
+        className=''
         placeholder="Description"
       />
 
@@ -101,7 +103,7 @@ const ExpenseForm = ({d,setD}) => {
         type="date"
         onChange={(e) => setDate(e.target.value)}
         value={Date}
-        className={emptyFields.includes('Date') ? 'error' : ''}
+        className=''
         placeholder="Date"
       />
 
