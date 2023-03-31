@@ -96,27 +96,6 @@ function App() {
                 user ? <Navbar Display={Home} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/landing" />
               }
             />
-
-            <Route
-              path="/monthSummary"
-              element={
-                user ? (
-                  <Navbar Display={MonthSummary} showPopup={showPopup} setShowPopup={setShowPopup} />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                1 ? (
-                  <Navbar Display={Profile} showPopup={showPopup} setShowPopup={setShowPopup} />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            />
             <Route
               path="/borrowings"
               element={
@@ -129,16 +108,6 @@ function App() {
             />
 
             <Route
-              path="/dailySummary"
-              element={
-                user ? (
-                  <Navbar Display={DailySummary} showPopup={showPopup} setShowPopup={setShowPopup} />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            />
-            <Route
               path="/analytics"
               element={
                 user ? (
@@ -148,13 +117,6 @@ function App() {
                 )
               }
             />
-            <Route
-              path="/history"
-              element={
-                user ? <Navbar Display={History} showPopup={showPopup} setShowPopup={setShowPopup} /> : <Navigate to="/login" />
-              }
-            />
-            <Route path="/temp" element={<Navbar Display={CalendarMonth} showPopup={showPopup} setShowPopup={setShowPopup} />} />
           </Routes>
         </div>
       </BrowserRouter>

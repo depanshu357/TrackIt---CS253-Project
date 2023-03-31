@@ -20,7 +20,7 @@ const CalendarMonth = () => {
   const { user } = useAuthContext();
   const [borrows, setBorrows] = useState(null);
   const [date, setDate] = useState(new Date());
-
+  const [hasData, setHasData] = useState(false);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth
@@ -72,6 +72,11 @@ const CalendarMonth = () => {
   console.log(date2);
   //console.log(typeof date2);
 
+  const namesdate = expense !== null && expense.filter(function (el) {
+    // console.log(el.Date, date2, el.Date == date2);
+    return el.Date.substring(0, 10) == date2;
+  });
+  console.log(namesdate);
 
   var daily_category = [0, 0, 0, 0];
   var monthly_category = [0, 0, 0, 0];
@@ -110,16 +115,17 @@ const CalendarMonth = () => {
     }
 
 
-
+    if (namesdate.length != 0 && !hasData) {
+      setHasData(true);
+    }
+    if (namesdate.length == 0 && hasData) {
+      setHasData(false);
+    }
   }
 
 
 
-  const namesdate = expense !== null && expense.filter(function (el) {
-    // console.log(el.Date, date2, el.Date == date2);
-    return el.Date.substring(0, 10) == date2;
-  });
-  console.log(namesdate);
+
 
   const renderListOfUserNames = (namesdate) => {
 
@@ -177,7 +183,15 @@ const CalendarMonth = () => {
         <div className="middle-block">
           <h1 className="dailytransactions">Daily Transactions</h1>
           <div className="expenses-comp">
-            <ul>{renderListOfUserNames(namesdate)}</ul>
+            <ul>{hasData ? renderListOfUserNames(namesdate) :
+              <div className="hi">
+                <div className="listelement">
+                  <div className="listdetails">
+                    <div className="listname">No Entries</div>
+                  </div>
+                </div>
+              </div>}
+            </ul>
           </div>
         </div>
 
