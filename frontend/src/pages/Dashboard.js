@@ -87,6 +87,9 @@ const Dashboard = () => {
     let Shopping = 0;
     let Others = 0;
     var date = new Date(); var current_month = date.getMonth(); var todays_date = date.getDate(); var current_year = date.getFullYear();
+    if (current_month.length < 2) {
+        current_month = '0' + current_month;
+    }
     var total_data = [];
     var last_fifteen_days_name = [];
     for (let i = 0; i < 15; i++) {
@@ -100,7 +103,7 @@ const Dashboard = () => {
     for (let i = 1; i <= 12; i++) {
         let temp = 0;
         for (let j = 0; expense !== null && j < expense.length; j++) {
-            if (expense[j].Date[5] + expense[j].Date[6] == current_month + 1) {
+            if (expense[j].Date[5] + expense[j].Date[6] == current_month) {
                 bar_graph_progress += expense[j].MoneySpent;
             }
             if (expense[j].Date[5] + expense[j].Date[6] == i) {
@@ -163,25 +166,30 @@ const Dashboard = () => {
             }
         }
         total_data.push({ name: month[i - 1], value: temp });
+        if (i - 1 == current_month) {
+            bar_graph_progress = temp;
+        }
     }
     let last_ten_days_data = [];
 
-    if (checked) {
-        for (let i = 0; i < 10; i++) {
-            last_fifteen_days_data.push({ name: last_fifteen_days_name[10 - i], value: last_fifteen_days_value[14 - i] });
-        }
-    }
-    else {
 
-        for (let i = 0; i < 7; i++) {
-            last_ten_days_data.push({ name: last_fifteen_days_name[7 - i], value: last_fifteen_days_value[14 - i] });
-        }
-    }
+    // if (checked) {
+    //     for (let i = 0; i < 10; i++) {
+    //         last_fifteen_days_data.push({ name: last_fifteen_days_name[10 - i], value: last_fifteen_days_value[14 - i] });
+    //     }
+    // }
+    // else {
 
-    piechart_data.push({ name: "Food", value: Food });
-    piechart_data.push({ name: "Health", value: Health });
-    piechart_data.push({ name: "Shopping", value: Shopping });
-    piechart_data.push({ name: "Other", value: Others });
+    for (let i = 0; i < 7; i++) {
+        last_ten_days_data.push({ name: last_fifteen_days_name[7 - i], value: last_fifteen_days_value[7 + i + 1] });
+    }
+    // }
+    console.log(last_fifteen_days_value);
+    console.log(last_ten_days_data);
+    piechart_data.push({ name: "Food", value: Food, fill: "#0088FE" });
+    piechart_data.push({ name: "Health", value: Health, fill: "#00C49F" });
+    piechart_data.push({ name: "Shopping", value: Shopping, fill: "#FFBB28" });
+    piechart_data.push({ name: "Other", value: Others, fill: "#ff8042" });
 
 
     const data = [
@@ -239,7 +247,6 @@ const Dashboard = () => {
                     <div className="progressbar dashboard-upper-left-bottom">
                         <h6>Spent this month</h6>
                         <Progressbar bgcolor="#00d25b" progress={bar_graph_progress} total={total_budget} height={10} />
-
                     </div>
 
 
@@ -263,7 +270,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="bargraph dashboard-lower">
-                <h6>Spending in Last {checked ? '7' : '10'} days</h6>
+                <h6>Spending in Last {'7'} days</h6>
 
                 <BarChart
                     width={window.innerWidth * 0.70}
@@ -281,10 +288,10 @@ const Dashboard = () => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <Bar dataKey="value" fill="#8884d8" background={{ fill: '#eee' }} />
                 </BarChart>
-                <label className='bargraph-show-last'>
+                {/* <label className='bargraph-show-last'>
                     <input type="checkbox" checked={checked} onChange={setBarGraphdata} />
                     Show Last 7 days
-                </label>
+                </label> */}
             </div>
         </div >
 
