@@ -14,6 +14,7 @@ import { useDuesContext } from "../hooks/useDuesContext";
 const CalendarYear = () => {
   const [date, setDate] = useState(new Date());
   const { user } = useAuthContext;
+
   const { Dues, dispatch: dispatchd } = useDuesContext();
   const [hasData, setHasData] = useState(false);
 
@@ -41,7 +42,7 @@ const CalendarYear = () => {
 
   var borrowings_data = [];
   for (let i = 0; i < Dues.length; i++) {
-    if (Dues[i].RollNo ) {
+    if (Dues[i].RollNo) {
       borrowings_data.push(Dues[i]);
     }
   }
@@ -56,7 +57,7 @@ const CalendarYear = () => {
       const json = await response.json();
       console.log(user.shopName)
       if (response.ok) {
-        console.log(user) ;
+        console.log(user);
         // setRollNo(setRollNo(user.rollNo))
         console.log(" dues coming up ");
         dispatchd({ type: "SET_DUESS", payload: json });
@@ -156,7 +157,7 @@ const CalendarYear = () => {
               </div>
             }</ul>
           </div>
-          
+
         </div>
       </div>
 
