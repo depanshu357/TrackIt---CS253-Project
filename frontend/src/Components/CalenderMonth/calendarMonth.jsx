@@ -49,24 +49,6 @@ const CalendarMonth = () => {
 
 
 
-  const handleClick = async () => {
-    console.log("delete clicked");
-    if (!user) {
-      return
-    }
-
-    const response = await fetch('/api/expense/' + expensee._id, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${user.token}`
-      }
-    })
-    const json = await response.json()
-
-    if (response.ok) {
-      dispatch({ type: 'DELETE_EXPENSE', payload: json })
-    }
-  }
 
 
   console.log(expense);
