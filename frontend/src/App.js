@@ -25,6 +25,7 @@ import Hero from "./Components/Hero";
 import LNavbar from "./Components/Navbar";
 import AddExpense from "./Components/AddExpense";
 import Profile from "./pages/Profile";
+import Borrowings from "./pages/Borrowings";
 
 function App() {
   const { user } = useAuthContext();
@@ -100,7 +101,7 @@ function App() {
               path="/borrowings"
               element={
                 user ? (
-                  <Navbar Display={CalendarYear} showPopup={showPopup} setShowPopup={setShowPopup} />
+                  <Navbar Display={Borrowings} showPopup={showPopup} setShowPopup={setShowPopup} />
                 ) : (
                   <Navigate to="/login" />
                 )
