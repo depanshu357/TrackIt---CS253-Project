@@ -13,7 +13,8 @@ import ExpenseDetails from "../Components/ExpenseDetails";
 import ExpenseForm from "../Components/ExpenseForm";
 import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer";
 import Calendar from 'react-calendar'
-import "./customer.css";
+// import "./customer.css";
+import "./Borrowings.css"
 import { kk } from "date-fns/locale";
 import { pink, lightGreen, blue } from "@mui/material/colors";
 
