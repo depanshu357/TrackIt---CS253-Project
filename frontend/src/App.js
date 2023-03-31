@@ -3,12 +3,8 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import MonthSummary from "./Components/MonthSummary";
-import DailySummary from "./Components/DailySummary";
 import CalendarMonth from "./Components/CalenderMonth/calendarMonth";
-import CalendarYear from "./Components/calendarYear";
-
-import History from "./Components/History";
+// import CalendarYear from "./Components/calendarYear";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 import Home from "./pages/Home";
@@ -24,9 +20,7 @@ import Cards from "./Components/Cards";
 import Hero from "./Components/Hero";
 import LNavbar from "./Components/Navbar";
 import AddExpense from "./Components/AddExpense";
-import Profile from "./pages/Profile";
 import Borrowings from "./pages/Borrowings";
-
 function App() {
   const { user } = useAuthContext();
   const [showPopup, setShowPopup] = useState(false);
@@ -118,6 +112,8 @@ function App() {
                 )
               }
             />
+
+
           </Routes>
         </div>
       </BrowserRouter>
