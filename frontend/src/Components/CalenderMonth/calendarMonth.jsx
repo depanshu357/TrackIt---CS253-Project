@@ -142,6 +142,7 @@ const CalendarMonth = () => {
           <div className="calendar-comp">
             <Calendar onChange={onChange} value={date} maxDetail='month' minDetail="month" defaultView="month" />
           </div>
+          <div style={{ color: 'white', fontSize: '1rem', paddingLeft: '5px' }}>Current Month:</div>
           <div className="span2">
             <span className="bigboxm">
               <FastfoodIcon color="primary" />
@@ -189,12 +190,4 @@ const CalendarMonth = () => {
 
 };
 
-
-
-
-
-
-
 export default CalendarMonth;
-
-
