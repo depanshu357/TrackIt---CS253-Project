@@ -17,7 +17,7 @@ const Features = () => {
           alt="/"
         />
         <div className="flex flex-col justify-center px-4">
-          <p className="text-[#3A98B9] font-bold ">HOMEPAGE</p>
+          <p className="text-[#00d25b] font-bold ">HOMEPAGE</p>
 
           <p className="text-white ">
           The homepage provides an overview of the user's financial behavior,
@@ -27,7 +27,7 @@ const Features = () => {
           </p>
           <div className="flex justify-end">
           <Link to="/signup">
-              <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+          <button className="-m-2 hover:bg-gradient-to-r from-[#00d25b] to-[#00d25b]  w-[200px] border border-[#00d25b] rounded-md font-medium my-6  py-3 text-[#00d25b] font-semibold hover:bg-[#00d25b] hover:text-black hover:border-[#00d25b]">
                 Get Started
               </button>
             </Link>
@@ -38,7 +38,7 @@ const Features = () => {
       <br></br>
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 ">
         <div className="flex flex-col justify-center px-4">
-          <p className="text-[#3A98B9] font-bold ">EXPENSES PAGE</p>
+          <p className="text-[#00d25b] font-bold ">EXPENSES PAGE</p>
 
           <p className="text-white ">
             The expenses page features user-friendly calendar that allows you to
@@ -49,9 +49,9 @@ const Features = () => {
             time
           </p>
           <Link to="/signup">
-            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
-              Get Started
-            </button>
+          <button className="-m-2 hover:bg-gradient-to-r from-[#00d25b] to-[#00d25b]  w-[200px] border border-[#00d25b] rounded-md font-medium my-6  py-3 text-[#00d25b] font-semibold hover:bg-[#00d25b] hover:text-black hover:border-[#00d25b]">
+                Get Started
+              </button>
           </Link>
         </div>
         <img
@@ -69,7 +69,7 @@ const Features = () => {
           alt="/"
         />
         <div className="flex flex-col justify-center px-4">
-          <p className="text-[#3A98B9] font-bold ">BORROWING PAGE</p>
+          <p className="text-[#00d25b] font-bold ">BORROWING PAGE</p>
 
           <p className="text-white">
             With clean and organized layout our app's Borrowings page provides
@@ -80,7 +80,7 @@ const Features = () => {
 
           <div className="flex justify-end">
           <Link to="/signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
+          <button className="-m-2 hover:bg-gradient-to-r from-[#00d25b] to-[#00d25b]  w-[200px] border border-[#00d25b] rounded-md font-medium my-6  py-3 text-[#00d25b] font-semibold hover:bg-[#00d25b] hover:text-black hover:border-[#00d25b]">
                 Get Started
               </button>
             </Link>
@@ -90,7 +90,7 @@ const Features = () => {
 
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
         <div className="flex flex-col justify-center px-4">
-          <p className="text-[#3A98B9] font-bold ">DATA ANALYTICS DASHBOARD</p>
+          <p className="text-[#00d25b] font-bold ">DATA ANALYTICS DASHBOARD</p>
 
           <p className="text-white">
             Visualize your data in meaningful ways, including graphs and charts
@@ -101,9 +101,9 @@ const Features = () => {
             progressing towards your goals, you can stay motivated and on track.
           </p>
           <Link to="/signup">
-            <button className="-m-2 font-semibold hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
-              Get Started
-            </button>
+          <button className="-m-2 hover:bg-gradient-to-r from-[#00d25b] to-[#00d25b]  w-[200px] border border-[#00d25b] rounded-md font-medium my-6  py-3 text-[#00d25b] font-semibold hover:bg-[#00d25b] hover:text-black hover:border-[#00d25b]">
+                Get Started
+              </button>
           </Link>
         </div>
         <img
@@ -120,7 +120,7 @@ const Features = () => {
           alt="/"
         />
         <div className="flex flex-col justify-center px-4">
-          <p className="text-[#3A98B9] font-bold ">SELLER'S PAGE</p>
+          <p className="text-[#00d25b] font-bold ">SELLER'S PAGE</p>
 
           <p className="text-white">
           
@@ -133,9 +133,9 @@ const Features = () => {
 
           <div className="flex justify-end">
           <Link to="/signup">
-              <button className="-m-2 hover:bg-gradient-to-r from-[#19A7CE] to-[#146C94]  w-[200px] border border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] font-semibold hover:bg-[#3A98B9] hover:text-black hover:border-black">
+          <button className="-m-2 hover:bg-gradient-to-r from-[#00d25b] to-[#00d25b]  w-[200px] border border-[#00d25b] rounded-md font-medium my-6  py-3 text-[#00d25b] font-semibold hover:bg-[#00d25b] hover:text-black hover:border-[#00d25b]">
                 Get Started
-              </button>
+              </button> 
             </Link>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Hero = () => {
     <div className="text-white bg-black" >
 
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
-        <p className="text-[#3A98B9] font-bold p-2">
+        <p className="text-[#00d25b] font-bold p-2">
           MASTER YOUR SPENDING GOALS
         </p>
         <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 text-white">
@@ -34,12 +34,12 @@ const Hero = () => {
         <br />
         <div className="flex  justify-center space-x-16">
           <Link to="/signup">
-            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black ">
+            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#00d25b] hover:bg-[#00d25b] hover:text-black hover:border-black ">
               Sign Up
             </button>
           </Link>
           <Link to="/login">
-            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#3A98B9] hover:bg-[#3A98B9] hover:text-black hover:border-black">
+            <button className="-m-2  w-[200px] border font-semibold border-[#3A98B9] rounded-md font-medium my-6  py-3 text-[#00d25b] hover:bg-[#00d25b] hover:text-black hover:border-black">
               Sign In
             </button>
           </Link>

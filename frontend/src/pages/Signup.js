@@ -167,7 +167,7 @@ const Signup = () => {
                       <a href="/login"> Registered Already? Log in</a>
                       <i className="ri-arrow-right-fill" />
                     </div> */}
-                    <p class="text-left">Registered Already? <a href="./">Log in</a></p>
+                    <p class="text-left">Registered Already? <a href="/login">Log in</a></p>
                   </form>
                 </div>
               </div>

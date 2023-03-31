@@ -14,7 +14,7 @@ import ExpenseForm from "../Components/ExpenseForm";
 import DuesDetailsForCustomer from "../Components/DuesDetailsForCustomer";
 
 import "./customer.css";
-import { kk } from "date-fns/locale";
+import { kk } from "date-fns/locale"; 
 import { pink, lightGreen, blue } from "@mui/material/colors";
 
 const Customer = () => {
