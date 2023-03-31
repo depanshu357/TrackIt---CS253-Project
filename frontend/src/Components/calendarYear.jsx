@@ -13,28 +13,9 @@ import { useDuesContext } from "../hooks/useDuesContext";
 
 const CalendarYear = () => {
   const [date, setDate] = useState(new Date());
-  const { Dues, dispatch: dispatchd } = useDuesContext();
   const { user } = useAuthContext;
-
-
-  const handleClick = async () => {
-    console.log("delete clicked");
-    if (!user) {
-      return
-    }
-
-    const response = await fetch('/api/expense/' + expensee._id, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${user.token}`
-      }
-    })
-    const json = await response.json()
-
-    if (response.ok) {
-      dispatch({ type: 'DELETE_EXPENSE', payload: json })
-    }
-  }
+  const { Dues, dispatch: dispatchd } = useDuesContext();
+  const [rollNo,setRollNo] = useState(null)
 
 
   const onChange = date => {
@@ -56,9 +37,8 @@ const CalendarYear = () => {
   //console.log(typeof date2);
 
   var borrowings_data = [];
-  console.log(Dues);
   for (let i = 0; i < Dues.length; i++) {
-    if (Dues[i].RollNo) {
+    if (Dues[i].RollNo ) {
       borrowings_data.push(Dues[i]);
     }
   }
@@ -66,37 +46,24 @@ const CalendarYear = () => {
 
   useEffect(() => {
     const fetchDues = async () => {
-      const response = await fetch(`/api/dues/${user.shopName}`, {
+      const response = await fetch(`/api/dues`, {
         method: "GET",
-        headers: { Authorization: `Bearer ${user.token}` },
+        // headers: { Authorization: `Bearer ${user.token}` }
       });
       const json = await response.json();
-
+      console.log(user.shopName)
       if (response.ok) {
+        console.log(user) ;
+        setRollNo(setRollNo(user.rollNo))
         console.log(" dues coming up ");
-        // console.log(json[0])
-        // setBorrows(json);
-        // console.log(borrows[0].RollNo);
-        // console.log(borrows);
         dispatchd({ type: "SET_DUESS", payload: json });
-        // console.log(Dues)
+        console.log(Dues);
       }
-      // json?.forEach(function(due){
-      //   // console.log(due)
-      //   setCustomers(pre => pre + [(due.RollNo)])
-      // }
-      // )
-      // function onlyUnique(value, index, self) {
-      //   return self.indexOf(value) === index;
-      // }
-      // setCustomers(pre => pre.filter(onlyUnique));
-      // console.log(customers);
     };
     if (user) {
       console.log("userrrrr");
-      // fetchDues();
     }
-    console.log(Dues);
+    fetchDues();
   }, [dispatchd, user]);
 
   const namesdate = borrowings_data.filter(function (el) {
@@ -108,6 +75,7 @@ const CalendarYear = () => {
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate.map((name) => (
+
       <div className="hi1">
 
         <div className="listdetails1">
@@ -170,6 +138,7 @@ const CalendarYear = () => {
           <div className="borrowings-comp">
             <ul>{renderListOfUserNames(namesdate)}</ul>
           </div>
+          
         </div>
       </div>
 

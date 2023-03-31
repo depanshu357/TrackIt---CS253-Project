@@ -17,7 +17,7 @@ import "./customer.css";
 import { kk } from "date-fns/locale"; 
 import { pink, lightGreen, blue } from "@mui/material/colors";
 
-const Customer = () => {
+const Borrowings = () => {
   const { expense, dispatch } = useExpenseContext();
   const { user } = useAuthContext();
   const [rollNo,setRollNo] = useState(null)
@@ -33,6 +33,7 @@ const Customer = () => {
 
       if (response.ok) {
         dispatch({ type: "SET_EXPENSES", payload: json });
+        console.log(user)
       }
     };
 
@@ -264,102 +265,8 @@ const Customer = () => {
   };
 
   return (
-    <div className="home-customer">
-      <div className="home-customer-top-boxes">
-        <div className="home-customer-top-box ">
-          <span>&#8377; {Food}</span>
-          <span>Food Expenses</span>
-          <span>
-            <FastfoodIcon sx={{ color: lightGreen }} />
-          </span>
-        </div>
-        <div className="home-customer-top-box ">
-          <span>&#8377; {Shopping}</span>
-          <span>Shopping Expenses</span>
-          <span>
-            <ShoppingCartIcon color="primary" />
-          </span>
-        </div>
-        <div className="home-customer-top-box ">
-          <span>&#8377; {Health}</span>
-          <span>Health Expenses</span>
-          <span>
-            <HealthAndSafetyIcon sx={{ color: pink[500] }} />
-          </span>
-        </div>
-        <div className="home-customer-top-box ">
-          <span>&#8377; {Others}</span>
-          <span>Other Expenses</span>
-          <span>
-            {" "}
-            <PaymentsIcon />{" "}
-          </span>
-        </div>
-      </div>
-      <div className="home-customer-mid-expense">
-        <div className="home-customer-pie-chart">
-          <div className="pie-left">
-            <div className="color-indicators">
-              <div className="color-indicator">Food</div>
-              <div className="color-indicator">Shopping</div>
-              <div className="color-indicator">Health</div>
-              <div className="color-indicator">Others</div>
-            </div>
-            <PieChart
-              width={300}
-              height={350}
-              style={{ position: "", top: "10px" }}
-              viewBox="0 0 300 350"
-            >
-              <Pie
-                data={piechart_data}
-                cx="55%"
-                cy="30%"
-                innerRadius={80}
-                outerRadius={100}
-                fill="#8884d8"
-                paddingAngle={5}
-                dataKey="value"
-              >
-                {piechart_data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                    dataKey="value"
-                  />
-                ))}
-              </Pie>
-            </PieChart>
-          </div>
-          <div className="pie-right">
-            <span>This Month Expenses</span>
-            <span>&#8377; {total_data[todays_month].value} </span>
-          </div>
-        </div>
-        <div className="expense-history">
-          <div className="expense-history-heading-cover">
-            <div
-              className="expense-details-heading"
-              style={{ fontSize: "25px", fontWeight: "bolder" }}
-            >
-              Recent Expenses
-            </div>
-            <div className="expense-details-heading">
-              <span>Item</span>
-              <span>Amount</span>
-              <span>Category</span>{" "}
-            </div>
-          </div>
-          {expense &&
-            expense.map((expensee) => (
-              <ExpenseDetails key={expensee._id} expensee={expensee} />
-            ))}
-        </div>
-      </div>
       <div className="home-customer-bot-expense">
-        <div className="add-expense-home">
-          <ExpenseForm />
-        </div>
+        
         <div className="dues-history">
           <div className="expense-history-heading-cover">
             <div
@@ -386,8 +293,8 @@ const Customer = () => {
             })}
         </div>
       </div>
-    </div>
+    
   );
 };
 
-export default Customer;
+export default Borrowings;
