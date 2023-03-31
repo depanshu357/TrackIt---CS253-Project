@@ -15,7 +15,10 @@ const CalendarYear = () => {
   const [date, setDate] = useState(new Date());
   const { user } = useAuthContext;
   const { Dues, dispatch: dispatchd } = useDuesContext();
-  const [rollNo,setRollNo] = useState(null)
+  const [hasData, setHasData] = useState(false);
+
+
+
 
 
   const onChange = date => {
@@ -54,7 +57,7 @@ const CalendarYear = () => {
       console.log(user.shopName)
       if (response.ok) {
         console.log(user) ;
-        setRollNo(setRollNo(user.rollNo))
+        // setRollNo(setRollNo(user.rollNo))
         console.log(" dues coming up ");
         dispatchd({ type: "SET_DUESS", payload: json });
         console.log(Dues);
@@ -72,6 +75,12 @@ const CalendarYear = () => {
   });
   // console.log(namesdate);
 
+  if (namesdate.length != 0 && !hasData) {
+    setHasData(true);
+  }
+  if (namesdate.length == 0 && hasData) {
+    setHasData(false);
+  }
   const renderListOfUserNames = (namesdate) => {
 
     return namesdate.map((name) => (
@@ -136,7 +145,16 @@ const CalendarYear = () => {
         <div className="right">
           <h1 className="monthlyborrowings">Monthly Borrowings</h1>
           <div className="borrowings-comp">
-            <ul>{renderListOfUserNames(namesdate)}</ul>
+            <ul>{hasData ? renderListOfUserNames(namesdate) :
+              <div className="hi1">
+
+                <div className="listdetails1">
+                  <span className="listname1-span">
+                    <div className="listname1">No Entries</div>
+                  </span>
+                </div>
+              </div>
+            }</ul>
           </div>
           
         </div>
